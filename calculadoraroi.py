@@ -1,223 +1,148 @@
-# This script creates a turnover cost calculation Excel template tailored for Brazil (BR).
-# It includes sheets: "Turnover_Cases", "Resumo", and "Inputs_Globais".
-# The template contains formulas for common cost components and a summary dashboard.
+# Código que calcula o custo de turnover usando apenas 3 inputs: 
+# - número de colaboradores (num_employees)
+# - desligamentos no último ano (num_desligamentos)
+# - salário médio mensal (avg_salary_monthly)
+#
+# O cálculo aplica exatamente (com correções aritméticas explícitas):
+# - custos de horas de RH por vaga (8h28m = 8.4666667h) a R$24/h
+# - entrevistas com gestores: 4h a R$47/h por vaga
+# - salários e encargos: 3 meses de custo total por contratado (avg_salary_monthly * 3)
+# - treinamentos: 30h * R$30/h, + orientação do gestor 8h * R$47/h, + perda de performance 20h * R$18/h
+# - custo mínimo com rescisão por contratado (valor fixo informado)
+#
+# Gera resumo por-vaga e total, e exporta arquivo Excel com detalhe e resumo.
 import pandas as pd
-import numpy as np
+from decimal import Decimal, ROUND_HALF_UP
 
-# Define columns for the Turnover_Cases sheet
-columns = [
-    "Employee_ID",
-    "Cargo/Nível",
-    "Tipo_Desligamento",  # Sem Justa Causa / Pedido / Comum Acordo / Justa Causa
-    "Salario_Mensal_R$",
-    "Encargos_Beneficios_%",  # e.g., 0.70
-    "Saldo_FGTS_R$",
-    "Multa_FGTS_%",  # 0.40 SJC, 0.20 comum acordo, 0 pedido, 0 justa causa
-    "Aviso_Previo_Indenizado_Dias",
-    "Dias_Vaga_(TTF)",
-    "Valor_Diario_do_Posto_R$",
-    "Fator_Cobertura_%",  # 0 a 1 (percentual coberto por equipe/automação)
-    "Custos_Anuncios_R$",
-    "Custos_Agencia_R$",
-    "Bonus_Indicacao_R$",
-    "Custos_Background_Assessments_R$",
-    "Horas_RH_(total)",
-    "Custo_Hora_RH_R$",
-    "Horas_Gerente_(total)",
-    "Custo_Hora_Gerente_R$",
-    "Custos_Equipamentos_R$",
-    "Treinamento_Horas",
-    "Custo_Hora_Treinamento_R$",
-    "Materiais_Treinamento_R$",
-    "Ramp_up_Meses",
-    "Deficit_Medio_Ramp_%",  # ex.: 0.5 = 50% abaixo do target
-    "Horas_Extra_Cobertura_R$",
-    "Temporarios_R$",
-    "Penalidade_Qualidade_R$",
-    "Outros_Custos_Rescisorios_R$"  # férias prop., 13º prop., etc. (se quiser detalhar)
-]
+def to_money(x):
+    return float(Decimal(x).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))
 
-# Create an empty DataFrame with a few sample rows for guidance
-sample_rows = 5
-df_cases = pd.DataFrame("", index=range(sample_rows), columns=columns)
-
-# Add helpful placeholders in row 0
-df_cases.loc[0, :] = [
-    "EX-001",
-    "Analista Pleno",
-    "Sem Justa Causa",
-    "6000",
-    "0.70",
-    "20000",
-    "0.40",
-    "33",
-    "45",
-    "850",
-    "0.30",
-    "1200",
-    "0",
-    "0",
-    "150",
-    "8",
-    "80",
-    "4",
-    "160",
-    "3500",
-    "24",
-    "80",
-    "600",
-    "3",
-    "0.50",
-    "1800",
-    "0",
-    "0",
-    "3000"
-]
-
-# Build a parallel DataFrame for calculated fields and formulas
-calc_cols = [
-    "FGTS_Multa_R$",
-    "Aviso_Previo_Indenizado_R$",
-    "Custo_Tempo_Pessoas_R$",
-    "Custo_Recrutamento_R$",
-    "Custo_Vaga_R$",
-    "Custo_Onboarding_Treinamento_R$",
-    "Custo_Ramp_R$",
-    "Custo_Cobertura_Extra_R$",
-    "Custo_Qualidade_Outros_R$",
-    "CUSTO_TOTAL_CASO_R$"
-]
-
-df_calc = pd.DataFrame(index=range(sample_rows), columns=calc_cols)
-
-# We will add Excel formulas referencing the Turnover_Cases columns (1-indexed in Excel).
-# Helper to create cell references easily
-def col_idx(col_name):
-    return columns.index(col_name) + 1  # Excel is 1-based
-
-# Build formulas for each row
-for r in range(sample_rows):
-    row = r + 2  # header is row 1 in Excel
-
-    # Excel cell references
-    F_saldo_fgts = f"$F{row}"
-    G_multa_pct = f"$G{row}"
-    H_aviso_dias = f"$H{row}"
-    D_salario = f"$D{row}"
-    P_horas_rh = f"$P{row}"
-    Q_custo_hora_rh = f"$Q{row}"
-    R_horas_ger = f"$R{row}"
-    S_custo_hora_ger = f"$S{row}"
-    L_anuncios = f"$L{row}"
-    M_agencia = f"$M{row}"
-    N_bonus = f"$N{row}"
-    O_bg = f"$O{row}"
-    I_dias_vaga = f"$I{row}"
-    J_valor_dia = f"$J{row}"
-    K_cobertura = f"$K{row}"
-    U_trein_h = f"$U{row}"
-    V_custo_tr_h = f"$V{row}"
-    W_materiais = f"$W{row}"
-    T_equip = f"$T{row}"
-    X_ramp_meses = f"$X{row}"
-    Y_deficit = f"$Y{row}"
-    Z_horas_extra = f"$Z{row}"
-    AA_temp = f"$AA{row}"
-    AB_qualidade = f"$AB{row}"
-    AC_outros_resc = f"$AC{row}"
-
-    # Formulas
-    fgts_multa = f"={F_saldo_fgts}*{G_multa_pct}"
-    aviso_prev = f"=({D_salario}/30)*{H_aviso_dias}"
-    tempo_pessoas = f"=({P_horas_rh}*{Q_custo_hora_rh})+({R_horas_ger}*{S_custo_hora_ger})"
-    recrutamento = f"={L_anuncios}+{M_agencia}+{N_bonus}+{O_bg}"
-    cov = f"={I_dias_vaga}*{J_valor_dia}*(1-{K_cobertura})"
-    onboarding = f"=({U_trein_h}*{V_custo_tr_h})+{W_materiais}+{T_equip}"
-    ramp = f"=({X_ramp_meses}*30)*{J_valor_dia}*{Y_deficit}"
-    cobertura_extra = f"={Z_horas_extra}+{AA_temp}"
-    qualidade_outros = f"={AB_qualidade}+{AC_outros_resc}"
-    total = f"=SUM({fgts_multa[1:]},{aviso_prev[1:]},{tempo_pessoas[1:]},{recrutamento[1:]},{cov[1:]},{onboarding[1:]},{ramp[1:]},{cobertura_extra[1:]},{qualidade_outros[1:]})"
-
-    df_calc.loc[r, "FGTS_Multa_R$"] = fgts_multa
-    df_calc.loc[r, "Aviso_Previo_Indenizado_R$"] = aviso_prev
-    df_calc.loc[r, "Custo_Tempo_Pessoas_R$"] = tempo_pessoas
-    df_calc.loc[r, "Custo_Recrutamento_R$"] = recrutamento
-    df_calc.loc[r, "Custo_Vaga_R$"] = cov
-    df_calc.loc[r, "Custo_Onboarding_Treinamento_R$"] = onboarding
-    df_calc.loc[r, "Custo_Ramp_R$"] = ramp
-    df_calc.loc[r, "Custo_Cobertura_Extra_R$"] = cobertura_extra
-    df_calc.loc[r, "Custo_Qualidade_Outros_R$"] = qualidade_outros
-    df_calc.loc[r, "CUSTO_TOTAL_CASO_R$"] = total
-
-# Combine cases + calculated columns for one sheet
-df_all = pd.concat([df_cases, df_calc], axis=1)
-
-# Build Resumo sheet with Excel formulas (will compute when opened)
-resumo = pd.DataFrame({
-    "Metrica": [
-        "Total de Casos (linhas preenchidas)",
-        "Custo Total (R$)",
-        "Custo Médio por Caso (R$)",
-        "Salário Mensal Médio (R$)",
-        "Custo Médio / Salário Médio (x)",
-        "Custo Rescisório (FGTS Multa + Aviso + Outros)",
-        "Custo Recrutamento (R$)",
-        "Custo Tempo de Pessoas (R$)",
-        "Custo Vaga (R$)",
-        "Custo Onboarding/Treinamento (R$)",
-        "Custo Ramp-up (R$)",
-        "Cobertura Extra (R$)",
-        "Qualidade/Outros (R$)"
-    ],
-    "Valor": [
-        "=COUNTA(Turnover_Cases!B2:B1000)",
-        "=SUM(Turnover_Cases!J2:J1000*0)+SUM(Turnover_Cases!AJ2:AJ1000)",  # placeholder, replaced below
-        "=IFERROR(B2/B1,0)",
-        "=AVERAGE(Turnover_Cases!D2:D1000)",
-        "=IFERROR(B3/B4,0)",
-        "=SUM(Turnover_Cases!AI2:AI1000)+SUM(Turnover_Cases!AM2:AM1000)+SUM(Turnover_Cases!AC2:AC1000)",
-        "=SUM(Turnover_Cases!AF2:AF1000)",
-        "=SUM(Turnover_Cases!AE2:AE1000)",
-        "=SUM(Turnover_Cases!AG2:AG1000)",
-        "=SUM(Turnover_Cases!AH2:AH1000)",
-        "=SUM(Turnover_Cases!AI2:AI1000)",
-        "=SUM(Turnover_Cases!AJ2:AJ1000)",
-        "=SUM(Turnover_Cases!AK2:AK1000)"
+def calculate_turnover_cost(num_employees, num_desligamentos, avg_salary_monthly):
+    # Inputs
+    n_emp = int(num_employees)
+    n_desl = int(num_desligamentos)
+    avg_sal = float(avg_salary_monthly)
+    if n_emp <= 0:
+        raise ValueError("num_employees must be > 0")
+    if n_desl < 0:
+        raise ValueError("num_desligamentos must be >= 0")
+    if avg_sal < 0:
+        raise ValueError("avg_salary_monthly must be >= 0")
+    
+    # Turnover %
+    turnover_pct = 100.0 * n_desl / n_emp
+    
+    # Constants (from your briefing)
+    # Tempo RH por vaga: 8h28m => 8 + 28/60 hours
+    hours_rh_per_vaga = 8 + 28/60  # 8.466666666666667
+    cost_rh_per_hour = 24.0  # R$ 24/h
+    hours_manager_interview = 4.0  # total hours dos gestores por vaga
+    cost_manager_hour = 47.0  # R$ 47/h
+    # Salário e encargos: 3 meses de avg_salary_monthly (valor informado: R$5.010/mês used as example)
+    months_salary_considered = 3
+    # Treinamento (corrigido aritmeticamente):
+    training_hours = 30.0
+    training_cost_per_hour = 30.0  # R$30/h
+    manager_onboard_hours = 8.0
+    manager_hour_cost = cost_manager_hour  # same 47/h
+    peer_productivity_loss_hours = 20.0
+    peer_hour_cost = 18.0  # R$18/h
+    # Rescisão (valor informado)
+    rescission_per_hire = 2798.27  # R$ por contratado (média simplificada que você deu)
+    
+    # Per-vaga calculations
+    rh_hours_total = hours_rh_per_vaga * n_desl
+    rh_cost_total = rh_hours_total * cost_rh_per_hour
+    rh_cost_per_vaga = hours_rh_per_vaga * cost_rh_per_hour
+    
+    manager_cost_per_vaga = hours_manager_interview * cost_manager_hour
+    manager_cost_total = manager_cost_per_vaga * n_desl
+    
+    salary_cost_per_hire = avg_sal * months_salary_considered
+    salary_cost_total = salary_cost_per_hire * n_desl
+    
+    # Training calculations (do the exact arithmetic, and show corrected numbers)
+    training_cost_time = training_hours * training_cost_per_hour  # 30*30 = 900
+    manager_onboard_cost = manager_onboard_hours * manager_hour_cost  # 8*47 = 376 (note: original text had 384 -> corrected)
+    peer_loss_cost = peer_productivity_loss_hours * peer_hour_cost  # 20*18 = 360
+    training_total_per_hire = training_cost_time + manager_onboard_cost + peer_loss_cost
+    training_total_all = training_total_per_hire * n_desl
+    
+    rescission_total = rescission_per_hire * n_desl
+    
+    # Grand totals
+    grand_total = (
+        rh_cost_total +
+        manager_cost_total +
+        salary_cost_total +
+        training_total_all +
+        rescission_total
+    )
+    
+    # Per-hire breakdown (rounded)
+    per_hire = {
+        "hours_rh_per_vaga_h": to_money(hours_rh_per_vaga),
+        "rh_cost_per_vaga_R$": to_money(rh_cost_per_vaga),
+        "manager_cost_per_vaga_R$": to_money(manager_cost_per_vaga),
+        "salary_cost_3_months_R$": to_money(salary_cost_per_hire),
+        "training_total_per_hire_R$": to_money(training_total_per_hire),
+        "rescission_per_hire_R$": to_money(rescission_per_hire),
+        "total_per_hire_R$": to_money(
+            rh_cost_per_vaga + manager_cost_per_vaga + salary_cost_per_hire + training_total_per_hire + rescission_per_hire
+        )
+    }
+    
+    totals = {
+        "num_employees": n_emp,
+        "num_desligamentos": n_desl,
+        "turnover_pct": to_money(turnover_pct),
+        "rh_hours_total_h": to_money(rh_hours_total),
+        "rh_cost_total_R$": to_money(rh_cost_total),
+        "manager_cost_total_R$": to_money(manager_cost_total),
+        "salary_cost_total_R$": to_money(salary_cost_total),
+        "training_total_all_R$": to_money(training_total_all),
+        "rescission_total_R$": to_money(rescission_total),
+        "grand_total_R$": to_money(grand_total)
+    }
+    
+    # Build dataframes for export / display
+    df_per_hire = pd.DataFrame([per_hire])
+    df_totals = pd.DataFrame([totals])
+    
+    # Detailed line items per category (useful for site UI breakdown)
+    detail_rows = [
+        {"Categoria": "Horas RH (total)", "Valor_R$": to_money(rh_cost_total), "Observacao": f"{to_money(rh_hours_total)} h totais (por vaga {to_money(hours_rh_per_vaga)} h)"},
+        {"Categoria": "Horas Gestor (total)", "Valor_R$": to_money(manager_cost_total), "Observacao": f"{n_desl} vagas × {hours_manager_interview} h × R$ {cost_manager_hour}/h"},
+        {"Categoria": "Salários e encargos (3 meses)", "Valor_R$": to_money(salary_cost_total), "Observacao": f"{n_desl} × R$ {to_money(avg_sal)} × {months_salary_considered} meses"},
+        {"Categoria": "Treinamento e perdas (total)", "Valor_R$": to_money(training_total_all), "Observacao": f"{to_money(training_total_per_hire)} por contratado (treino, onboarding gestor, perda produtividade)"},
+        {"Categoria": "Rescisões (total)", "Valor_R$": to_money(rescission_total), "Observacao": f"R$ {to_money(rescission_per_hire)} por contratado (média simplificada)"},
+        {"Categoria": "TOTAL GERAL", "Valor_R$": to_money(grand_total), "Observacao": "Soma das linhas anteriores"}
     ]
-})
+    df_detail = pd.DataFrame(detail_rows)
+    
+    # Export to Excel for download/use on site if needed
+    file_path = "/mnt/data/Turnover_Calc_Simple_BR.xlsx"
+    with pd.ExcelWriter(file_path, engine="openpyxl") as writer:
+        df_totals.to_excel(writer, sheet_name="Resumo", index=False)
+        df_per_hire.to_excel(writer, sheet_name="Per_Hire", index=False)
+        df_detail.to_excel(writer, sheet_name="Detalhes", index=False)
+    
+    return {
+        "per_hire": df_per_hire,
+        "totals": df_totals,
+        "detail": df_detail,
+        "excel_path": file_path
+    }
 
-# Correct the "Custo Total" formula to sum the total column we created
-resumo.loc[1, "Valor"] = "=SUM(Turnover_Cases!AL2:AL1000)"
 
-# Inputs_Globais sheet
-inputs = pd.DataFrame({
-    "Campo": [
-        "Periodo_Inicio",
-        "Periodo_Fim",
-        "HC_Inicio",
-        "HC_Fim",
-        "Desligamentos_No_Periodo",
-        "Admissoes_No_Periodo",
-        "Dias_Uteis_No_Periodo",
-        "Observacoes"
-    ],
-    "Valor": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "22",
-        "Use o campo Valor_Diario_do_Posto_R$ para refletir a receita/margem gerada pelo posto por dia. Fator_Cobertura_% = parte do valor diário que foi coberta pela equipe/automação; se nada foi coberto, use 0."
-    ]
-})
+# --- Exemplo de uso com os números que você indicou (51 vagas, etc.) ---
+# Você pode substituir esses valores pela entrada do site.
+example = calculate_turnover_cost(num_employees=1000, num_desligamentos=51, avg_salary_monthly=5010.00)
 
-# Write to Excel
-file_path = "/mnt/data/Turnover_Cost_Template_BR.xlsx"
-with pd.ExcelWriter(file_path, engine="openpyxl") as writer:
-    df_all.to_excel(writer, index=False, sheet_name="Turnover_Cases")
-    resumo.to_excel(writer, index=False, sheet_name="Resumo")
-    inputs.to_excel(writer, index=False, sheet_name="Inputs_Globais")
+# Exibir resultados ao usuário (dataframes)
+import caas_jupyter_tools as tools; tools.display_dataframe_to_user("Resumo - Turnover", example["totals"])
+tools.display_dataframe_to_user("Per Hire - Breakdown", example["per_hire"])
+tools.display_dataframe_to_user("Detalhes - Itens", example["detail"])
 
-file_path
+# Mostrar link para download do arquivo gerado
+example["excel_path"]
