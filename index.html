@@ -1,0 +1,1955 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial RH | Calculadora de ROI de RH</title>
+    
+    <!-- Enhanced CSS Framework -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 🚀 ULTIMATE ENHANCED VISUAL SYSTEM -->
+    <link rel="stylesheet" href="enhanced-styles.css">
+    
+    <!-- 🔥 CRITICAL FALLBACK CSS FOR IMMEDIATE LOADING -->
+    <style>
+        /* Ensure holographic cards always work */
+        .holographic-card-ultimate {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px);
+            border: 1px solid transparent;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6), 0 0 40px rgba(102, 126, 234, 0.4), 0 0 60px rgba(102, 126, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: pulse-holographic 4s ease infinite;
+        }
+        
+        .holographic-card-ultimate::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607);
+            background-size: 400% 400%;
+            border-radius: inherit;
+            animation: aurora-dance 6s linear infinite;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+        }
+        
+        .holographic-card-ultimate:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.5), 0 0 40px rgba(131, 56, 236, 0.5), 0 0 60px rgba(58, 134, 255, 0.5);
+            animation: liquid-morph 4s ease infinite;
+        }
+        
+        @keyframes pulse-holographic {
+            0%, 100% { 
+                background-position: 0% 50%;
+                box-shadow: 0 0 30px rgba(255, 0, 110, 0.6);
+            }
+            50% { 
+                background-position: 100% 50%;
+                box-shadow: 0 0 50px rgba(131, 56, 236, 0.8), 0 0 80px rgba(58, 134, 255, 0.6);
+            }
+        }
+        
+        @keyframes aurora-dance {
+            0% { 
+                background-position: 0% 50%;
+                filter: hue-rotate(0deg) brightness(1) saturate(1);
+            }
+            25% { 
+                background-position: 100% 50%;
+                filter: hue-rotate(90deg) brightness(1.2) saturate(1.3);
+            }
+            50% { 
+                background-position: 0% 100%;
+                filter: hue-rotate(180deg) brightness(1) saturate(1);
+            }
+            75% { 
+                background-position: 100% 0%;
+                filter: hue-rotate(270deg) brightness(1.2) saturate(1.3);
+            }
+            100% { 
+                background-position: 0% 50%;
+                filter: hue-rotate(360deg) brightness(1) saturate(1);
+            }
+        }
+        
+        @keyframes liquid-morph {
+            0%, 100% { 
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                background-position: 0% 50%;
+            }
+            25% { 
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+                background-position: 25% 75%;
+            }
+            50% { 
+                border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+                background-position: 100% 50%;
+            }
+            75% { 
+                border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%;
+                background-position: 75% 25%;
+            }
+        }
+        
+        /* 🔥 FORCE VISIBILITY AND PREVENT FLICKERING */
+        .holographic-card-ultimate,
+        .card-hover {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+            min-height: 200px;
+        }
+        
+        /* Ensure smooth loading */
+        .holographic-card-ultimate.loaded {
+            animation-play-state: running;
+        }
+        
+        /* Fallback for browsers that don't support advanced CSS */
+        @supports not (backdrop-filter: blur(10px)) {
+            .holographic-card-ultimate {
+                background: rgba(255, 255, 255, 0.15);
+                border: 2px solid #3b82f6;
+            }
+        }
+
+        /* Calculator: remove bubble/glow completely */
+        .no-bubble.holographic-card-ultimate {
+            background: rgba(255, 255, 255, 0.06) !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
+            animation: none !important;
+            border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        }
+        .no-bubble.holographic-card-ultimate::before {
+            content: none !important;
+        }
+    </style>
+    
+    <!-- Enhanced Custom Styles -->
+    <style>
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #3b82f6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #f59e0b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .loading-subtext {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --neon-blue: #00d4ff;
+            --neon-orange: #ff6b35;
+            --neon-green: #00ff88;
+            --cyber-purple: #8b5cf6;
+            --gold: #ffd700;
+            --platinum: #e5e4e2;
+            
+            /* Dark mode variables */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-accent: #1e3a8a;
+            --border-color: #e2e8f0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-accent: #60a5fa;
+            --border-color: #475569;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+            animation: pulse-glow 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.7; transform: scale(1.1); }
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .floating-3d {
+            animation: float-3d 8s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-20px) rotateY(180deg); }
+        }
+        
+        @keyframes float-3d {
+            0%, 100% { 
+                transform: translateY(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); 
+            }
+            25% { 
+                transform: translateY(-15px) rotateX(90deg) rotateY(90deg) rotateZ(0deg); 
+            }
+            50% { 
+                transform: translateY(-30px) rotateX(180deg) rotateY(180deg) rotateZ(90deg); 
+            }
+            75% { 
+                transform: translateY(-15px) rotateX(270deg) rotateY(270deg) rotateZ(180deg); 
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+        }
+        
+        .neon-text {
+            color: var(--text-accent);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cyber-text {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-accent);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+        
+        /* Removed excessive neon animations for professional look */
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02) rotateY(5deg);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 30px rgba(0, 212, 255, 0.3),
+                0 0 60px rgba(139, 92, 246, 0.2);
+        }
+        
+        .holographic-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .holographic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .holographic-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .holographic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-orange));
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            text-shadow: 0 0 10px var(--neon-blue);
+            transform: translateY(-2px);
+        }
+        
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .cyber-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cyber-button:hover::before {
+            left: 100%;
+        }
+        
+        .cyber-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+        
+        .stat-counter {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .solution-tab {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .solution-tab.active {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 400px;
+                max-width: 95%;
+                padding: 1rem;
+            }
+            
+            .chart-container .absolute.top-0 {
+                padding: 1rem;
+            }
+            
+            .chart-container .absolute.bottom-0 {
+                padding: 1rem;
+            }
+            
+            .chart-container .absolute.bottom-0 .flex {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            .hero-gradient h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .cyber-button {
+                font-size: 1rem !important;
+                padding: 0.75rem 1.5rem !important;
+            }
+            
+            .floating-3d {
+                font-size: 2rem !important;
+            }
+            
+            .holographic-card {
+                padding: 1.5rem !important;
+            }
+        }
+        
+        /* Touch device enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .card-hover:hover {
+                transform: none;
+            }
+            
+            .cyber-button:hover {
+                transform: none;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .neon-text {
+                text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+            }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float-slow 20s infinite linear;
+        }
+        
+        @keyframes float-slow {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #f59e0b, #f97316, #10b981);
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+        
+        .typing-effect {
+            overflow: hidden;
+            border-right: 3px solid var(--secondary);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--secondary); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">🚀 INITIALIZING REVOLUTION</div>
+            <div class="loading-subtext">Preparing the ultimate Brazilian expansion experience...</div>
+        </div>
+    </div>
+    
+    <!-- Particle System Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Enhanced Floating Background Elements removed to avoid covering calculator -->
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3 text-white">
+                    <img src="Logo/Color/Factorial_logo_radical.png" alt="Factorial RH" class="h-8 w-auto hidden sm:block" />
+                    <div class="text-2xl font-bold">Factorial RH</div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sobre" class="nav-link text-white font-medium">Sobre</a>
+                    <a href="#roi" class="nav-link text-white font-medium">Calculadora de ROI</a>
+                    <a href="#solution" class="nav-link text-white font-medium">Recursos</a>
+                    <a href="#materiais" class="nav-link text-white font-medium">Materiais</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors">
+                        <svg id="sun-icon" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden" id="sobre">
+    <div class="text-center text-white z-10 px-6">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <span class="typing-effect text-holographic" data-text="Calcule">Calcule</span>
+            <br>
+            <span class="text-aurora">o ROI do seu RH</span>
+            <br>
+            <span class="gradient-text">com a Factorial</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90 leading-relaxed">
+            Otimize recrutamento, onboarding e retenção. Descubra o impacto financeiro de reduzir turnover e acelerar contratações com a Factorial RH.
+        </p>
+        <div class="mb-8">
+            <div class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold text-lg">
+                🚀 Resultados reais e mensuráveis para o seu RH
+            </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="#roi" class="btn-holographic cyber-button text-white font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 shadow-lg relative overflow-hidden">
+                <span class="relative z-10">Ir para a Calculadora</span>
+            </a>
+            <a href="#materiais" class="btn-energy cyber-button bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 relative overflow-hidden">
+                <span class="relative z-10">Ver Materiais</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating Elements in Hero -->
+    <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div class="absolute floating" style="top:10%; left:10%; animation-delay:0s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-6">
+                <span class="text-8xl">💼</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:15%; left:70%; animation-delay:1s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-5">
+                <span class="text-6xl">🌍</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:40%; left:20%; animation-delay:2s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-4">
+                <span class="text-6xl">⚡</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:60%; left:80%; animation-delay:3s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-5">
+                <span class="text-5xl">🎯</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:70%; left:30%; animation-delay:4s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-4">
+                <span class="text-5xl">💡</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:25%; left:50%; animation-delay:5s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-6">
+                <span class="text-8xl">📈</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:50%; left:10%; animation-delay:6s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-4">
+                <span class="text-6xl">🔒</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:80%; left:60%; animation-delay:7s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-5">
+                <span class="text-7xl">🌟</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:5%; left:40%; animation-delay:8s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-5">
+                <span class="text-7xl">🚀</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:35%; left:75%; animation-delay:9s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-4">
+                <span class="text-6xl">💼</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:55%; left:35%; animation-delay:10s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-5">
+                <span class="text-7xl">🌍</span>
+            </div>
+        </div>
+        <div class="absolute floating" style="top:85%; left:20%; animation-delay:11s;">
+            <div class="bg-white/10 backdrop-blur-md rounded-full p-4">
+                <span class="text-6xl">⚡</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Market Section -->
+<section id="market" class="py-20 relative z-10" style="background: var(--bg-secondary);">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Título -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--text-primary);">
+        <span class="cyber-text">Brazilian Market:</span> 
+        <br>
+        <span class="neon-text">Massive Opportunity</span>
+        <br>
+        <span class="gradient-text">Meets Strategic Solution</span>
+      </h2>
+      <p class="text-xl max-w-4xl mx-auto leading-relaxed" style="color: var(--text-secondary);">
+        Brazil presents <span class="font-bold" style="color: var(--text-accent);">significant opportunities</span>, but navigating the "Custo Brasil" requires 
+        <span class="font-bold" style="color: var(--text-accent);">integrated infrastructure</span> - and that's exactly what we deliver.
+      </p>
+      <div class="mt-6 inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+        📊 Market Statistics
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-3 gap-8">
+             <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
+         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="65" style="color: var(--text-accent);">0</div>
+         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">% of U.S. Companies</h3>
+         <p class="font-medium" style="color: var(--text-secondary);">without presence in Brazil <span class="font-bold" style="color: var(--text-accent);">willing to start operations</span> - and we're here to make it happen!</p>
+         <div class="absolute bottom-0 right-0 text-6xl opacity-20">🚀</div>
+       </div>
+
+             <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
+         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="89" style="color: var(--text-accent);">0</div>
+         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">% of Established U.S. Companies</h3>
+         <p class="font-medium" style="color: var(--text-secondary);">plan to <span class="font-bold" style="color: var(--text-accent);">expand existing operations</span> in Brazil - let's accelerate their growth!</p>
+         <div class="absolute bottom-0 right-0 text-6xl opacity-20">📈</div>
+       </div>
+
+       <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
+         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="9553" style="color: var(--text-accent);">0</div>
+         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">Brazilian Companies</h3>
+         <p class="font-medium" style="color: var(--text-secondary);">exported to the U.S., <span class="font-bold" style="color: var(--text-accent);">record trade relations</span> - and this is just the beginning!</p>
+         <div class="absolute bottom-0 right-0 text-6xl opacity-20">🌍</div>
+       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Script para contadores -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".stat-counter");
+
+  const runCounter = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    
+    // Use the enhanced counter animation
+    animateCounterWithImpact(counter, target, 2500);
+    
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add entrance effect
+            gsap.fromTo(counter, 
+              { scale: 0, opacity: 0, rotation: -180 },
+              { 
+                scale: 1, 
+                opacity: 1, 
+                rotation: 0, 
+                duration: 1, 
+                ease: 'back.out(1.7)',
+                onComplete: () => animateCounterWithImpact(counter, target, 2500)
+              }
+            );
+            obs.unobserve(counter);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(counter);
+  };
+
+  counters.forEach(runCounter);
+});
+</script>
+
+
+
+    <!-- Fintech Section -->
+    <section id="fintech" class="py-20" style="background: var(--bg-primary);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    The <span class="cyber-text">FINTECH REVOLUTION</span>: 
+                    <br>
+                    <span class="neon-text">PIX IS CHANGING EVERYTHING</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <span class="font-bold text-green-600">BREAKING:</span> Modern, instant payment infrastructure is <span class="font-bold text-blue-600">NOT JUST ESSENTIAL</span> - 
+                    it's the <span class="font-bold text-purple-600">DIFFERENCE BETWEEN SUCCESS AND FAILURE</span> in Brazil!
+                </p>
+                <div class="mt-6 inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl animate-pulse">
+                    💳 PIX: THE PAYMENT REVOLUTION THAT'S TRANSFORMING BRAZIL
+                </div>
+            </div>
+            
+            <div class="chart-container bg-white rounded-2xl shadow-2xl p-8 relative overflow-hidden">
+                <!-- Enhanced chart header -->
+                <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-t-2xl">
+                    <h3 class="text-xl font-bold text-center">🚀 PIX Growth Analytics Dashboard</h3>
+                    <p class="text-center text-blue-100 text-sm mt-1">Real-time data showing Brazil's digital payment revolution</p>
+                </div>
+                
+                <!-- Chart canvas with proper spacing -->
+                <div class="mt-16 mb-4">
+                    <canvas id="pixChart"></canvas>
+                </div>
+                
+                <!-- Enhanced chart footer -->
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-b-2xl border-t border-gray-200">
+                    <div class="flex justify-between items-center text-sm text-gray-600">
+                        <span>📊 Data Source: Central Bank of Brazil</span>
+                        <span>🔄 Last Updated: December 2024</span>
+                        <span>📈 Growth Rate: +53% YoY</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center mt-6 text-gray-500">
+                Pix transactions grew <span class="font-bold text-green-600">53% in 2024</span>, primary payment rail in Brazil.
+            </p>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solution" class="py-20" style="background: var(--bg-secondary);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    <span class="cyber-text">REVOLUTIONARY SOLUTIONS</span> for 
+                    <br>
+                    <span class="neon-text">CRITICAL PAIN POINTS</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    <span class="font-bold text-red-600">STOP SUFFERING:</span> The <span class="font-bold text-blue-600">LexBridge-Payoneer alliance</span> doesn't just tackle challenges - 
+                    we <span class="font-bold text-green-600">ELIMINATE THEM COMPLETELY</span> and transform your Brazilian expansion from nightmare to dream!
+                </p>
+                <div class="mt-6 inline-block bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl animate-pulse">
+                    ⚡ FROM CHALLENGES TO OPPORTUNITIES IN SECONDS!
+                </div>
+            </div>
+            
+            <!-- Solution Tabs -->
+            <div class="flex justify-center mb-12 gap-4 flex-wrap">
+                <button class="solution-tab active bg-blue-100 text-blue-900 px-6 py-3 rounded-full font-semibold" data-tab="compliance">
+                    🏛️ Compliance & Labor
+                </button>
+                <button class="solution-tab bg-green-100 text-green-900 px-6 py-3 rounded-full font-semibold" data-tab="fx">
+                    💰 FX & Payments
+                </button>
+                <button class="solution-tab bg-purple-100 text-purple-900 px-6 py-3 rounded-full font-semibold" data-tab="onboarding">
+                    🚀 Onboarding & Scale
+                </button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div id="compliance" class="tab-content">
+                <div class="gradient-border p-8">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Navigating the Regulatory Labyrinth</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="p-4 font-bold text-lg">Challenge</th>
+                                    <th class="p-4 font-bold text-lg text-red-600">Operational Pain Point</th>
+                                    <th class="p-4 font-bold text-lg text-green-600">The Alliance Solution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-semibold">Labor Law (CLT) & Misclassification Risk</td>
+                                    <td class="p-4 text-red-600">Fines, lawsuits, and reputational damage from complex labor laws.</td>
+                                    <td class="p-4 text-green-700"><strong>Payoneer's EOR</strong> handles compliant hiring and payroll. <strong>LexBridge</strong> provides strategic legal counsel.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-semibold">Tax & Financial Reporting</td>
+                                    <td class="p-4 text-red-600">High administrative burden and non-compliance risk in a complex tax system.</td>
+                                    <td class="p-4 text-green-700"><strong>Payoneer's platform</strong> automates tax form collection. <strong>LexBridge</strong> advises on tax optimization.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="fx" class="tab-content hidden">
+                <div class="gradient-border p-8">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Eliminating FX Costs and Volatility</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="p-4 font-bold text-lg">Criterion</th>
+                                    <th class="p-4 font-bold text-lg text-red-600">Traditional (SWIFT/Wire)</th>
+                                    <th class="p-4 font-bold text-lg text-green-600">Payoneer FX & Payment Solution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-semibold">Speed</td>
+                                    <td class="p-4">Days or weeks</td>
+                                    <td class="p-4 font-bold text-green-600">Seconds to minutes</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-semibold">Cost</td>
+                                    <td class="p-4">High fees & hidden costs</td>
+                                    <td class="p-4 font-bold text-green-600">Low, competitive rates</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-semibold">Transparency</td>
+                                    <td class="p-4">Unpredictable rates, no visibility</td>
+                                    <td class="p-4 font-bold text-green-600">Full transparency, no hidden fees</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-semibold">Complexity</td>
+                                    <td class="p-4">Manual process, multiple banks</td>
+                                    <td class="p-4 font-bold text-green-600">Simplified, automated platform</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="onboarding" class="tab-content hidden">
+                <div class="gradient-border p-8">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Simplifying Onboarding to Scale with Ease</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="p-4 font-bold text-lg">Action</th>
+                                    <th class="p-4 font-bold text-lg text-red-600">Traditional Onboarding</th>
+                                    <th class="p-4 font-bold text-lg text-green-600">Payoneer WFM Solution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-semibold">Legal Entity Creation</td>
+                                    <td class="p-4 text-red-600">Months-long, high-cost process</td>
+                                    <td class="p-4 font-bold text-green-600">Not required; Payoneer acts as Employer of Record (EOR)</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-semibold">Employment Contracts</td>
+                                    <td class="p-4 text-red-600">Requires local legal counsel, high risk & bureaucracy</td>
+                                    <td class="p-4 font-bold text-green-600">Uses localized, compliant contracts via the platform</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-semibold">Payroll & Payments</td>
+                                    <td class="p-4 text-red-600">Complex, manual, multi-currency process</td>
+                                    <td class="p-4 font-bold text-green-600">Simplified, multi-currency payroll from a single dashboard</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- ROI Calculator Section -->
+    <section id="roi" class="py-20 relative z-10" style="background: var(--bg-secondary);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--text-primary);">
+                    <span class="cyber-text">CALCULADORA</span>
+                    <br>
+                    <span class="neon-text">DE ROI EM RH</span>
+                    <br>
+                    <span class="gradient-text">Turnover, Recrutamento e Seleção</span>
+                </h2>
+                <p class="text-xl max-w-4xl mx-auto leading-relaxed" style="color: var(--text-secondary);">
+                    Informe tamanho da equipe e desligamentos do último ano. Ajuste as suposições para estimar economia anual e ROI com a Factorial RH.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <div class="holographic-card-ultimate no-bubble card-hover p-8 rounded-2xl relative overflow-hidden">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-1 space-y-6">
+                            <h3 class="text-xl font-bold" style="color: var(--text-primary);">Dados da sua empresa</h3>
+                            <div>
+                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Número de colaboradores</label>
+                                <input id="roi-employees" type="number" min="1" value="200" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Desligamentos no último ano</label>
+                                <input id="roi-separations" type="number" min="0" value="40" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Salário médio mensal (R$)</label>
+                                <input id="roi-salary" type="number" min="0" value="5000" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                            </div>
+                            <h3 class="text-xl font-bold mt-8" style="color: var(--text-primary);">Custos atuais</h3>
+                            <div>
+                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Custo de contratação por vaga (R$)</label>
+                                <input id="roi-cost-per-hire" type="number" min="0" value="6000" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Tempo de preenchimento (dias)</label>
+                                    <input id="roi-time-to-fill" type="number" min="0" value="30" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Ramp-up até plena (meses)</label>
+                                    <input id="roi-ramp-months" type="number" min="0" value="3" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Custo mensal de software por colaborador (R$)</label>
+                                <input id="roi-cost-per-employee" type="number" min="0" value="0" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-1 space-y-6">
+                            <h3 class="text-xl font-bold" style="color: var(--text-primary);">Impacto esperado com Factorial</h3>
+                            <div>
+                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Redução de turnover (%)</label>
+                                <input id="roi-turnover-reduction" type="number" min="0" max="100" value="15" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Redução do tempo de contratação (%)</label>
+                                <input id="roi-time-reduction" type="number" min="0" max="100" value="20" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Ganho de produtividade no onboarding (%)</label>
+                                <input id="roi-productivity-gain" type="number" min="0" max="100" value="10" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                            </div>
+                            <p class="text-xs opacity-70" style="color: var(--text-secondary);">Observação: economias estimadas. Ajuste para sua realidade.</p>
+                        </div>
+
+                        <div class="lg:col-span-1 space-y-6">
+                            <h3 class="text-xl font-bold" style="color: var(--text-primary);">Resultados</h3>
+                            <div class="holographic-card p-4 rounded-xl">
+                                <div class="text-sm" style="color: var(--text-secondary);">Taxa de turnover</div>
+                                <div id="roi-turnover-rate" class="text-2xl font-bold">--</div>
+                            </div>
+                            <div class="holographic-card p-4 rounded-xl">
+                                <div class="text-sm" style="color: var(--text-secondary);">Custo anual de turnover</div>
+                                <div id="roi-turnover-cost" class="text-2xl font-bold">--</div>
+                            </div>
+                            <div class="holographic-card p-4 rounded-xl">
+                                <div class="text-sm" style="color: var(--text-secondary);">Economia (redução turnover)</div>
+                                <div id="roi-savings-turnover" class="text-2xl font-bold text-green-600">--</div>
+                            </div>
+                            <div class="holographic-card p-4 rounded-xl">
+                                <div class="text-sm" style="color: var(--text-secondary);">Economia (redução time-to-hire)</div>
+                                <div id="roi-savings-time" class="text-2xl font-bold text-green-600">--</div>
+                            </div>
+                            <div class="holographic-card p-4 rounded-xl">
+                                <div class="text-sm" style="color: var(--text-secondary);">Economia (onboarding melhor)</div>
+                                <div id="roi-savings-onboarding" class="text-2xl font-bold text-green-600">--</div>
+                            </div>
+                            <div class="holographic-card p-4 rounded-xl">
+                                <div class="text-sm" style="color: var(--text-secondary);">Benefício anual total</div>
+                                <div id="roi-total-benefit" class="text-2xl font-extrabold text-green-700">--</div>
+                            </div>
+                            <div class="holographic-card p-4 rounded-xl">
+                                <div class="text-sm" style="color: var(--text-secondary);">Investimento anual em software</div>
+                                <div id="roi-total-investment" class="text-2xl font-bold">--</div>
+                            </div>
+                            <div class="holographic-card p-4 rounded-xl">
+                                <div class="text-sm" style="color: var(--text-secondary);">ROI estimado</div>
+                                <div id="roi-percent" class="text-2xl font-extrabold">--</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <div class="chart-container bg-white rounded-2xl shadow-2xl p-6 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-t-2xl">
+                                <h3 class="text-lg font-bold text-center">Evolução mensal do benefício (12 meses)</h3>
+                            </div>
+                            <div class="mt-16">
+                                <canvas id="roiChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materiais -->
+    <section id="materiais" class="py-20" style="background: var(--bg-primary);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4" style="color: var(--text-primary);">Materiais</h2>
+                <p class="text-lg" style="color: var(--text-secondary);">Baixe nossos recursos e conheça mais sobre a Factorial.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a class="holographic-card p-6 rounded-xl block" href="Media Kit 2022_EN.pdf" target="_blank" rel="noopener">
+                    <div class="text-3xl mb-3">📦</div>
+                    <div class="font-bold" style="color: var(--text-primary);">Media Kit</div>
+                    <div class="text-sm" style="color: var(--text-secondary);">PDF</div>
+                </a>
+                <a class="holographic-card p-6 rounded-xl block" href="Apresentação Factorial e Relatórios do RH Estratégico.pdf" target="_blank" rel="noopener">
+                    <div class="text-3xl mb-3">📑</div>
+                    <div class="font-bold" style="color: var(--text-primary);">Apresentação Factorial</div>
+                    <div class="text-sm" style="color: var(--text-secondary);">PDF</div>
+                </a>
+                <div class="holographic-card p-6 rounded-xl">
+                    <div class="text-3xl mb-3">🖥️</div>
+                    <div class="font-bold" style="color: var(--text-primary);">Screenshots do Produto</div>
+                    <div class="mt-3 grid grid-cols-3 gap-2 text-sm" style="color: var(--text-secondary);">
+                        <span>Dashboard.png</span>
+                        <span>Payroll.png</span>
+                        <span>Time-Off.png</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alliance Section -->
+<section id="alliance" class="py-20 relative z-10" style="background: var(--bg-primary);">
+    <div class="container mx-auto px-6">
+        <!-- Heading -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#003366] mb-6">
+                <span class="cyber-text">POR QUE FACTORIAL?</span>
+                <br>
+                <span class="neon-text">EFICIÊNCIA, DADOS, ROI</span>
+                <br>
+                <span class="gradient-text">EM UM ÚNICO LUGAR</span>
+            </h2>
+            <p class="mt-4 text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Centralize recrutamento, onboarding, ponto, férias, folha e muito mais. Automatize processos e mensure resultados com relatórios estratégicos.
+            </p>
+            <div class="mt-6 inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl">
+                🌟 Simples. Completo. Factorial.
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
+                <div class="text-4xl text-[#D4AF37] mb-4">🤝</div>
+                <h3 class="text-xl font-bold text-[#003366] mb-2">Referral Partnership</h3>
+                <p class="text-gray-600">
+                    Strengthen your value proposition by recommending Payoneer as the go-to financial solution, creating a seamless client experience from legal setup to financial operation.
+                </p>
+            </div>
+            <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
+                <div class="text-4xl text-[#D4AF37] mb-4">🚀</div>
+                <h3 class="text-xl font-bold text-[#003366] mb-2">Dedicated Onboarding</h3>
+                <p class="text-gray-600">
+                    A dedicated Payoneer team will provide a white-glove onboarding experience for all referred clients, ensuring a smooth transition and rapid time-to-value.
+                </p>
+            </div>
+            <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
+                <div class="text-4xl text-[#D4AF37] mb-4">📈</div>
+                <h3 class="text-xl font-bold text-[#003366] mb-2">Joint Marketing</h3>
+                <p class="text-gray-600">
+                    Co-author reports, host webinars, and create case studies to capture new market share and establish our alliance as the thought leader in U.S.-Brazil expansion.
+                </p>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="text-center mt-12">
+            <a href="#roi" 
+               class="inline-block bg-[#D4AF37] text-[#003366] font-bold py-3 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity">
+               Calcular ROI agora
+            </a>
+        </div>
+    </div>
+
+    <!-- GSAP Animation (Local, sem afetar outros cards) -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('#alliance .solution-card').forEach((card, i) => {
+            gsap.fromTo(card, 
+                {y: 50, opacity: 0}, 
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%'
+                    },
+                    delay: i * 0.2
+                }
+            );
+        });
+    </script>
+</section>
+
+    <!-- Enhanced Footer -->
+    <footer class="py-16 relative overflow-hidden" style="background: var(--bg-tertiary); color: var(--text-primary);">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full animate-ping"></div>
+            <div class="absolute top-20 right-20 w-24 h-24 bg-purple-500 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-20 left-1/4 w-28 h-28 bg-green-500 rounded-full animate-bounce"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div class="mb-12">
+                <h3 class="text-4xl font-bold mb-6">
+                    <span class="cyber-text">Payoneer</span> 
+                    <span class="text-yellow-400 text-5xl mx-4">⚡</span> 
+                    <span class="neon-text">LexBridge</span>
+                </h3>
+                <p class="text-xl opacity-90 mb-6">The <span class="font-bold text-yellow-400">ULTIMATE STRATEGIC ALLIANCE</span> for Brazilian market expansion</p>
+                <div class="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-full font-bold text-lg shadow-2xl animate-pulse">
+                    🚀 READY TO REVOLUTIONIZE YOUR BUSINESS?
+                </div>
+            </div>
+            
+            <!-- Enhanced contact section -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="holographic-card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-4 neon-text">🚀 Get Started Today</h4>
+                    <p class="mb-4">Ready to conquer the Brazilian market? Let's make it happen!</p>
+                    <a href="mailto:partnerships@payoneer.com?subject=LexBridge%20Partnership%20Inquiry" 
+                       class="cyber-button inline-block px-6 py-3 rounded-lg">
+                        📧 Contact Us Now
+                    </a>
+                </div>
+                <div class="holographic-card p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-4 neon-text">💡 Learn More</h4>
+                    <p class="mb-4">Discover how this alliance can transform your business strategy</p>
+                    <a href="#solution" class="cyber-button inline-block px-6 py-3 rounded-lg">
+                        🔍 Explore Solutions
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-lg">&copy; 2025 Payoneer Inc. All rights reserved.</p>
+                <p class="text-sm mt-2 opacity-75">The most powerful strategic partnership proposal in Brazilian expansion history.</p>
+                <div class="mt-4 flex justify-center space-x-4">
+                    <span class="text-yellow-400">⚡</span>
+                    <span class="text-blue-400">🚀</span>
+                    <span class="text-green-400">🌟</span>
+                    <span class="text-purple-400">💎</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize GSAP
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        
+        // Particle System Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: ['#00d4ff', '#ff6b35', '#8b5cf6', '#00ff88'] },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00d4ff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 100, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+        
+        // Loading Screen Management
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                gsap.to(loadingScreen, {
+                    opacity: 0,
+                    duration: 1,
+                    onComplete: () => {
+                        loadingScreen.style.display = 'none';
+                        // Trigger entrance animations
+                        gsap.from('body', { opacity: 0, duration: 1 });
+                    }
+                });
+            }, 2000);
+        });
+        
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+        
+        // Enhanced Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed top-0 left-0 w-full h-full bg-black bg-opacity-95 z-50 transform translate-x-full transition-transform duration-300';
+        mobileMenu.innerHTML = `
+            <div class="flex justify-between items-center p-6">
+                <div class="text-2xl font-bold text-white">🚀 Factorial RH</div>
+                <button id="close-menu" class="text-white text-3xl">&times;</button>
+            </div>
+            <div class="flex flex-col items-center justify-center h-full space-y-8">
+                <a href="#sobre" class="text-2xl text-white hover:text-yellow-400 transition-colors">Sobre</a>
+                <a href="#roi" class="text-2xl text-white hover:text-yellow-400 transition-colors">Calculadora de ROI</a>
+                <a href="#solution" class="text-2xl text-white hover:text-yellow-400 transition-colors">Recursos</a>
+                <a href="#materiais" class="text-2xl text-white hover:text-yellow-400 transition-colors">Materiais</a>
+            </div>
+        `;
+        document.body.appendChild(mobileMenu);
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+        
+        document.getElementById('close-menu').addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Tab functionality
+        const tabs = document.querySelectorAll('.solution-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Hide all tab contents
+                tabContents.forEach(content => content.classList.add('hidden'));
+                
+                // Show selected tab content
+                const targetTab = tab.getAttribute('data-tab');
+                document.getElementById(targetTab).classList.remove('hidden');
+            });
+        });
+        
+        // Animated counter for statistics
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            updateCounter();
+        }
+        
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    animateCounter(entry.target, target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('[data-target]').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Enhanced Chart.js for Pix growth with multiple datasets and animations
+        const ctx = document.getElementById('pixChart').getContext('2d');
+        
+        // Create gradient backgrounds for better visual appeal
+        const gradient1 = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient1.addColorStop(0, 'rgba(59, 130, 246, 0.9)');
+        gradient1.addColorStop(1, 'rgba(59, 130, 246, 0.3)');
+        
+        const gradient2 = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient2.addColorStop(0, 'rgba(245, 158, 11, 0.9)');
+        gradient2.addColorStop(1, 'rgba(245, 158, 11, 0.3)');
+        
+        const gradient3 = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient3.addColorStop(0, 'rgba(139, 92, 246, 0.9)');
+        gradient3.addColorStop(1, 'rgba(139, 92, 246, 0.3)');
+        
+        const gradient4 = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient4.addColorStop(0, 'rgba(16, 185, 129, 0.9)');
+        gradient4.addColorStop(1, 'rgba(16, 185, 129, 0.3)');
+        
+        const pixChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan 2023', 'Mar 2023', 'Jun 2023', 'Sep 2023', 'Dec 2023', 'Mar 2024', 'Jun 2024', 'Sep 2024', 'Dec 2024'],
+                datasets: [
+                    {
+                        label: 'PIX Transactions (Billions)',
+                        data: [28.5, 32.1, 35.8, 38.2, 41.8, 45.2, 49.1, 53.8, 64.0],
+                        backgroundColor: gradient1,
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 4,
+                        borderDash: [],
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 3,
+                        pointRadius: 8,
+                        pointHoverRadius: 12,
+                        pointHoverBackgroundColor: 'rgba(59, 130, 246, 1)',
+                        pointHoverBorderColor: '#ffffff',
+                        pointHoverBorderWidth: 4
+                    },
+                    {
+                        label: 'PIX Users (Millions)',
+                        data: [120, 135, 148, 158, 168, 178, 188, 198, 210],
+                        backgroundColor: gradient2,
+                        borderColor: 'rgba(245, 158, 11, 1)',
+                        borderWidth: 4,
+                        borderDash: [10, 5],
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: 'rgba(245, 158, 11, 1)',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 3,
+                        pointRadius: 6,
+                        pointHoverRadius: 10,
+                        pointHoverBackgroundColor: 'rgba(245, 158, 11, 1)',
+                        pointHoverBorderColor: '#ffffff',
+                        pointHoverBorderWidth: 4
+                    },
+                    {
+                        label: 'Merchant Adoption (%)',
+                        data: [65, 68, 72, 75, 78, 81, 84, 87, 89],
+                        backgroundColor: gradient3,
+                        borderColor: 'rgba(139, 92, 246, 1)',
+                        borderWidth: 4,
+                        borderDash: [5, 10],
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: 'rgba(139, 92, 246, 1)',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 3,
+                        pointRadius: 6,
+                        pointHoverRadius: 10,
+                        pointHoverBackgroundColor: 'rgba(139, 92, 246, 1)',
+                        pointHoverBorderColor: '#ffffff',
+                        pointHoverBorderWidth: 4
+                    },
+                    {
+                        label: 'Transaction Volume (BRL Trillions)',
+                        data: [2.8, 3.1, 3.4, 3.7, 4.1, 4.5, 4.9, 5.3, 6.2],
+                        backgroundColor: gradient4,
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        borderWidth: 4,
+                        borderDash: [15, 5],
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 3,
+                        pointRadius: 6,
+                        pointHoverRadius: 10,
+                        pointHoverBackgroundColor: 'rgba(16, 185, 129, 1)',
+                        pointHoverBorderColor: '#ffffff',
+                        pointHoverBorderWidth: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {  
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            padding: 20,
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: 'Inter'
+                            },
+                            color: 'var(--text-primary)'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                        titleColor: '#ffffff',
+                        bodyColor: '#ffffff',
+                        borderColor: 'rgba(59, 130, 246, 0.8)',
+                        borderWidth: 2,
+                        cornerRadius: 12,
+                        padding: 16,
+                        titleFont: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 14
+                        },
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    if (label.includes('Billions')) {
+                                        label += context.parsed.y.toFixed(1) + ' Billion';
+                                    } else if (label.includes('Millions')) {
+                                        label += context.parsed.y + ' Million';
+                                    } else if (label.includes('%')) {
+                                        label += context.parsed.y + '%';
+                                    } else if (label.includes('Trillions')) {
+                                        label += context.parsed.y.toFixed(1) + ' Trillion';
+                                    }
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)',
+                            drawBorder: false,
+                            lineWidth: 1
+                        },
+                        border: {
+                            color: 'rgba(0, 0, 0, 0.2)',
+                            width: 2
+                        },
+                        ticks: {
+                            font: {
+                                size: 12,
+                                weight: '600',
+                                family: 'Inter'
+                            },
+                            color: 'var(--text-secondary)',
+                            padding: 8,
+                            callback: function(value, index, values) {
+                                if (value >= 1000) {
+                                    return (value / 1000).toFixed(1) + 'K';
+                                }
+                                return value;
+                            }
+                        }
+                    },
+                    x: {
+                        type: 'category',
+                        display: true,
+                        grid: {
+                            display: false
+                        },
+                        border: {
+                            color: 'rgba(0, 0, 0, 0.2)',
+                            width: 2
+                        },
+                        ticks: {
+                            font: {
+                                size: 12,
+                                weight: '600',
+                                family: 'Inter'
+                            },
+                            color: 'var(--text-secondary)',
+                            padding: 8,
+                            maxRotation: 45
+                        }
+                    }
+                },
+                elements: {
+                    point: {
+                        hoverRadius: 12,
+                        radius: 6
+                    }
+                },
+                animation: {
+                    duration: 2000,
+                    easing: 'easeInOutQuart',
+                    onProgress: function(animation) {
+                        const chart = animation.chart;
+                        const ctx = chart.ctx;
+                        const dataset = chart.data.datasets[0];
+                        const meta = chart.getDatasetMeta(0);
+                        
+                        if (!meta.hidden) {
+                            meta.data.forEach((point, index) => {
+                                const value = dataset.data[index];
+                                const position = point.getCenterPoint();
+                                
+                                ctx.save();
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'middle';
+                                ctx.font = 'bold 12px Inter';
+                                ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+                                
+                                if (animation.currentStep >= (index + 1) * (animation.numSteps / dataset.data.length)) {
+                                    ctx.fillText(value.toFixed(1), position.x, position.y - 20);
+                                }
+                                ctx.restore();
+                            });
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Add chart entrance animation
+        gsap.from('#pixChart', {
+            duration: 1.5,
+            opacity: 0,
+            scale: 0.8,
+            y: 50,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+                trigger: '#pixChart',
+                start: 'top 80%'
+            }
+        });
+        
+        // Enhanced GSAP Animations
+        gsap.from('.hero-gradient h1', {
+            duration: 1.5,
+            y: 50,
+            opacity: 0,
+            ease: 'power2.out'
+        });
+        
+        gsap.from('.hero-gradient p', {
+            duration: 1.5,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.3
+        });
+        
+        gsap.from('.hero-gradient a', {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.6,
+            stagger: 0.2
+        });
+        
+        // Enhanced text animations
+        gsap.from('.neon-text', {
+            duration: 1.5,
+            opacity: 0,
+            scale: 0.8,
+            ease: 'back.out(1.7)',
+            delay: 1,
+            stagger: 0.1
+        });
+        
+        // Subtle floating animation
+        gsap.to('.floating-3d', {
+            y: -10,
+            duration: 4,
+            ease: 'power1.inOut',
+            repeat: -1,
+            yoyo: true,
+            stagger: 0.5
+        });
+        
+        // Enhanced Scroll-triggered animations
+        gsap.from('.stat-counter', {
+            scrollTrigger: {
+                trigger: '.stat-counter',
+                start: 'top 80%'
+            },
+            duration: 1.5,
+            y: 100,
+            opacity: 0,
+            scale: 0.5,
+            ease: 'back.out(1.7)',
+            stagger: 0.3,
+            onComplete: () => {
+                // Add glow effect after animation
+                gsap.to('.stat-counter', {
+                    duration: 0.5,
+                    textShadow: '0 0 20px currentColor',
+                    yoyo: true,
+                    repeat: 1
+                });
+            }
+        });
+        
+        gsap.from('.card-hover', {
+            scrollTrigger: {
+                trigger: '.card-hover',
+                start: 'top 80%'
+            },
+            duration: 1.2,
+            y: 100,
+            opacity: 0,
+            rotationY: 45,
+            ease: 'power3.out',
+            stagger: 0.2
+        });
+        
+        // Holographic card effects
+        gsap.from('.holographic-card', {
+            scrollTrigger: {
+                trigger: '.holographic-card',
+                start: 'top 80%'
+            },
+            duration: 1.5,
+            y: 80,
+            opacity: 0,
+            scale: 0.8,
+            rotationX: 15,
+            ease: 'power3.out',
+            stagger: 0.3
+        });
+        
+        // Subtle parallax effect for floating elements
+        gsap.to('.floating', {
+            y: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero-gradient',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+        
+        // Simple counter animation
+        function animateCounterWithImpact(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            
+            updateCounter();
+        }
+    </script>
+
+    <!-- 🚀 ULTIMATE ADVANCED FEATURES SYSTEM -->
+    <script>
+        // Ensure advanced features load after everything else
+        window.addEventListener('load', function() {
+            // Load advanced features script dynamically
+            const script = document.createElement('script');
+            script.src = 'advanced-features.js';
+            script.onload = function() {
+                console.log('🚀 Ultimate Advanced Features Loaded Successfully!');
+                // Ensure the currency calculator is initialized even if the script loaded after DOMContentLoaded
+                try {
+                    const hasCalculator = document.getElementById('amount-input');
+                    if (hasCalculator && typeof window.CurrencyCalculator === 'undefined' && typeof CurrencyCalculator !== 'undefined') {
+                        window.CurrencyCalculator = new CurrencyCalculator();
+                        console.log('💱 Currency Calculator initialized (post-load).');
+                    }
+                } catch (e) {
+                    console.warn('⚠️ Failed to initialize Currency Calculator after script load:', e);
+                }
+            };
+            script.onerror = function() {
+                console.warn('⚠️ Advanced features not loaded - using fallback styles');
+            };
+            document.head.appendChild(script);
+        });
+        
+        // Force re-apply holographic effects after DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const holographicCards = document.querySelectorAll('.holographic-card-ultimate');
+                holographicCards.forEach(function(card, index) {
+                    // Add a small delay for each card to ensure they appear
+                    setTimeout(function() {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                        card.classList.add('loaded');
+                    }, index * 200);
+                });
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
