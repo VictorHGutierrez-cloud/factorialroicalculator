@@ -1471,12 +1471,18 @@ if ('serviceWorker' in navigator) {
 class ROICalculator {
     constructor() {
         this.bindEvents();
-        this.calculate();
         this.initChart();
+        this.isCalculated = false;
     }
 
     bindEvents() {
-        // Only simple view inputs (3 main + 2 Factorial)
+        // Calculate button
+        const calculateBtn = document.getElementById('calculate-roi-btn');
+        if (calculateBtn) {
+            calculateBtn.addEventListener('click', () => this.performCalculation());
+        }
+
+        // Optional: real-time calculation on input change (but don't show results until button is clicked)
         const inputIds = [
             'roi-employees', 'roi-separations', 'roi-salary',
             'roi-turnover-reduction', 'roi-software-cost'
@@ -1484,8 +1490,74 @@ class ROICalculator {
 
         inputIds.forEach(id => {
             const el = document.getElementById(id);
-            if (el) el.addEventListener('input', () => this.calculate());
+            if (el) {
+                el.addEventListener('input', () => {
+                    if (this.isCalculated) {
+                        this.calculate(); // Update results if already calculated
+                    }
+                });
+            }
         });
+    }
+
+    performCalculation() {
+        // Show loading state
+        const calculateBtn = document.getElementById('calculate-roi-btn');
+        if (calculateBtn) {
+            calculateBtn.innerHTML = '⏳ Calculando...';
+            calculateBtn.disabled = true;
+        }
+
+        // Simulate calculation delay for better UX
+        setTimeout(() => {
+            this.calculate();
+            this.showResults();
+            this.isCalculated = true;
+
+            // Reset button
+            if (calculateBtn) {
+                calculateBtn.innerHTML = '🧮 Recalcular ROI';
+                calculateBtn.disabled = false;
+            }
+        }, 1000);
+    }
+
+    showResults() {
+        // Hide placeholder
+        const placeholder = document.getElementById('results-placeholder');
+        if (placeholder) placeholder.style.display = 'none';
+
+        // Show results
+        const resultsContainer = document.getElementById('results-container');
+        if (resultsContainer) {
+            resultsContainer.style.display = 'block';
+            
+            // Animate results appearance
+            resultsContainer.style.opacity = '0';
+            resultsContainer.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                resultsContainer.style.transition = 'all 0.5s ease';
+                resultsContainer.style.opacity = '1';
+                resultsContainer.style.transform = 'translateY(0)';
+            }, 100);
+        }
+
+        // Show cost breakdown
+        const costBreakdown = document.getElementById('cost-breakdown');
+        if (costBreakdown) {
+            setTimeout(() => {
+                costBreakdown.style.display = 'block';
+                costBreakdown.style.opacity = '0';
+                costBreakdown.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    costBreakdown.style.transition = 'all 0.5s ease';
+                    costBreakdown.style.opacity = '1';
+                    costBreakdown.style.transform = 'translateY(0)';
+                }, 100);
+            }, 500);
+        }
     }
 
     getNumber(id, fallback = 0) {
@@ -1620,6 +1692,9 @@ class ROICalculator {
         this.setText('roi-total-investment', this.formatCurrency(annualInvestment));
         this.setText('roi-percent', `${roiPercent.toFixed(0)}%`);
 
+        // Update cost breakdown
+        this.updateCostBreakdown(result, separations);
+
         // Update chart
         this.updateChart(savingsFromTurnoverReduction, annualInvestment);
     }
@@ -1627,6 +1702,44 @@ class ROICalculator {
     setText(id, text) {
         const el = document.getElementById(id);
         if (el) el.textContent = text;
+    }
+
+    updateCostBreakdown(result, separations) {
+        // Calculate individual cost components based on the Python logic
+        const employees = this.getNumber('roi-employees', 1000);
+        const salary = this.getNumber('roi-salary', 5010);
+        
+        // Constants from Python
+        const hoursRhPerVaga = 8 + 28/60;
+        const costRhPerHour = 24.0;
+        const hoursManagerInterview = 4.0;
+        const costManagerHour = 47.0;
+        const monthsSalaryConsidered = 3;
+        const trainingHours = 30.0;
+        const trainingCostPerHour = 30.0;
+        const managerOnboardHours = 8.0;
+        const peerProductivityLossHours = 20.0;
+        const peerHourCost = 18.0;
+        const rescissionPerHire = 2798.27;
+        
+        // Calculate per-hire costs
+        const rhCostPerVaga = hoursRhPerVaga * costRhPerHour;
+        const managerCostPerVaga = hoursManagerInterview * costManagerHour;
+        const salaryCostPerHire = salary * monthsSalaryConsidered;
+        
+        // Training breakdown
+        const trainingCostTime = trainingHours * trainingCostPerHour;
+        const managerOnboardCost = managerOnboardHours * costManagerHour;
+        const peerLossCost = peerProductivityLossHours * peerHourCost;
+        const trainingTotalPerHire = trainingCostTime + managerOnboardCost + peerLossCost;
+        
+        // Update breakdown UI
+        this.setText('cost-rh', this.formatCurrency(rhCostPerVaga));
+        this.setText('cost-manager', this.formatCurrency(managerCostPerVaga));
+        this.setText('cost-salary', this.formatCurrency(salaryCostPerHire));
+        this.setText('cost-training', this.formatCurrency(trainingTotalPerHire));
+        this.setText('cost-rescission', this.formatCurrency(rescissionPerHire));
+        this.setText('cost-total-per-hire', this.formatCurrency(result.totalPerHire));
     }
 
     initChart() {
