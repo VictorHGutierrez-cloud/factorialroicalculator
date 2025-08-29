@@ -1,0 +1,36 @@
+# INSTRUÇÕES PARA COMMIT E PUSH DAS MUDANÇAS - PASSO A PASSO
+
+## SITUAÇÃO ATUAL:
+- Arquivo modificado: index.html
+- Arquivo novo: calculadoraroi.py
+- Branch local está 1 commit à frente do GitHub
+
+## PASSO A PASSO NO POWERSHELL:
+
+### 1. ADICIONAR OS ARQUIVOS MODIFICADOS/NOVOS
+git add index.html calculadoraroi.py
+
+### 2. FAZER O COMMIT DAS MUDANÇAS
+git commit -m "Atualização da página ROI e adição da calculadora Python"
+
+### 3. ENVIAR PARA O GITHUB (PUSH NORMAL)
+git push origin master
+
+### OU SE DER ERRO, USAR PUSH FORÇADO SEGURO:
+git push --force-with-lease origin master
+
+## COMANDOS EXTRAS SE PRECISAR:
+
+### Verificar status antes:
+git status
+
+### Ver histórico de commits:
+git log --oneline -5
+
+### Se precisar configurar o remote (só fazer uma vez):
+git remote set-url origin https://github.com/VictorHGutierrez-cloud/site-factorial.git
+
+## RESUMO RÁPIDO (copie e cole no PowerShell):
+git add index.html calculadoraroi.py
+git commit -m "Atualização da página ROI e adição da calculadora Python"
+git push origin master

@@ -1470,82 +1470,283 @@ if ('serviceWorker' in navigator) {
 // ROI CALCULATOR
 class ROICalculator {
     constructor() {
-        this.bind();
-        this.update();
+        this.initializeTabs();
+        this.bindEvents();
+        this.calculate();
         this.initChart();
     }
 
-    bind() {
-        const ids = [
-            'roi-employees','roi-separations','roi-salary','roi-cost-per-hire',
-            'roi-time-to-fill','roi-ramp-months','roi-cost-per-employee',
-            'roi-turnover-reduction','roi-time-reduction','roi-productivity-gain'
+    initializeTabs() {
+        // Tab functionality
+        const tabSimple = document.getElementById('tab-simple');
+        const tabDetailed = document.getElementById('tab-detailed');
+        const contentSimple = document.getElementById('content-simple');
+        const contentDetailed = document.getElementById('content-detailed');
+
+        if (tabSimple && tabDetailed && contentSimple && contentDetailed) {
+            tabSimple.addEventListener('click', () => {
+                tabSimple.classList.add('active');
+                tabDetailed.classList.remove('active');
+                contentSimple.classList.remove('hidden');
+                contentDetailed.classList.add('hidden');
+            });
+
+            tabDetailed.addEventListener('click', () => {
+                tabDetailed.classList.add('active');
+                tabSimple.classList.remove('active');
+                contentDetailed.classList.remove('hidden');
+                contentSimple.classList.add('hidden');
+                this.syncToDetailed();
+            });
+        }
+    }
+
+    syncToDetailed() {
+        // Sync values from simple to detailed view
+        const mappings = [
+            ['roi-employees', 'roi-employees-detailed'],
+            ['roi-separations', 'roi-separations-detailed'],
+            ['roi-salary', 'roi-salary-detailed'],
+            ['roi-time-to-fill', 'roi-time-to-fill-detailed'],
+            ['roi-daily-value', 'roi-daily-value-detailed'],
+            ['roi-turnover-reduction', 'roi-turnover-reduction-detailed'],
+            ['roi-time-reduction', 'roi-time-reduction-detailed'],
+            ['roi-productivity-gain', 'roi-productivity-gain-detailed'],
+            ['roi-software-cost', 'roi-software-cost-detailed']
         ];
-        ids.forEach(id => {
+
+        mappings.forEach(([simple, detailed]) => {
+            const simpleEl = document.getElementById(simple);
+            const detailedEl = document.getElementById(detailed);
+            if (simpleEl && detailedEl) {
+                detailedEl.value = simpleEl.value;
+            }
+        });
+    }
+
+    bindEvents() {
+        // Simple view inputs
+        const simpleIds = [
+            'roi-employees', 'roi-separations', 'roi-salary', 'roi-cost-per-hire',
+            'roi-time-to-fill', 'roi-daily-value', 'roi-turnover-reduction',
+            'roi-time-reduction', 'roi-productivity-gain', 'roi-software-cost'
+        ];
+
+        // Detailed view inputs  
+        const detailedIds = [
+            'roi-employees-detailed', 'roi-separations-detailed', 'roi-salary-detailed',
+            'roi-benefits-percent', 'roi-fgts-balance', 'roi-fgts-penalty',
+            'roi-notice-days', 'roi-other-severance', 'roi-ads-cost',
+            'roi-agency-cost', 'roi-referral-bonus', 'roi-background-cost',
+            'roi-time-to-fill-detailed', 'roi-daily-value-detailed', 'roi-coverage-percent',
+            'roi-hr-hours', 'roi-hr-hour-cost', 'roi-manager-hours',
+            'roi-manager-hour-cost', 'roi-training-hours', 'roi-training-hour-cost',
+            'roi-materials-cost', 'roi-ramp-months', 'roi-ramp-deficit',
+            'roi-coverage-cost', 'roi-turnover-reduction-detailed',
+            'roi-time-reduction-detailed', 'roi-productivity-gain-detailed',
+            'roi-software-cost-detailed'
+        ];
+
+        [...simpleIds, ...detailedIds].forEach(id => {
             const el = document.getElementById(id);
-            if (el) el.addEventListener('input', () => this.update());
+            if (el) el.addEventListener('input', () => this.calculate());
         });
     }
 
     getNumber(id, fallback = 0) {
-        const v = parseFloat(document.getElementById(id)?.value);
+        const el = document.getElementById(id);
+        if (!el) return fallback;
+        const v = parseFloat(el.value);
         return isFinite(v) ? v : fallback;
     }
 
-    fmtBRL(n) {
-        try { return new Intl.NumberFormat('pt-BR', {style:'currency', currency:'BRL'}).format(n); } catch { return `R$ ${n.toFixed(2)}` }
+    formatCurrency(amount) {
+        try {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        } catch {
+            return `R$ ${amount.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}`;
+        }
     }
 
-    update() {
-        const employees = this.getNumber('roi-employees', 0);
-        const separations = this.getNumber('roi-separations', 0);
-        const salary = this.getNumber('roi-salary', 0);
-        const costPerHire = this.getNumber('roi-cost-per-hire', 0);
-        const timeToFillDays = this.getNumber('roi-time-to-fill', 0);
-        const rampMonths = this.getNumber('roi-ramp-months', 0);
-        const costPerEmployee = this.getNumber('roi-cost-per-employee', 0);
-        const redTurnoverPct = this.getNumber('roi-turnover-reduction', 0) / 100;
-        const redTimePct = this.getNumber('roi-time-reduction', 0) / 100;
-        const prodGainPct = this.getNumber('roi-productivity-gain', 0) / 100;
+    isDetailedView() {
+        return !document.getElementById('content-detailed')?.classList.contains('hidden');
+    }
 
-        const turnoverRate = employees > 0 ? separations / employees : 0;
-        const monthlySalary = salary;
+    calculateDetailedCosts() {
+        // Get basic data
+        const employees = this.getNumber('roi-employees-detailed', 100);
+        const separations = this.getNumber('roi-separations-detailed', 20);
+        const salary = this.getNumber('roi-salary-detailed', 5000);
+        const benefitsPercent = this.getNumber('roi-benefits-percent', 70) / 100;
 
-        // Cost model (conservador): custo de reposição = custo de contratação + salários durante time-to-fill + perda de produtividade durante ramp-up (50%)
-        const timeToFillMonths = timeToFillDays / 30;
-        const rampLossFactor = 0.5; // 50% produtividade durante ramp
-        const costPerReplacement = costPerHire + (monthlySalary * timeToFillMonths) + (monthlySalary * rampMonths * rampLossFactor);
-        const annualTurnoverCost = separations * costPerReplacement;
+        // Severance costs (based on your Python model)
+        const fgtsBalance = this.getNumber('roi-fgts-balance', 15000);
+        const fgtsPenalty = this.getNumber('roi-fgts-penalty', 40) / 100;
+        const noticeDays = this.getNumber('roi-notice-days', 30);
+        const otherSeverance = this.getNumber('roi-other-severance', 2000);
 
-        // Savings
-        const savingsTurnover = annualTurnoverCost * redTurnoverPct;
+        const fgtsMulta = fgtsBalance * fgtsPenalty;
+        const avisoPreviewIndenizado = (salary / 30) * noticeDays;
+        const severanceCosts = fgtsMulta + avisoPreviewIndenizado + otherSeverance;
 
-        // Savings time-to-hire: reduz o período de vaga em aberto
-        const reducedTimeToFillMonths = timeToFillMonths * redTimePct;
-        const savingsTime = separations * (monthlySalary * reducedTimeToFillMonths);
+        // Recruitment costs
+        const adsCost = this.getNumber('roi-ads-cost', 800);
+        const agencyCost = this.getNumber('roi-agency-cost', 0);
+        const referralBonus = this.getNumber('roi-referral-bonus', 500);
+        const backgroundCost = this.getNumber('roi-background-cost', 200);
+        const recruitmentCosts = adsCost + agencyCost + referralBonus + backgroundCost;
 
-        // Savings onboarding: ganho % no ramp (sobre componente de ramp-up)
-        const rampComponentAnnual = separations * (monthlySalary * rampMonths * rampLossFactor);
-        const savingsOnboarding = rampComponentAnnual * prodGainPct;
+        // Vacancy costs (time to fill)
+        const timeToFillDays = this.getNumber('roi-time-to-fill-detailed', 45);
+        const dailyValue = this.getNumber('roi-daily-value-detailed', 400);
+        const coveragePercent = this.getNumber('roi-coverage-percent', 30) / 100;
+        const vacancyCosts = timeToFillDays * dailyValue * (1 - coveragePercent);
 
-        // Investment in software
-        const annualInvestment = employees * costPerEmployee * 12;
+        // People time costs
+        const hrHours = this.getNumber('roi-hr-hours', 16);
+        const hrHourCost = this.getNumber('roi-hr-hour-cost', 80);
+        const managerHours = this.getNumber('roi-manager-hours', 12);
+        const managerHourCost = this.getNumber('roi-manager-hour-cost', 120);
+        const peopleTimeCosts = (hrHours * hrHourCost) + (managerHours * managerHourCost);
 
-        const totalBenefit = savingsTurnover + savingsTime + savingsOnboarding;
-        const roi = annualInvestment > 0 ? (totalBenefit - annualInvestment) / annualInvestment : (totalBenefit > 0 ? Infinity : 0);
+        // Onboarding costs
+        const trainingHours = this.getNumber('roi-training-hours', 24);
+        const trainingHourCost = this.getNumber('roi-training-hour-cost', 60);
+        const materialsCost = this.getNumber('roi-materials-cost', 1500);
+        const onboardingCosts = (trainingHours * trainingHourCost) + materialsCost + peopleTimeCosts;
+
+        // Ramp-up costs
+        const rampMonths = this.getNumber('roi-ramp-months', 3);
+        const rampDeficit = this.getNumber('roi-ramp-deficit', 40) / 100;
+        const rampupCosts = (rampMonths * 30) * dailyValue * rampDeficit;
+
+        // Coverage extra costs
+        const coverageCost = this.getNumber('roi-coverage-cost', 2000);
+
+        // Total cost per case
+        const costPerCase = severanceCosts + recruitmentCosts + vacancyCosts + onboardingCosts + rampupCosts + coverageCost;
+
+        return {
+            severanceCosts,
+            recruitmentCosts,
+            vacancyCosts,
+            onboardingCosts,
+            rampupCosts,
+            coverageCost,
+            costPerCase,
+            separations,
+            employees
+        };
+    }
+
+    calculateSimpleCosts() {
+        const employees = this.getNumber('roi-employees', 100);
+        const separations = this.getNumber('roi-separations', 20);
+        const salary = this.getNumber('roi-salary', 5000);
+        const costPerHire = this.getNumber('roi-cost-per-hire', 8000);
+        const timeToFillDays = this.getNumber('roi-time-to-fill', 45);
+        const dailyValue = this.getNumber('roi-daily-value', 400);
+
+        // Simplified cost model
+        const vacancyCosts = timeToFillDays * dailyValue * 0.7; // 70% impact
+        const rampupCosts = salary * 2; // 2 months reduced productivity
+        const costPerCase = costPerHire + vacancyCosts + rampupCosts;
+
+        return {
+            severanceCosts: costPerHire * 0.3, // 30% of hiring cost is severance
+            recruitmentCosts: costPerHire * 0.4, // 40% recruitment
+            vacancyCosts: vacancyCosts,
+            onboardingCosts: costPerHire * 0.2, // 20% onboarding
+            rampupCosts: rampupCosts,
+            coverageCost: costPerHire * 0.1, // 10% coverage
+            costPerCase,
+            separations,
+            employees
+        };
+    }
+
+    calculate() {
+        const isDetailed = this.isDetailedView();
+        const costs = isDetailed ? this.calculateDetailedCosts() : this.calculateSimpleCosts();
+
+        const {
+            severanceCosts, recruitmentCosts, vacancyCosts, onboardingCosts,
+            rampupCosts, coverageCost, costPerCase, separations, employees
+        } = costs;
+
+        // Annual turnover cost
+        const annualTurnoverCost = separations * costPerCase;
+        const turnoverRate = employees > 0 ? (separations / employees) * 100 : 0;
+
+        // Get improvement percentages
+        const turnoverReduction = this.getNumber(isDetailed ? 'roi-turnover-reduction-detailed' : 'roi-turnover-reduction', 20) / 100;
+        const timeReduction = this.getNumber(isDetailed ? 'roi-time-reduction-detailed' : 'roi-time-reduction', 25) / 100;
+        const productivityGain = this.getNumber(isDetailed ? 'roi-productivity-gain-detailed' : 'roi-productivity-gain', 15) / 100;
+
+        // Calculate savings
+        const turnoverSavings = annualTurnoverCost * turnoverReduction;
+        const timeSavings = separations * vacancyCosts * timeReduction;
+        const productivitySavings = separations * rampupCosts * productivityGain;
+        const totalSavings = turnoverSavings + timeSavings + productivitySavings;
+
+        // Calculate investment
+        const softwareCost = this.getNumber(isDetailed ? 'roi-software-cost-detailed' : 'roi-software-cost', 25);
+        const annualInvestment = employees * softwareCost * 12;
+
+        // Calculate ROI
+        const netBenefit = totalSavings - annualInvestment;
+        const roiPercent = annualInvestment > 0 ? (netBenefit / annualInvestment) * 100 : 0;
+        const paybackMonths = totalSavings > 0 ? (annualInvestment / totalSavings) * 12 : 0;
 
         // Update UI
-        this.setText('roi-turnover-rate', `${(turnoverRate*100).toFixed(1)}%`);
-        this.setText('roi-turnover-cost', this.fmtBRL(annualTurnoverCost));
-        this.setText('roi-savings-turnover', this.fmtBRL(savingsTurnover));
-        this.setText('roi-savings-time', this.fmtBRL(savingsTime));
-        this.setText('roi-savings-onboarding', this.fmtBRL(savingsOnboarding));
-        this.setText('roi-total-benefit', this.fmtBRL(totalBenefit));
-        this.setText('roi-total-investment', this.fmtBRL(annualInvestment));
-        this.setText('roi-percent', isFinite(roi) ? `${(roi*100).toFixed(0)}%` : '∞');
+        this.updateUI({
+            turnoverRate,
+            annualTurnoverCost,
+            totalSavings,
+            annualInvestment,
+            roiPercent,
+            paybackMonths,
+            costPerCase,
+            severanceCosts,
+            recruitmentCosts,
+            vacancyCosts,
+            onboardingCosts,
+            rampupCosts,
+            coverageCost
+        });
 
-        // Update chart data
-        this.updateChart(totalBenefit, annualInvestment);
+        // Update chart
+        this.updateChart(totalSavings, annualInvestment);
+    }
+
+    updateUI(data) {
+        const {
+            turnoverRate, annualTurnoverCost, totalSavings, annualInvestment,
+            roiPercent, paybackMonths, costPerCase, severanceCosts,
+            recruitmentCosts, vacancyCosts, onboardingCosts, rampupCosts, coverageCost
+        } = data;
+
+        // Common fields
+        this.setText('roi-turnover-rate', `${turnoverRate.toFixed(1)}%`);
+        this.setText('roi-turnover-cost', this.formatCurrency(annualTurnoverCost));
+        this.setText('roi-total-savings', this.formatCurrency(totalSavings));
+        this.setText('roi-total-investment', this.formatCurrency(annualInvestment));
+        this.setText('roi-percent', `${roiPercent.toFixed(0)}%`);
+        this.setText('roi-payback', `${paybackMonths.toFixed(1)} meses`);
+
+        // Detailed breakdown (if in detailed view)
+        this.setText('roi-cost-per-case', this.formatCurrency(costPerCase));
+        this.setText('roi-severance-costs', this.formatCurrency(severanceCosts));
+        this.setText('roi-recruitment-costs', this.formatCurrency(recruitmentCosts));
+        this.setText('roi-vacancy-costs', this.formatCurrency(vacancyCosts));
+        this.setText('roi-onboarding-costs', this.formatCurrency(onboardingCosts));
+        this.setText('roi-rampup-costs', this.formatCurrency(rampupCosts));
+        this.setText('roi-coverage-costs-result', this.formatCurrency(coverageCost));
     }
 
     setText(id, text) {
@@ -1556,29 +1757,86 @@ class ROICalculator {
     initChart() {
         const ctx = document.getElementById('roiChart');
         if (!ctx || typeof Chart === 'undefined') return;
-        const labels = Array.from({length: 12}, (_, i) => `M${i+1}`);
+
+        const labels = Array.from({length: 12}, (_, i) => `Mês ${i+1}`);
         this.roiChart = new Chart(ctx.getContext('2d'), {
             type: 'bar',
             data: {
                 labels,
                 datasets: [
-                    { label: 'Benefício mensal', data: new Array(12).fill(0), backgroundColor: 'rgba(16,185,129,0.6)' },
-                    { label: 'Investimento mensal', data: new Array(12).fill(0), backgroundColor: 'rgba(59,130,246,0.4)' }
+                    {
+                        label: 'Economia Mensal',
+                        data: new Array(12).fill(0),
+                        backgroundColor: 'rgba(7, 162, 173, 0.7)', // var(--brand-viridian)
+                        borderColor: 'rgba(7, 162, 173, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Investimento Mensal',
+                        data: new Array(12).fill(0),
+                        backgroundColor: 'rgba(255, 53, 94, 0.5)', // var(--brand-radical)
+                        borderColor: 'rgba(255, 53, 94, 1)',
+                        borderWidth: 1
+                    }
                 ]
             },
             options: {
                 responsive: true,
-                plugins: { legend: { position: 'top' } },
-                scales: { y: { beginAtZero: true } }
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: { family: 'Fira Sans' }
+                        }
+                    },
+                    tooltip: {
+                        titleFont: { family: 'Fira Sans' },
+                        bodyFont: { family: 'Fira Sans' },
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + 
+                                       new Intl.NumberFormat('pt-BR', {
+                                           style: 'currency',
+                                           currency: 'BRL',
+                                           minimumFractionDigits: 0
+                                       }).format(context.raw);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            font: { family: 'Fira Sans' },
+                            callback: function(value) {
+                                return new Intl.NumberFormat('pt-BR', {
+                                    style: 'currency',
+                                    currency: 'BRL',
+                                    minimumFractionDigits: 0,
+                                    maximumFractionDigits: 0
+                                }).format(value);
+                            }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: { family: 'Fira Sans' }
+                        }
+                    }
+                }
             }
         });
     }
 
-    updateChart(totalBenefit, annualInvestment) {
+    updateChart(totalSavings, annualInvestment) {
         if (!this.roiChart) return;
-        const monthlyBenefit = totalBenefit / 12;
+
+        const monthlySavings = totalSavings / 12;
         const monthlyInvestment = annualInvestment / 12;
-        this.roiChart.data.datasets[0].data = new Array(12).fill(monthlyBenefit);
+
+        this.roiChart.data.datasets[0].data = new Array(12).fill(monthlySavings);
         this.roiChart.data.datasets[1].data = new Array(12).fill(monthlyInvestment);
         this.roiChart.update();
     }

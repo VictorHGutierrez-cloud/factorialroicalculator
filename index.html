@@ -469,6 +469,33 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* Estilos para abas da calculadora */
+        .tab-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--brand-radical), var(--brand-tangerine));
+            color: white;
+            border: 1px solid transparent;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            transition: all 0.3s ease;
+        }
+
+        .tab-content.hidden {
+            display: none;
+        }
         
         .parallax-section {
             background-attachment: fixed;
@@ -1062,94 +1089,273 @@ document.addEventListener("DOMContentLoaded", () => {
                 </p>
             </div>
 
-            <div class="max-w-6xl mx-auto">
-                <div class="holographic-card-ultimate no-bubble card-hover p-8 rounded-2xl relative overflow-hidden">
-                    <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="lg:col-span-1 space-y-6">
-                            <h3 class="text-xl font-bold" style="color: var(--text-primary);">Dados da sua empresa</h3>
-                            <div>
-                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Número de colaboradores</label>
-                                <input id="roi-employees" type="number" min="1" value="200" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
-                            </div>
-                            <div>
-                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Desligamentos no último ano</label>
-                                <input id="roi-separations" type="number" min="0" value="40" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
-                            </div>
-                            <div>
-                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Salário médio mensal (R$)</label>
-                                <input id="roi-salary" type="number" min="0" value="5000" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
-                            </div>
-                            <h3 class="text-xl font-bold mt-8" style="color: var(--text-primary);">Custos atuais</h3>
-                            <div>
-                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Custo de contratação por vaga (R$)</label>
-                                <input id="roi-cost-per-hire" type="number" min="0" value="6000" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="holographic-card-ultimate no-bubble card-hover p-6 rounded-2xl relative overflow-hidden">
+                    
+                    <!-- Abas para diferentes visualizações -->
+                    <div class="flex flex-wrap justify-center mb-6 space-x-2">
+                        <button id="tab-simple" class="tab-button active px-4 py-2 rounded-lg font-semibold">🎯 Cálculo Simples</button>
+                        <button id="tab-detailed" class="tab-button px-4 py-2 rounded-lg font-semibold">📊 Cálculo Detalhado</button>
+                    </div>
+
+                    <!-- Tab Simples (visível por padrão) -->
+                    <div id="content-simple" class="tab-content">
+                        <div class="grid lg:grid-cols-3 gap-8">
+                            <div class="lg:col-span-1 space-y-4">
+                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">📊 Dados Básicos</h3>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Número de colaboradores</label>
+                                    <input id="roi-employees" type="number" min="1" value="100" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Desligamentos no último ano</label>
+                                    <input id="roi-separations" type="number" min="0" value="20" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Salário médio mensal (R$)</label>
+                                    <input id="roi-salary" type="number" min="0" value="5000" step="100" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Custo total por contratação (R$)</label>
+                                    <input id="roi-cost-per-hire" type="number" min="0" value="8000" step="100" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
                                 <div>
                                     <label class="block text-sm mb-1" style="color: var(--text-secondary);">Tempo de preenchimento (dias)</label>
-                                    <input id="roi-time-to-fill" type="number" min="0" value="30" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                                    <input id="roi-time-to-fill" type="number" min="1" value="45" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Ramp-up até plena (meses)</label>
-                                    <input id="roi-ramp-months" type="number" min="0" value="3" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Valor diário do posto (R$)</label>
+                                    <input id="roi-daily-value" type="number" min="0" value="400" step="50" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
                                 </div>
                             </div>
-                            <div>
-                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Custo mensal de software por colaborador (R$)</label>
-                                <input id="roi-cost-per-employee" type="number" min="0" value="0" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+
+                            <div class="lg:col-span-1 space-y-4">
+                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">🚀 Melhorias com Factorial</h3>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Redução de turnover (%)</label>
+                                    <input id="roi-turnover-reduction" type="number" min="0" max="100" value="20" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Redução tempo contratação (%)</label>
+                                    <input id="roi-time-reduction" type="number" min="0" max="100" value="25" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Melhoria produtividade (%)</label>
+                                    <input id="roi-productivity-gain" type="number" min="0" max="100" value="15" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1" style="color: var(--text-secondary);">Custo Factorial/mês/pessoa (R$)</label>
+                                    <input id="roi-software-cost" type="number" min="0" value="25" step="1" class="w-full p-3 rounded-xl border bg-white/10 calculator-input" />
+                                </div>
+                                <p class="text-xs opacity-70" style="color: var(--text-secondary);">💡 Ajuste os percentuais conforme sua realidade</p>
+                            </div>
+
+                            <div class="lg:col-span-1 space-y-4">
+                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">💰 Resultados</h3>
+                                <div class="holographic-card p-3 rounded-xl">
+                                    <div class="text-xs" style="color: var(--text-secondary);">Taxa de turnover atual</div>
+                                    <div id="roi-turnover-rate" class="text-lg font-bold">--</div>
+                                </div>
+                                <div class="holographic-card p-3 rounded-xl">
+                                    <div class="text-xs" style="color: var(--text-secondary);">Custo anual turnover</div>
+                                    <div id="roi-turnover-cost" class="text-lg font-bold">--</div>
+                                </div>
+                                <div class="holographic-card p-3 rounded-xl">
+                                    <div class="text-xs" style="color: var(--text-secondary);">Economia anual total</div>
+                                    <div id="roi-total-savings" class="text-lg font-bold text-green-600">--</div>
+                                </div>
+                                <div class="holographic-card p-3 rounded-xl">
+                                    <div class="text-xs" style="color: var(--text-secondary);">Investimento anual</div>
+                                    <div id="roi-total-investment" class="text-lg font-bold">--</div>
+                                </div>
+                                <div class="holographic-card p-3 rounded-xl" style="background: linear-gradient(135deg, var(--brand-sunbeam), var(--brand-tangerine));">
+                                    <div class="text-xs text-white">ROI Estimado</div>
+                                    <div id="roi-percent" class="text-xl font-extrabold text-white">--</div>
+                                </div>
+                                <div class="holographic-card p-3 rounded-xl">
+                                    <div class="text-xs" style="color: var(--text-secondary);">Payback (meses)</div>
+                                    <div id="roi-payback" class="text-lg font-bold">--</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Detalhado (inicialmente oculto) -->
+                    <div id="content-detailed" class="tab-content hidden">
+                        <div class="grid lg:grid-cols-4 gap-6">
+                            <div class="lg:col-span-1 space-y-3">
+                                <h3 class="text-sm font-bold" style="color: var(--text-primary);">📊 Dados Básicos</h3>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Colaboradores</label>
+                                    <input id="roi-employees-detailed" type="number" min="1" value="100" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Desligamentos/ano</label>
+                                    <input id="roi-separations-detailed" type="number" min="0" value="20" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Salário médio (R$)</label>
+                                    <input id="roi-salary-detailed" type="number" min="0" value="5000" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Encargos/Benefícios (%)</label>
+                                    <input id="roi-benefits-percent" type="number" min="0" max="200" value="70" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-1 space-y-3">
+                                <h3 class="text-sm font-bold" style="color: var(--text-primary);">💰 Custos Rescisórios</h3>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">FGTS médio (R$)</label>
+                                    <input id="roi-fgts-balance" type="number" min="0" value="15000" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Multa FGTS (%)</label>
+                                    <input id="roi-fgts-penalty" type="number" min="0" max="50" value="40" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Aviso prévio (dias)</label>
+                                    <input id="roi-notice-days" type="number" min="0" value="30" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Outros custos (R$)</label>
+                                    <input id="roi-other-severance" type="number" min="0" value="2000" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-1 space-y-3">
+                                <h3 class="text-sm font-bold" style="color: var(--text-primary);">🎯 Recrutamento</h3>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Anúncios (R$)</label>
+                                    <input id="roi-ads-cost" type="number" min="0" value="800" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Agência (R$)</label>
+                                    <input id="roi-agency-cost" type="number" min="0" value="0" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Bônus indicação (R$)</label>
+                                    <input id="roi-referral-bonus" type="number" min="0" value="500" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Testes/Background (R$)</label>
+                                    <input id="roi-background-cost" type="number" min="0" value="200" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Dias vaga aberta</label>
+                                    <input id="roi-time-to-fill-detailed" type="number" min="1" value="45" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Valor diário posto (R$)</label>
+                                    <input id="roi-daily-value-detailed" type="number" min="0" value="400" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Cobertura equipe (%)</label>
+                                    <input id="roi-coverage-percent" type="number" min="0" max="100" value="30" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-1 space-y-3">
+                                <h3 class="text-sm font-bold" style="color: var(--text-primary);">🚀 Onboarding</h3>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Horas RH</label>
+                                    <input id="roi-hr-hours" type="number" min="0" value="16" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">R$/h RH</label>
+                                    <input id="roi-hr-hour-cost" type="number" min="0" value="80" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Horas gestor</label>
+                                    <input id="roi-manager-hours" type="number" min="0" value="12" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">R$/h gestor</label>
+                                    <input id="roi-manager-hour-cost" type="number" min="0" value="120" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Horas treinamento</label>
+                                    <input id="roi-training-hours" type="number" min="0" value="24" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">R$/h treinamento</label>
+                                    <input id="roi-training-hour-cost" type="number" min="0" value="60" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Materiais/equip (R$)</label>
+                                    <input id="roi-materials-cost" type="number" min="0" value="1500" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Ramp-up (meses)</label>
+                                    <input id="roi-ramp-months" type="number" min="1" value="3" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Déficit produtividade (%)</label>
+                                    <input id="roi-ramp-deficit" type="number" min="0" max="100" value="40" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Extra cobertura (R$)</label>
+                                    <input id="roi-coverage-cost" type="number" min="0" value="2000" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                </div>
                             </div>
                         </div>
 
-                        <div class="lg:col-span-1 space-y-6">
-                            <h3 class="text-xl font-bold" style="color: var(--text-primary);">Impacto esperado com Factorial</h3>
-                            <div>
-                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Redução de turnover (%)</label>
-                                <input id="roi-turnover-reduction" type="number" min="0" max="100" value="15" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
+                        <!-- Melhorias e Resultados Detalhados -->
+                        <div class="grid lg:grid-cols-2 gap-8 mt-8">
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">🚀 Melhorias com Factorial</h3>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Redução turnover (%)</label>
+                                        <input id="roi-turnover-reduction-detailed" type="number" min="0" max="100" value="20" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Redução time-to-hire (%)</label>
+                                        <input id="roi-time-reduction-detailed" type="number" min="0" max="100" value="25" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Ganho produtividade (%)</label>
+                                        <input id="roi-productivity-gain-detailed" type="number" min="0" max="100" value="15" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Factorial (R$/mês/pessoa)</label>
+                                        <input id="roi-software-cost-detailed" type="number" min="0" value="25" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Redução do tempo de contratação (%)</label>
-                                <input id="roi-time-reduction" type="number" min="0" max="100" value="20" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
-                            </div>
-                            <div>
-                                <label class="block text-sm mb-1" style="color: var(--text-secondary);">Ganho de produtividade no onboarding (%)</label>
-                                <input id="roi-productivity-gain" type="number" min="0" max="100" value="10" class="w-full p-4 rounded-xl border bg-white/10 calculator-input" />
-                            </div>
-                            <p class="text-xs opacity-70" style="color: var(--text-secondary);">Observação: economias estimadas. Ajuste para sua realidade.</p>
-                        </div>
 
-                        <div class="lg:col-span-1 space-y-6">
-                            <h3 class="text-xl font-bold" style="color: var(--text-primary);">Resultados</h3>
-                            <div class="holographic-card p-4 rounded-xl">
-                                <div class="text-sm" style="color: var(--text-secondary);">Taxa de turnover</div>
-                                <div id="roi-turnover-rate" class="text-2xl font-bold">--</div>
-                            </div>
-                            <div class="holographic-card p-4 rounded-xl">
-                                <div class="text-sm" style="color: var(--text-secondary);">Custo anual de turnover</div>
-                                <div id="roi-turnover-cost" class="text-2xl font-bold">--</div>
-                            </div>
-                            <div class="holographic-card p-4 rounded-xl">
-                                <div class="text-sm" style="color: var(--text-secondary);">Economia (redução turnover)</div>
-                                <div id="roi-savings-turnover" class="text-2xl font-bold text-green-600">--</div>
-                            </div>
-                            <div class="holographic-card p-4 rounded-xl">
-                                <div class="text-sm" style="color: var(--text-secondary);">Economia (redução time-to-hire)</div>
-                                <div id="roi-savings-time" class="text-2xl font-bold text-green-600">--</div>
-                            </div>
-                            <div class="holographic-card p-4 rounded-xl">
-                                <div class="text-sm" style="color: var(--text-secondary);">Economia (onboarding melhor)</div>
-                                <div id="roi-savings-onboarding" class="text-2xl font-bold text-green-600">--</div>
-                            </div>
-                            <div class="holographic-card p-4 rounded-xl">
-                                <div class="text-sm" style="color: var(--text-secondary);">Benefício anual total</div>
-                                <div id="roi-total-benefit" class="text-2xl font-extrabold text-green-700">--</div>
-                            </div>
-                            <div class="holographic-card p-4 rounded-xl">
-                                <div class="text-sm" style="color: var(--text-secondary);">Investimento anual em software</div>
-                                <div id="roi-total-investment" class="text-2xl font-bold">--</div>
-                            </div>
-                            <div class="holographic-card p-4 rounded-xl">
-                                <div class="text-sm" style="color: var(--text-secondary);">ROI estimado</div>
-                                <div id="roi-percent" class="text-2xl font-extrabold">--</div>
+                            <div class="space-y-3">
+                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">📊 Breakdown Detalhado</h3>
+                                <div class="grid grid-cols-2 gap-2 text-sm">
+                                    <div class="holographic-card p-2 rounded">
+                                        <div class="text-xs opacity-70">Custos Rescisórios</div>
+                                        <div id="roi-severance-costs" class="font-bold">--</div>
+                                    </div>
+                                    <div class="holographic-card p-2 rounded">
+                                        <div class="text-xs opacity-70">Recrutamento</div>
+                                        <div id="roi-recruitment-costs" class="font-bold">--</div>
+                                    </div>
+                                    <div class="holographic-card p-2 rounded">
+                                        <div class="text-xs opacity-70">Vaga Aberta</div>
+                                        <div id="roi-vacancy-costs" class="font-bold">--</div>
+                                    </div>
+                                    <div class="holographic-card p-2 rounded">
+                                        <div class="text-xs opacity-70">Onboarding</div>
+                                        <div id="roi-onboarding-costs" class="font-bold">--</div>
+                                    </div>
+                                    <div class="holographic-card p-2 rounded">
+                                        <div class="text-xs opacity-70">Ramp-up</div>
+                                        <div id="roi-rampup-costs" class="font-bold">--</div>
+                                    </div>
+                                    <div class="holographic-card p-2 rounded">
+                                        <div class="text-xs opacity-70">Cobertura Extra</div>
+                                        <div id="roi-coverage-costs-result" class="font-bold">--</div>
+                                    </div>
+                                </div>
+                                <div class="holographic-card p-3 rounded-xl mt-4" style="background: linear-gradient(135deg, var(--brand-sunbeam), var(--brand-tangerine));">
+                                    <div class="text-sm text-white">Custo Total por Desligamento</div>
+                                    <div id="roi-cost-per-case" class="text-xl font-extrabold text-white">--</div>
+                                </div>
                             </div>
                         </div>
                     </div>
