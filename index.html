@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2098,6 +2096,58 @@ document.addEventListener("DOMContentLoaded", () => {
             script.src = 'advanced-features.js';
             script.onload = function() {
                 console.log('🚀 Ultimate Advanced Features Loaded Successfully!');
+                
+                // 🔍 DEBUG: Verificar se a calculadora ROI está funcionando
+                console.log('🔍 Verificando inicialização da calculadora ROI...');
+                
+                // Aguardar um pouco para garantir que tudo foi carregado
+                setTimeout(function() {
+                    // Verificar se a calculadora foi inicializada
+                    if (window.FactorialROICalculator) {
+                        console.log('✅ Calculadora ROI inicializada:', window.FactorialROICalculator);
+                    } else {
+                        console.log('❌ Calculadora ROI NÃO foi inicializada!');
+                        
+                        // Tentar inicializar manualmente
+                        if (typeof ROICalculator !== 'undefined') {
+                            console.log('🔄 Tentando inicializar manualmente...');
+                            try {
+                                window.FactorialROICalculator = new ROICalculator();
+                                console.log('✅ Calculadora inicializada manualmente!');
+                            } catch (e) {
+                                console.error('❌ Erro ao inicializar manualmente:', e);
+                            }
+                        } else {
+                            console.log('❌ Classe ROICalculator não encontrada!');
+                        }
+                    }
+                    
+                    // Verificar se o botão está funcionando
+                    const btn = document.getElementById('calculate-roi-btn');
+                    if (btn) {
+                        console.log('✅ Botão encontrado:', btn);
+                        
+                        // Adicionar event listener de teste se não houver nenhum
+                        if (!btn.hasAttribute('data-test-listener')) {
+                            btn.setAttribute('data-test-listener', 'true');
+                            btn.addEventListener('click', function(e) {
+                                console.log('🎯 Botão clicado! Verificando calculadora...');
+                                
+                                if (window.FactorialROICalculator) {
+                                    console.log('✅ Calculadora disponível, executando cálculo...');
+                                    window.FactorialROICalculator.performCalculation();
+                                } else {
+                                    console.log('❌ Calculadora não disponível!');
+                                    alert('Calculadora não está funcionando. Verifique o console para mais detalhes.');
+                                }
+                            });
+                            console.log('✅ Event listener de teste adicionado ao botão');
+                        }
+                    } else {
+                        console.log('❌ Botão NÃO encontrado!');
+                    }
+                }, 1000); // Aguardar 1 segundo
+                
                 // Ensure the currency calculator is initialized even if the script loaded after DOMContentLoaded
                 try {
                     const hasCalculator = document.getElementById('amount-input');
@@ -2128,6 +2178,47 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, index * 200);
                 });
             }, 100);
+        });
+        
+        // 🔍 DEBUG: Verificar se a calculadora ROI está funcionando
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔍 Verificando inicialização da calculadora ROI...');
+            
+            // Aguardar um pouco para o script advanced-features.js carregar
+            setTimeout(function() {
+                console.log('🔍 Verificando após delay...');
+                
+                // Verificar se a calculadora foi inicializada
+                if (window.FactorialROICalculator) {
+                    console.log('✅ Calculadora ROI inicializada:', window.FactorialROICalculator);
+                } else {
+                    console.log('❌ Calculadora ROI NÃO foi inicializada!');
+                    
+                    // Tentar inicializar manualmente
+                    if (typeof ROICalculator !== 'undefined') {
+                        console.log('🔄 Tentando inicializar manualmente...');
+                        try {
+                            window.FactorialROICalculator = new ROICalculator();
+                            console.log('✅ Calculadora inicializada manualmente!');
+                        } catch (e) {
+                            console.error('❌ Erro ao inicializar manualmente:', e);
+                        }
+                    } else {
+                        console.log('❌ Classe ROICalculator não encontrada!');
+                    }
+                }
+                
+                // Verificar se o botão está funcionando
+                const btn = document.getElementById('calculate-roi-btn');
+                if (btn) {
+                    console.log('✅ Botão encontrado:', btn);
+                    // Verificar se já tem event listeners
+                    const clone = btn.cloneNode(true);
+                    console.log('🔍 Botão clonado para teste:', clone);
+                } else {
+                    console.log('❌ Botão NÃO encontrado!');
+                }
+            }, 2000); // Aguardar 2 segundos
         });
     </script>
 

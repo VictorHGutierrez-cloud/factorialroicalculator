@@ -1832,7 +1832,40 @@ class ROICalculator {
 
 // Initialize ROI Calculator when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('roi-employees')) {
-        window.FactorialROICalculator = new ROICalculator();
+    console.log('🔍 DOMContentLoaded: Verificando se a calculadora ROI pode ser inicializada...');
+    
+    // Verificar se o elemento existe
+    const roiEmployeesElement = document.getElementById('roi-employees');
+    if (roiEmployeesElement) {
+        console.log('✅ Elemento roi-employees encontrado, inicializando calculadora...');
+        try {
+            window.FactorialROICalculator = new ROICalculator();
+            console.log('✅ Calculadora ROI inicializada com sucesso:', window.FactorialROICalculator);
+        } catch (error) {
+            console.error('❌ Erro ao inicializar calculadora ROI:', error);
+        }
+    } else {
+        console.log('❌ Elemento roi-employees não encontrado. Calculadora não será inicializada.');
+    }
+});
+
+// Fallback: Tentar inicializar quando a janela carregar completamente
+window.addEventListener('load', () => {
+    console.log('🚀 Window load: Verificando se a calculadora ROI foi inicializada...');
+    
+    if (!window.FactorialROICalculator) {
+        console.log('🔄 Calculadora não inicializada, tentando novamente...');
+        
+        const roiEmployeesElement = document.getElementById('roi-employees');
+        if (roiEmployeesElement) {
+            try {
+                window.FactorialROICalculator = new ROICalculator();
+                console.log('✅ Calculadora ROI inicializada no fallback:', window.FactorialROICalculator);
+            } catch (error) {
+                console.error('❌ Erro no fallback da calculadora ROI:', error);
+            }
+        }
+    } else {
+        console.log('✅ Calculadora ROI já inicializada:', window.FactorialROICalculator);
     }
 });
