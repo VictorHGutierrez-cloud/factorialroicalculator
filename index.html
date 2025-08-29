@@ -156,7 +156,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0f172a, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #25253D, #FF355E, #FF9153);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -195,17 +195,24 @@
             opacity: 0.8;
         }
         :root {
-            --primary: #1e3a8a;
-            --secondary: #f59e0b;
-            --accent: #10b981;
-            --dark: #0f172a;
+            /* Factorial RH Brand */
+            --brand-radical: #FF355E; /* Radical Red */
+            --brand-viridian: #07A2AD; /* Viridian Green */
+            --brand-sunbeam: #FFB940; /* Sunbeam */
+            --brand-tangerine: #FF9153; /* Tangerine */
+            --brand-midnight: #25253D; /* Midnight */
+
+            --primary: var(--brand-midnight);
+            --secondary: var(--brand-sunbeam);
+            --accent: var(--brand-viridian);
+            --dark: var(--brand-midnight);
             --light: #f8fafc;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --neon-blue: #00d4ff;
-            --neon-orange: #ff6b35;
-            --neon-green: #00ff88;
-            --cyber-purple: #8b5cf6;
-            --gold: #ffd700;
+            --gradient: linear-gradient(135deg, var(--brand-radical) 0%, var(--brand-tangerine) 50%, var(--brand-sunbeam) 100%);
+            --neon-blue: var(--brand-viridian);
+            --neon-orange: var(--brand-tangerine);
+            --neon-green: var(--brand-viridian);
+            --cyber-purple: var(--brand-radical);
+            --gold: var(--brand-sunbeam);
             --platinum: #e5e4e2;
             
             /* Dark mode variables */
@@ -214,7 +221,7 @@
             --bg-tertiary: #f1f5f9;
             --text-primary: #0f172a;
             --text-secondary: #475569;
-            --text-accent: #1e3a8a;
+            --text-accent: var(--brand-radical);
             --border-color: #e2e8f0;
             --shadow-color: rgba(0, 0, 0, 0.1);
         }
@@ -243,7 +250,7 @@
         }
         
         .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            background: linear-gradient(135deg, var(--brand-radical) 0%, var(--brand-tangerine) 50%, var(--brand-sunbeam) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -256,9 +263,9 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(7, 162, 173, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 145, 83, 0.25) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 185, 64, 0.2) 0%, transparent 50%);
             animation: pulse-glow 8s ease-in-out infinite alternate;
         }
         
@@ -305,11 +312,11 @@
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: linear-gradient(135deg, var(--brand-sunbeam), var(--brand-tangerine));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+            text-shadow: 0 0 30px rgba(255, 185, 64, 0.5);
         }
         
         .neon-text {
@@ -371,7 +378,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, var(--brand-radical), var(--brand-viridian));
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
@@ -397,9 +404,9 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-orange));
+            background: linear-gradient(90deg, var(--brand-viridian), var(--brand-tangerine));
             transition: width 0.3s ease;
-            box-shadow: 0 0 10px var(--neon-blue);
+            box-shadow: 0 0 10px var(--brand-viridian);
         }
         
         .nav-link:hover::after {
@@ -422,7 +429,7 @@
         }
         
         .cyber-button {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--brand-radical), var(--brand-tangerine));
             border: none;
             color: white;
             font-family: 'Inter', sans-serif;
@@ -626,8 +633,8 @@
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
             <div class="loading-spinner"></div>
-            <div class="loading-text">🚀 INITIALIZING REVOLUTION</div>
-            <div class="loading-subtext">Preparing the ultimate Brazilian expansion experience...</div>
+            <div class="loading-text">🚀 INICIALIZANDO</div>
+            <div class="loading-subtext">Preparando sua calculadora de ROI em RH...</div>
         </div>
     </div>
     
@@ -764,48 +771,47 @@
     </div>
 </section>
 
-<!-- Market Section -->
+<!-- Insights Section (ROI & Pessoas) -->
 <section id="market" class="py-20 relative z-10" style="background: var(--bg-secondary);">
   <div class="max-w-7xl mx-auto px-6">
     <!-- Título -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--text-primary);">
-        <span class="cyber-text">Brazilian Market:</span> 
+        <span class="cyber-text">Impacto em Pessoas:</span> 
         <br>
-        <span class="neon-text">Massive Opportunity</span>
+        <span class="neon-text">Turnover, Tempo de Contratação e Produtividade</span>
         <br>
-        <span class="gradient-text">Meets Strategic Solution</span>
+        <span class="gradient-text">Onde a Factorial gera ROI</span>
       </h2>
       <p class="text-xl max-w-4xl mx-auto leading-relaxed" style="color: var(--text-secondary);">
-        Brazil presents <span class="font-bold" style="color: var(--text-accent);">significant opportunities</span>, but navigating the "Custo Brasil" requires 
-        <span class="font-bold" style="color: var(--text-accent);">integrated infrastructure</span> - and that's exactly what we deliver.
+        Use dados para priorizar ações de maior impacto financeiro: reduza desligamentos, acelere contratações e padronize onboarding.
       </p>
-      <div class="mt-6 inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
-        📊 Market Statistics
+      <div class="mt-6 inline-block bg-gradient-to-r from-[var(--brand-radical)] to-[var(--brand-tangerine)] text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+        📊 Indicadores chaves de RH
       </div>
     </div>
 
     <!-- Cards -->
     <div class="grid md:grid-cols-3 gap-8">
-             <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
-         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="65" style="color: var(--text-accent);">0</div>
-         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">% of U.S. Companies</h3>
-         <p class="font-medium" style="color: var(--text-secondary);">without presence in Brazil <span class="font-bold" style="color: var(--text-accent);">willing to start operations</span> - and we're here to make it happen!</p>
-         <div class="absolute bottom-0 right-0 text-6xl opacity-20">🚀</div>
-       </div>
-
-             <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
-         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="89" style="color: var(--text-accent);">0</div>
-         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">% of Established U.S. Companies</h3>
-         <p class="font-medium" style="color: var(--text-secondary);">plan to <span class="font-bold" style="color: var(--text-accent);">expand existing operations</span> in Brazil - let's accelerate their growth!</p>
-         <div class="absolute bottom-0 right-0 text-6xl opacity-20">📈</div>
+       <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
+         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="25" style="color: var(--text-accent);">0</div>
+         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">Turnover anual (%)</h3>
+         <p class="font-medium" style="color: var(--text-secondary);">Estimativa média para simulação. Ajuste na calculadora para sua realidade.</p>
+         <div class="absolute bottom-0 right-0 text-6xl opacity-20">🔁</div>
        </div>
 
        <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
-         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="9553" style="color: var(--text-accent);">0</div>
-         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">Brazilian Companies</h3>
-         <p class="font-medium" style="color: var(--text-secondary);">exported to the U.S., <span class="font-bold" style="color: var(--text-accent);">record trade relations</span> - and this is just the beginning!</p>
-         <div class="absolute bottom-0 right-0 text-6xl opacity-20">🌍</div>
+         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="30" style="color: var(--text-accent);">0</div>
+         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">Time-to-hire (dias)</h3>
+         <p class="font-medium" style="color: var(--text-secondary);">Tempo médio de preenchimento por vaga. Reduza com automações e SLAs.</p>
+         <div class="absolute bottom-0 right-0 text-6xl opacity-20">⏱️</div>
+       </div>
+
+       <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
+         <div class="stat-counter text-6xl font-extrabold mb-4" data-target="3" style="color: var(--text-accent);">0</div>
+         <h3 class="text-2xl font-bold mb-2 neon-text" style="color: var(--text-primary);">Ramp-up (meses)</h3>
+         <p class="font-medium" style="color: var(--text-secondary);">Tempo médio até plena produtividade. Padronize onboarding para diminuir.</p>
+         <div class="absolute bottom-0 right-0 text-6xl opacity-20">📈</div>
        </div>
     </div>
   </div>
@@ -854,29 +860,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    <!-- Fintech Section -->
+    <!-- Indicadores de RH (Gráfico) -->
     <section id="fintech" class="py-20" style="background: var(--bg-primary);">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    The <span class="cyber-text">FINTECH REVOLUTION</span>: 
+                    <span class="cyber-text">Indicadores estratégicos</span>:
                     <br>
-                    <span class="neon-text">PIX IS CHANGING EVERYTHING</span>
+                    <span class="neon-text">Benefício mensal vs. Investimento</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    <span class="font-bold text-green-600">BREAKING:</span> Modern, instant payment infrastructure is <span class="font-bold text-blue-600">NOT JUST ESSENTIAL</span> - 
-                    it's the <span class="font-bold text-purple-600">DIFFERENCE BETWEEN SUCCESS AND FAILURE</span> in Brazil!
+                    Veja como o benefício potencial se distribui ao longo de 12 meses em comparação ao investimento no software de RH.
                 </p>
-                <div class="mt-6 inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl animate-pulse">
-                    💳 PIX: THE PAYMENT REVOLUTION THAT'S TRANSFORMING BRAZIL
+                <div class="mt-6 inline-block bg-gradient-to-r from-[var(--brand-radical)] to-[var(--brand-tangerine)] text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl">
+                    📈 Visualização de ROI
                 </div>
             </div>
             
             <div class="chart-container bg-white rounded-2xl shadow-2xl p-8 relative overflow-hidden">
-                <!-- Enhanced chart header -->
-                <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-t-2xl">
-                    <h3 class="text-xl font-bold text-center">🚀 PIX Growth Analytics Dashboard</h3>
-                    <p class="text-center text-blue-100 text-sm mt-1">Real-time data showing Brazil's digital payment revolution</p>
+                <!-- Header -->
+                <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-[var(--brand-radical)] to-[var(--brand-tangerine)] text-white p-4 rounded-t-2xl">
+                    <h3 class="text-xl font-bold text-center">🚀 ROI Overview</h3>
+                    <p class="text-center text-white/80 text-sm mt-1">Benefício mensal estimado vs. investimento mensal</p>
                 </div>
                 
                 <!-- Chart canvas with proper spacing -->
@@ -884,19 +889,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     <canvas id="pixChart"></canvas>
                 </div>
                 
-                <!-- Enhanced chart footer -->
+                <!-- Footer -->
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-gray-50 to-gray-100 p-4 rounded-b-2xl border-t border-gray-200">
                     <div class="flex justify-between items-center text-sm text-gray-600">
-                        <span>📊 Data Source: Central Bank of Brazil</span>
-                        <span>🔄 Last Updated: December 2024</span>
-                        <span>📈 Growth Rate: +53% YoY</span>
+                        <span>📊 Fonte: Parâmetros da sua calculadora</span>
+                        <span>🔄 Atualiza a cada edição</span>
+                        <span>💡 Ajuste conforme sua realidade</span>
                     </div>
                 </div>
             </div>
             
-            <p class="text-center mt-6 text-gray-500">
-                Pix transactions grew <span class="font-bold text-green-600">53% in 2024</span>, primary payment rail in Brazil.
-            </p>
+            <p class="text-center mt-6 text-gray-500">Edite os campos na calculadora para atualizar o gráfico acima.</p>
         </div>
     </section>
 
@@ -905,55 +908,54 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    <span class="cyber-text">REVOLUTIONARY SOLUTIONS</span> for 
+                    <span class="cyber-text">RECURSOS DA FACTORIAL</span> para 
                     <br>
-                    <span class="neon-text">CRITICAL PAIN POINTS</span>
+                    <span class="neon-text">RESULTADOS EM RH</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    <span class="font-bold text-red-600">STOP SUFFERING:</span> The <span class="font-bold text-blue-600">LexBridge-Payoneer alliance</span> doesn't just tackle challenges - 
-                    we <span class="font-bold text-green-600">ELIMINATE THEM COMPLETELY</span> and transform your Brazilian expansion from nightmare to dream!
+                    Centralize processos, padronize operações e mensure ROI. Da atração ao desligamento, tudo em um só lugar.
                 </p>
-                <div class="mt-6 inline-block bg-gradient-to-r from-red-500 to-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl animate-pulse">
-                    ⚡ FROM CHALLENGES TO OPPORTUNITIES IN SECONDS!
+                <div class="mt-6 inline-block bg-gradient-to-r from-[var(--brand-radical)] to-[var(--brand-tangerine)] text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl">
+                    📌 Casos de uso de alto impacto
                 </div>
             </div>
             
             <!-- Solution Tabs -->
             <div class="flex justify-center mb-12 gap-4 flex-wrap">
                 <button class="solution-tab active bg-blue-100 text-blue-900 px-6 py-3 rounded-full font-semibold" data-tab="compliance">
-                    🏛️ Compliance & Labor
+                    🏛️ People & Compliance
                 </button>
                 <button class="solution-tab bg-green-100 text-green-900 px-6 py-3 rounded-full font-semibold" data-tab="fx">
-                    💰 FX & Payments
+                    🎯 Recrutamento & Seleção
                 </button>
                 <button class="solution-tab bg-purple-100 text-purple-900 px-6 py-3 rounded-full font-semibold" data-tab="onboarding">
-                    🚀 Onboarding & Scale
+                    🚀 Onboarding & Integração
                 </button>
             </div>
             
             <!-- Tab Contents -->
             <div id="compliance" class="tab-content">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Navigating the Regulatory Labyrinth</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">People & Compliance: Governança e Conformidade</h3>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left">
                             <thead>
                                 <tr class="border-b-2 border-gray-200">
-                                    <th class="p-4 font-bold text-lg">Challenge</th>
-                                    <th class="p-4 font-bold text-lg text-red-600">Operational Pain Point</th>
-                                    <th class="p-4 font-bold text-lg text-green-600">The Alliance Solution</th>
+                                    <th class="p-4 font-bold text-lg">Desafio</th>
+                                    <th class="p-4 font-bold text-lg text-red-600">Dor Operacional</th>
+                                    <th class="p-4 font-bold text-lg text-green-600">Como a Factorial ajuda</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-semibold">Labor Law (CLT) & Misclassification Risk</td>
-                                    <td class="p-4 text-red-600">Fines, lawsuits, and reputational damage from complex labor laws.</td>
-                                    <td class="p-4 text-green-700"><strong>Payoneer's EOR</strong> handles compliant hiring and payroll. <strong>LexBridge</strong> provides strategic legal counsel.</td>
+                                    <td class="p-4 font-semibold">Gestão de documentos e compliance (CLT/eSocial)</td>
+                                    <td class="p-4 text-red-600">Risco de não conformidade, controles manuais e retrabalho.</td>
+                                    <td class="p-4 text-green-700">Armazenamento seguro, assinaturas, políticas e trilhas de aprovação centralizadas.</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-4 font-semibold">Tax & Financial Reporting</td>
-                                    <td class="p-4 text-red-600">High administrative burden and non-compliance risk in a complex tax system.</td>
-                                    <td class="p-4 text-green-700"><strong>Payoneer's platform</strong> automates tax form collection. <strong>LexBridge</strong> advises on tax optimization.</td>
+                                    <td class="p-4 font-semibold">Políticas, férias e ausências</td>
+                                    <td class="p-4 text-red-600">Processos descentralizados e baixa visibilidade.</td>
+                                    <td class="p-4 text-green-700">Regras configuráveis, fluxos de aprovação e relatórios de gestão.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -963,36 +965,36 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div id="fx" class="tab-content hidden">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Eliminating FX Costs and Volatility</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Recrutamento & Seleção (ATS)</h3>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left">
                             <thead>
                                 <tr class="border-b-2 border-gray-200">
-                                    <th class="p-4 font-bold text-lg">Criterion</th>
-                                    <th class="p-4 font-bold text-lg text-red-600">Traditional (SWIFT/Wire)</th>
-                                    <th class="p-4 font-bold text-lg text-green-600">Payoneer FX & Payment Solution</th>
+                                    <th class="p-4 font-bold text-lg">Critério</th>
+                                    <th class="p-4 font-bold text-lg text-red-600">Processo Manual</th>
+                                    <th class="p-4 font-bold text-lg text-green-600">Factorial ATS</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-semibold">Speed</td>
-                                    <td class="p-4">Days or weeks</td>
-                                    <td class="p-4 font-bold text-green-600">Seconds to minutes</td>
+                                    <td class="p-4 font-semibold">Velocidade</td>
+                                    <td class="p-4">Demorado, tarefas repetitivas</td>
+                                    <td class="p-4 font-bold text-green-600">Automação de triagem e comunicação</td>
                                 </tr>
                                 <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-semibold">Cost</td>
-                                    <td class="p-4">High fees & hidden costs</td>
-                                    <td class="p-4 font-bold text-green-600">Low, competitive rates</td>
+                                    <td class="p-4 font-semibold">Custo</td>
+                                    <td class="p-4">Alto custo por vaga</td>
+                                    <td class="p-4 font-bold text-green-600">Redução de tempo-to-hire e retrabalho</td>
                                 </tr>
                                 <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-semibold">Transparency</td>
-                                    <td class="p-4">Unpredictable rates, no visibility</td>
-                                    <td class="p-4 font-bold text-green-600">Full transparency, no hidden fees</td>
+                                    <td class="p-4 font-semibold">Transparência</td>
+                                    <td class="p-4">Baixa visibilidade do pipeline</td>
+                                    <td class="p-4 font-bold text-green-600">Pipeline visual, SLAs e relatórios</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-4 font-semibold">Complexity</td>
-                                    <td class="p-4">Manual process, multiple banks</td>
-                                    <td class="p-4 font-bold text-green-600">Simplified, automated platform</td>
+                                    <td class="p-4 font-semibold">Complexidade</td>
+                                    <td class="p-4">Dispersão de ferramentas</td>
+                                    <td class="p-4 font-bold text-green-600">Tudo em um único lugar</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1002,31 +1004,31 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div id="onboarding" class="tab-content hidden">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Simplifying Onboarding to Scale with Ease</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Onboarding padronizado e escalável</h3>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left">
                             <thead>
                                 <tr class="border-b-2 border-gray-200">
-                                    <th class="p-4 font-bold text-lg">Action</th>
-                                    <th class="p-4 font-bold text-lg text-red-600">Traditional Onboarding</th>
-                                    <th class="p-4 font-bold text-lg text-green-600">Payoneer WFM Solution</th>
+                                    <th class="p-4 font-bold text-lg">Ação</th>
+                                    <th class="p-4 font-bold text-lg text-red-600">Convencional</th>
+                                    <th class="p-4 font-bold text-lg text-green-600">Com Factorial</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-semibold">Legal Entity Creation</td>
-                                    <td class="p-4 text-red-600">Months-long, high-cost process</td>
-                                    <td class="p-4 font-bold text-green-600">Not required; Payoneer acts as Employer of Record (EOR)</td>
+                                    <td class="p-4 font-semibold">Documentos e tarefas</td>
+                                    <td class="p-4 text-red-600">Planilhas e e-mails dispersos</td>
+                                    <td class="p-4 font-bold text-green-600">Checklists e assinaturas digitais</td>
                                 </tr>
                                 <tr class="border-b border-gray-100">
-                                    <td class="p-4 font-semibold">Employment Contracts</td>
-                                    <td class="p-4 text-red-600">Requires local legal counsel, high risk & bureaucracy</td>
-                                    <td class="p-4 font-bold text-green-600">Uses localized, compliant contracts via the platform</td>
+                                    <td class="p-4 font-semibold">Integrações</td>
+                                    <td class="p-4 text-red-600">Dados duplicados</td>
+                                    <td class="p-4 font-bold text-green-600">Integração com sistemas de folha e ponto</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-4 font-semibold">Payroll & Payments</td>
-                                    <td class="p-4 text-red-600">Complex, manual, multi-currency process</td>
-                                    <td class="p-4 font-bold text-green-600">Simplified, multi-currency payroll from a single dashboard</td>
+                                    <td class="p-4 font-semibold">Métricas</td>
+                                    <td class="p-4 text-red-600">Sem visibilidade</td>
+                                    <td class="p-4 font-bold text-green-600">Dashboards de produtividade e tempo</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1196,7 +1198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="container mx-auto px-6">
         <!-- Heading -->
         <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold text-[#003366] mb-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-[var(--brand-midnight)] mb-6">
                 <span class="cyber-text">POR QUE FACTORIAL?</span>
                 <br>
                 <span class="neon-text">EFICIÊNCIA, DADOS, ROI</span>
@@ -1214,32 +1216,26 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Cards -->
         <div class="grid md:grid-cols-3 gap-8">
             <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
-                <div class="text-4xl text-[#D4AF37] mb-4">🤝</div>
-                <h3 class="text-xl font-bold text-[#003366] mb-2">Referral Partnership</h3>
-                <p class="text-gray-600">
-                    Strengthen your value proposition by recommending Payoneer as the go-to financial solution, creating a seamless client experience from legal setup to financial operation.
-                </p>
+                <div class="text-4xl text-[var(--brand-sunbeam)] mb-4">🤝</div>
+                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Experiência do colaborador</h3>
+                <p class="text-gray-600">Onboarding e offboarding padronizados, trilhas de tarefas e documentos digitais.</p>
             </div>
             <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
-                <div class="text-4xl text-[#D4AF37] mb-4">🚀</div>
-                <h3 class="text-xl font-bold text-[#003366] mb-2">Dedicated Onboarding</h3>
-                <p class="text-gray-600">
-                    A dedicated Payoneer team will provide a white-glove onboarding experience for all referred clients, ensuring a smooth transition and rapid time-to-value.
-                </p>
+                <div class="text-4xl text-[var(--brand-sunbeam)] mb-4">🚀</div>
+                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Recrutamento & seleção</h3>
+                <p class="text-gray-600">Vagas, pipeline, automações, avaliações e relatórios de tempo de contratação.</p>
             </div>
             <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
-                <div class="text-4xl text-[#D4AF37] mb-4">📈</div>
-                <h3 class="text-xl font-bold text-[#003366] mb-2">Joint Marketing</h3>
-                <p class="text-gray-600">
-                    Co-author reports, host webinars, and create case studies to capture new market share and establish our alliance as the thought leader in U.S.-Brazil expansion.
-                </p>
+                <div class="text-4xl text-[var(--brand-sunbeam)] mb-4">📈</div>
+                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Relatórios estratégicos</h3>
+                <p class="text-gray-600">KPIs de turnover, ausências, headcount e ROI em um único painel.</p>
             </div>
         </div>
 
         <!-- CTA Button -->
         <div class="text-center mt-12">
             <a href="#roi" 
-               class="inline-block bg-[#D4AF37] text-[#003366] font-bold py-3 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity">
+               class="inline-block bg-[var(--brand-sunbeam)] text-[var(--brand-midnight)] font-bold py-3 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity">
                Calcular ROI agora
             </a>
         </div>
@@ -1280,13 +1276,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
             <div class="mb-12">
                 <h3 class="text-4xl font-bold mb-6">
-                    <span class="cyber-text">Payoneer</span> 
-                    <span class="text-yellow-400 text-5xl mx-4">⚡</span> 
-                    <span class="neon-text">LexBridge</span>
+                    <span class="cyber-text">Factorial RH</span>
                 </h3>
-                <p class="text-xl opacity-90 mb-6">The <span class="font-bold text-yellow-400">ULTIMATE STRATEGIC ALLIANCE</span> for Brazilian market expansion</p>
-                <div class="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-8 py-4 rounded-full font-bold text-lg shadow-2xl animate-pulse">
-                    🚀 READY TO REVOLUTIONIZE YOUR BUSINESS?
+                <p class="text-xl opacity-90 mb-6">Tecnologia de RH para simplificar processos e potencializar resultados.</p>
+                <div class="inline-block bg-gradient-to-r from-[var(--brand-radical)] to-[var(--brand-tangerine)] text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl">
+                    🚀 Pronto para calcular seu ROI?
                 </div>
             </div>
             
@@ -1295,23 +1289,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="holographic-card p-6 rounded-xl">
                     <h4 class="text-xl font-bold mb-4 neon-text">🚀 Get Started Today</h4>
                     <p class="mb-4">Ready to conquer the Brazilian market? Let's make it happen!</p>
-                    <a href="mailto:partnerships@payoneer.com?subject=LexBridge%20Partnership%20Inquiry" 
-                       class="cyber-button inline-block px-6 py-3 rounded-lg">
-                        📧 Contact Us Now
-                    </a>
+                    <a href="#roi" class="cyber-button inline-block px-6 py-3 rounded-lg">📊 Abrir calculadora</a>
                 </div>
                 <div class="holographic-card p-6 rounded-xl">
                     <h4 class="text-xl font-bold mb-4 neon-text">💡 Learn More</h4>
                     <p class="mb-4">Discover how this alliance can transform your business strategy</p>
-                    <a href="#solution" class="cyber-button inline-block px-6 py-3 rounded-lg">
-                        🔍 Explore Solutions
-                    </a>
+                    <a href="#solution" class="cyber-button inline-block px-6 py-3 rounded-lg">🔍 Ver recursos</a>
                 </div>
             </div>
             
             <div class="border-t border-gray-700 pt-8">
-                <p class="text-lg">&copy; 2025 Payoneer Inc. All rights reserved.</p>
-                <p class="text-sm mt-2 opacity-75">The most powerful strategic partnership proposal in Brazilian expansion history.</p>
+                <p class="text-lg">&copy; 2025 Factorial RH. Todos os direitos reservados.</p>
+                <p class="text-sm mt-2 opacity-75">ROI em RH de forma simples, visual e mensurável.</p>
                 <div class="mt-4 flex justify-center space-x-4">
                     <span class="text-yellow-400">⚡</span>
                     <span class="text-blue-400">🚀</span>
@@ -1331,14 +1320,14 @@ document.addEventListener("DOMContentLoaded", () => {
         particlesJS('particles-js', {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: ['#00d4ff', '#ff6b35', '#8b5cf6', '#00ff88'] },
+                color: { value: ['#07A2AD', '#FF9153', '#FFB940', '#FF355E'] },
                 shape: { type: 'circle' },
                 opacity: { value: 0.5, random: false },
                 size: { value: 3, random: true },
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: '#00d4ff',
+                    color: '#07A2AD',
                     opacity: 0.4,
                     width: 1
                 },
@@ -1504,252 +1493,31 @@ document.addEventListener("DOMContentLoaded", () => {
             observer.observe(el);
         });
         
-        // Enhanced Chart.js for Pix growth with multiple datasets and animations
+        // ROI overview chart (monthly)
         const ctx = document.getElementById('pixChart').getContext('2d');
-        
-        // Create gradient backgrounds for better visual appeal
-        const gradient1 = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient1.addColorStop(0, 'rgba(59, 130, 246, 0.9)');
-        gradient1.addColorStop(1, 'rgba(59, 130, 246, 0.3)');
-        
-        const gradient2 = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient2.addColorStop(0, 'rgba(245, 158, 11, 0.9)');
-        gradient2.addColorStop(1, 'rgba(245, 158, 11, 0.3)');
-        
-        const gradient3 = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient3.addColorStop(0, 'rgba(139, 92, 246, 0.9)');
-        gradient3.addColorStop(1, 'rgba(139, 92, 246, 0.3)');
-        
-        const gradient4 = ctx.createLinearGradient(0, 0, 0, 400);
-        gradient4.addColorStop(0, 'rgba(16, 185, 129, 0.9)');
-        gradient4.addColorStop(1, 'rgba(16, 185, 129, 0.3)');
-        
+        const gradientBenefit = ctx.createLinearGradient(0, 0, 0, 400);
+        gradientBenefit.addColorStop(0, 'rgba(255, 145, 83, 0.9)');
+        gradientBenefit.addColorStop(1, 'rgba(255, 145, 83, 0.3)');
+        const gradientInvestment = ctx.createLinearGradient(0, 0, 0, 400);
+        gradientInvestment.addColorStop(0, 'rgba(7, 162, 173, 0.9)');
+        gradientInvestment.addColorStop(1, 'rgba(7, 162, 173, 0.3)');
+
+        const labelsROI = Array.from({length: 12}, (_, i) => `M${i+1}`);
         const pixChart = new Chart(ctx, {
-            type: 'line',
+            type: 'bar',
             data: {
-                labels: ['Jan 2023', 'Mar 2023', 'Jun 2023', 'Sep 2023', 'Dec 2023', 'Mar 2024', 'Jun 2024', 'Sep 2024', 'Dec 2024'],
+                labels: labelsROI,
                 datasets: [
-                    {
-                        label: 'PIX Transactions (Billions)',
-                        data: [28.5, 32.1, 35.8, 38.2, 41.8, 45.2, 49.1, 53.8, 64.0],
-                        backgroundColor: gradient1,
-                        borderColor: 'rgba(59, 130, 246, 1)',
-                        borderWidth: 4,
-                        borderDash: [],
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 3,
-                        pointRadius: 8,
-                        pointHoverRadius: 12,
-                        pointHoverBackgroundColor: 'rgba(59, 130, 246, 1)',
-                        pointHoverBorderColor: '#ffffff',
-                        pointHoverBorderWidth: 4
-                    },
-                    {
-                        label: 'PIX Users (Millions)',
-                        data: [120, 135, 148, 158, 168, 178, 188, 198, 210],
-                        backgroundColor: gradient2,
-                        borderColor: 'rgba(245, 158, 11, 1)',
-                        borderWidth: 4,
-                        borderDash: [10, 5],
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: 'rgba(245, 158, 11, 1)',
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 3,
-                        pointRadius: 6,
-                        pointHoverRadius: 10,
-                        pointHoverBackgroundColor: 'rgba(245, 158, 11, 1)',
-                        pointHoverBorderColor: '#ffffff',
-                        pointHoverBorderWidth: 4
-                    },
-                    {
-                        label: 'Merchant Adoption (%)',
-                        data: [65, 68, 72, 75, 78, 81, 84, 87, 89],
-                        backgroundColor: gradient3,
-                        borderColor: 'rgba(139, 92, 246, 1)',
-                        borderWidth: 4,
-                        borderDash: [5, 10],
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: 'rgba(139, 92, 246, 1)',
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 3,
-                        pointRadius: 6,
-                        pointHoverRadius: 10,
-                        pointHoverBackgroundColor: 'rgba(139, 92, 246, 1)',
-                        pointHoverBorderColor: '#ffffff',
-                        pointHoverBorderWidth: 4
-                    },
-                    {
-                        label: 'Transaction Volume (BRL Trillions)',
-                        data: [2.8, 3.1, 3.4, 3.7, 4.1, 4.5, 4.9, 5.3, 6.2],
-                        backgroundColor: gradient4,
-                        borderColor: 'rgba(16, 185, 129, 1)',
-                        borderWidth: 4,
-                        borderDash: [15, 5],
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 3,
-                        pointRadius: 6,
-                        pointHoverRadius: 10,
-                        pointHoverBackgroundColor: 'rgba(16, 185, 129, 1)',
-                        pointHoverBorderColor: '#ffffff',
-                        pointHoverBorderWidth: 4
-                    }
+                    { label: 'Benefício mensal', data: new Array(12).fill(0), backgroundColor: gradientBenefit },
+                    { label: 'Investimento mensal', data: new Array(12).fill(0), backgroundColor: gradientInvestment }
                 ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                interaction: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                plugins: {  
-                    legend: {
-                        display: true,
-                        position: 'top',
-                        labels: {
-                            usePointStyle: true,
-                            pointStyle: 'circle',
-                            padding: 20,
-                            font: {
-                                size: 14,
-                                weight: 'bold',
-                                family: 'Inter'
-                            },
-                            color: 'var(--text-primary)'
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                        titleColor: '#ffffff',
-                        bodyColor: '#ffffff',
-                        borderColor: 'rgba(59, 130, 246, 0.8)',
-                        borderWidth: 2,
-                        cornerRadius: 12,
-                        padding: 16,
-                        titleFont: {
-                            size: 16,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 14
-                        },
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.y !== null) {
-                                    if (label.includes('Billions')) {
-                                        label += context.parsed.y.toFixed(1) + ' Billion';
-                                    } else if (label.includes('Millions')) {
-                                        label += context.parsed.y + ' Million';
-                                    } else if (label.includes('%')) {
-                                        label += context.parsed.y + '%';
-                                    } else if (label.includes('Trillions')) {
-                                        label += context.parsed.y.toFixed(1) + ' Trillion';
-                                    }
-                                }
-                                return label;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)',
-                            drawBorder: false,
-                            lineWidth: 1
-                        },
-                        border: {
-                            color: 'rgba(0, 0, 0, 0.2)',
-                            width: 2
-                        },
-                        ticks: {
-                            font: {
-                                size: 12,
-                                weight: '600',
-                                family: 'Inter'
-                            },
-                            color: 'var(--text-secondary)',
-                            padding: 8,
-                            callback: function(value, index, values) {
-                                if (value >= 1000) {
-                                    return (value / 1000).toFixed(1) + 'K';
-                                }
-                                return value;
-                            }
-                        }
-                    },
-                    x: {
-                        type: 'category',
-                        display: true,
-                        grid: {
-                            display: false
-                        },
-                        border: {
-                            color: 'rgba(0, 0, 0, 0.2)',
-                            width: 2
-                        },
-                        ticks: {
-                            font: {
-                                size: 12,
-                                weight: '600',
-                                family: 'Inter'
-                            },
-                            color: 'var(--text-secondary)',
-                            padding: 8,
-                            maxRotation: 45
-                        }
-                    }
-                },
-                elements: {
-                    point: {
-                        hoverRadius: 12,
-                        radius: 6
-                    }
-                },
-                animation: {
-                    duration: 2000,
-                    easing: 'easeInOutQuart',
-                    onProgress: function(animation) {
-                        const chart = animation.chart;
-                        const ctx = chart.ctx;
-                        const dataset = chart.data.datasets[0];
-                        const meta = chart.getDatasetMeta(0);
-                        
-                        if (!meta.hidden) {
-                            meta.data.forEach((point, index) => {
-                                const value = dataset.data[index];
-                                const position = point.getCenterPoint();
-                                
-                                ctx.save();
-                                ctx.textAlign = 'center';
-                                ctx.textBaseline = 'middle';
-                                ctx.font = 'bold 12px Inter';
-                                ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-                                
-                                if (animation.currentStep >= (index + 1) * (animation.numSteps / dataset.data.length)) {
-                                    ctx.fillText(value.toFixed(1), position.x, position.y - 20);
-                                }
-                                ctx.restore();
-                            });
-                        }
-                    }
-                }
+                plugins: { legend: { position: 'top', labels: { color: 'var(--text-primary)' } } },
+                scales: { y: { beginAtZero: true, ticks: { color: 'var(--text-secondary)' } }, x: { ticks: { color: 'var(--text-secondary)' } } },
+                animation: { duration: 800 }
             }
         });
         
