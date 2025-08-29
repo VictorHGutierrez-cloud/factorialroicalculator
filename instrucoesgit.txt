@@ -1,3 +1,24 @@
+# 1. Adicionar as mudanças à staging area
+git add -A
+
+# 2. Verificar o que foi preparado
+git status
+
+# 3. Fazer o commit
+git commit -m "teste: adicionando arquivo de exemplo"
+
+# 4. Enviar para GitHub (opcional)
+git push origin master
+
+
+
+
+
+
+
+
+
+
 Ótima pergunta! Vou explicar o fluxo completo do Git de forma clara e didática, como você pediu. 
 
 ## **🔧 Git: Como Funciona o Sistema de Controle de Versão**
