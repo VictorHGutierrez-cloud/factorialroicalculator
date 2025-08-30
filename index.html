@@ -1430,40 +1430,40 @@ document.addEventListener("DOMContentLoaded", () => {
                         <!-- COLUNA 1: INPUTS -->
                         <div class="space-y-8">
                             <!-- Dados da Empresa -->
-                            <div class="bg-white/5 backdrop-blur-sm border border-white/20 rounded-2xl p-6">
-                                <h3 class="text-xl font-bold mb-4 flex items-center" style="color: var(--text-primary);">
+                            <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 backdrop-blur-sm border-2 border-blue-200 dark:border-blue-600 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                                <h3 class="text-xl font-bold mb-4 flex items-center text-blue-800 dark:text-blue-200">
                                     📊 Dados da Sua Empresa
                                 </h3>
                                 <div class="space-y-4">
-                                    <div>
-                                        <label class="block text-sm font-medium mb-2" style="color: var(--text-secondary);">
-                                            Número total de colaboradores
+                                    <div class="bg-white/80 dark:bg-gray-800/80 p-4 rounded-xl border border-blue-100 dark:border-blue-700">
+                                        <label class="block text-sm font-medium mb-2 text-blue-700 dark:text-blue-300">
+                                            👥 Número total de colaboradores
                                         </label>
                                         <input 
                                             id="roi-employees" 
                                             type="number" 
                                             min="1" 
                                             value="200" 
-                                            class="w-full p-4 rounded-xl border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-white text-gray-900" 
+                                            class="w-full p-4 rounded-xl border-2 border-blue-300 dark:border-blue-500 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" 
                                             placeholder="Ex: 200"
                                         />
                                     </div>
-                                    <div>
-                                        <label class="block text-sm font-medium mb-2" style="color: var(--text-secondary);">
-                                            Desligamentos no último ano
+                                    <div class="bg-white/80 dark:bg-gray-800/80 p-4 rounded-xl border border-blue-100 dark:border-blue-700">
+                                        <label class="block text-sm font-medium mb-2 text-blue-700 dark:text-blue-300">
+                                            🔄 Desligamentos no último ano
                                         </label>
                                         <input 
                                             id="roi-separations" 
                                             type="number" 
                                             min="0" 
                                             value="50" 
-                                            class="w-full p-4 rounded-xl border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-white text-gray-900" 
+                                            class="w-full p-4 rounded-xl border-2 border-blue-300 dark:border-blue-500 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" 
                                             placeholder="Ex: 50"
                                         />
                                     </div>
-                                    <div>
-                                        <label class="block text-sm font-medium mb-2" style="color: var(--text-secondary);">
-                                            Salário médio mensal (R$)
+                                    <div class="bg-white/80 dark:bg-gray-800/80 p-4 rounded-xl border border-blue-100 dark:border-blue-700">
+                                        <label class="block text-sm font-medium mb-2 text-blue-700 dark:text-blue-300">
+                                            💰 Salário médio mensal (R$)
                                         </label>
                                         <input 
                                             id="roi-salary" 
@@ -1471,7 +1471,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                             min="0" 
                                             value="2500" 
                                             step="10" 
-                                            class="w-full p-4 rounded-xl border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-white text-gray-900" 
+                                            class="w-full p-4 rounded-xl border-2 border-blue-300 dark:border-blue-500 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-800 transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" 
                                             placeholder="Ex: 2500"
                                         />
                                     </div>
@@ -1479,14 +1479,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
 
                             <!-- Melhorias com Factorial -->
-                            <div class="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200 rounded-2xl p-6">
-                                <h3 class="text-xl font-bold mb-4 flex items-center text-blue-900">
+                            <div class="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-green-900/20 dark:via-emerald-900/20 dark:to-teal-900/20 border-2 border-green-200 dark:border-green-600 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                                <h3 class="text-xl font-bold mb-4 flex items-center text-green-800 dark:text-green-200">
                                     🚀 Melhorias com Factorial
                                 </h3>
                                 <div class="space-y-4">
-                                    <div>
-                                        <label class="block text-sm font-medium mb-2 text-blue-800">
-                                            Redução de turnover esperada (%)
+                                    <div class="bg-white/80 dark:bg-gray-800/80 p-4 rounded-xl border border-green-100 dark:border-green-700">
+                                        <label class="block text-sm font-medium mb-2 text-green-700 dark:text-green-300">
+                                            📉 Redução de turnover esperada (%)
                                         </label>
                                         <input 
                                             id="roi-turnover-reduction" 
@@ -1494,14 +1494,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                             min="0" 
                                             max="100" 
                                             value="20" 
-                                            class="w-full p-4 rounded-xl border-2 border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-white text-gray-900" 
+                                            class="w-full p-4 rounded-xl border-2 border-green-300 dark:border-green-500 focus:border-green-500 dark:focus:border-green-400 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-800 transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" 
                                             placeholder="Ex: 20"
                                         />
-                                        <p class="text-xs mt-1 text-blue-600">Factorial pode reduzir turnover através de melhor recrutamento, onboarding e gestão de pessoas</p>
+                                        <p class="text-xs mt-1 text-green-600 dark:text-green-400">Factorial pode reduzir turnover através de melhor recrutamento, onboarding e gestão de pessoas</p>
                                     </div>
-                                    <div>
-                                        <label class="block text-sm font-medium mb-2 text-blue-800">
-                                            Custo Factorial por colaborador/mês (R$)
+                                    <div class="bg-white/80 dark:bg-gray-800/80 p-4 rounded-xl border border-green-100 dark:border-green-700">
+                                        <label class="block text-sm font-medium mb-2 text-green-700 dark:text-green-300">
+                                            💎 Custo Factorial por colaborador/mês (R$)
                                         </label>
                                         <input 
                                             id="roi-software-cost" 
@@ -1509,10 +1509,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                             min="0" 
                                             value="" 
                                             step="1" 
-                                            class="w-full p-4 rounded-xl border-2 border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all bg-white text-gray-900" 
+                                            class="w-full p-4 rounded-xl border-2 border-green-300 dark:border-green-500 focus:border-green-500 dark:focus:border-green-400 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-800 transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" 
                                             placeholder="Digite o preço por colaborador"
                                         />
-                                        <p class="text-xs mt-1 text-blue-600">Preço estimado baseado nos planos Factorial</p>
+                                        <p class="text-xs mt-1 text-green-600 dark:text-green-400">Preço estimado baseado nos planos Factorial</p>
                                     </div>
                                 </div>
                             </div>
@@ -1521,11 +1521,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div class="text-center">
                                 <button 
                                     id="calculate-roi-btn" 
-                                    class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl text-lg shadow-lg transform hover:scale-105 transition-all duration-200 w-full"
+                                    class="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 text-white font-bold py-4 px-8 rounded-xl text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-full border-2 border-purple-400/30"
                                 >
                                     🧮 Calcular Meu ROI
                                 </button>
-                                <p class="text-sm mt-2 opacity-70" style="color: var(--text-secondary);">
+                                <p class="text-sm mt-2 text-gray-600 dark:text-gray-400">
                                     Clique para ver sua economia potencial
                                 </p>
                             </div>
