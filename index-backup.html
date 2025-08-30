@@ -706,35 +706,12 @@
         .solution-tab {
             transition: all 0.3s ease;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .solution-tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .solution-tab:hover::before {
-            left: 100%;
         }
         
         .solution-tab.active {
-            background: linear-gradient(135deg, var(--brand-radical), var(--brand-tangerine));
+            background: var(--primary);
             color: white;
             transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(255, 53, 94, 0.4);
-        }
-        
-        .solution-tab:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
         
         .chart-container {
@@ -1192,14 +1169,14 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             
             <!-- Solution Tabs -->
-            <div class="flex justify-center mb-12 gap-6 flex-wrap">
-                <button class="solution-tab active bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-blue-400" data-tab="compliance">
+            <div class="flex justify-center mb-12 gap-4 flex-wrap">
+                <button class="solution-tab active bg-blue-100 text-blue-900 px-6 py-3 rounded-full font-semibold" data-tab="compliance">
                     🏛️ People & Compliance
                 </button>
-                <button class="solution-tab bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-green-400" data-tab="fx">
+                <button class="solution-tab bg-green-100 text-green-900 px-6 py-3 rounded-full font-semibold" data-tab="fx">
                     🎯 Recrutamento & Seleção
                 </button>
-                <button class="solution-tab bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-purple-400" data-tab="onboarding">
+                <button class="solution-tab bg-purple-100 text-purple-900 px-6 py-3 rounded-full font-semibold" data-tab="onboarding">
                     🚀 Onboarding & Integração
                 </button>
             </div>
@@ -1209,25 +1186,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="gradient-border p-8">
                     <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">People & Compliance: Governança e Conformidade</h3>
                     <div class="overflow-x-auto">
-                        <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 shadow-2xl border border-blue-100 transform hover:scale-105 transition-all duration-300">
-                            <table class="w-full text-center">
+                        <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-6 shadow-lg border border-blue-100">
+                            <table class="w-full text-left">
                                 <thead>
                                     <tr class="border-b-2 border-blue-200">
-                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg shadow-md">🏛️ Desafio</th>
-                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">⚠️ Dor Operacional</th>
-                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Como a Factorial ajuda</th>
+                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg">Desafio</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg">Dor Operacional</th>
+                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg">Como a Factorial ajuda</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📋 Gestão de documentos e compliance (CLT/eSocial)</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🚨 Risco de não conformidade, controles manuais e retrabalho.</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔒 Armazenamento seguro, assinaturas, políticas e trilhas de aprovação centralizadas.</td>
+                                    <tr class="border-b border-blue-100 hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Gestão de documentos e compliance (CLT/eSocial)</td>
+                                        <td class="p-6 text-red-700 bg-red-50/80">Risco de não conformidade, controles manuais e retrabalho.</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">Armazenamento seguro, assinaturas, políticas e trilhas de aprovação centralizadas.</td>
                                     </tr>
-                                    <tr class="hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📅 Políticas, férias e ausências</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">📉 Processos descentralizados e baixa visibilidade.</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚙️ Regras configuráveis, fluxos de aprovação e relatórios de gestão.</td>
+                                    <tr class="hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Políticas, férias e ausências</td>
+                                        <td class="p-6 text-red-700 bg-red-50/80">Processos descentralizados e baixa visibilidade.</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">Regras configuráveis, fluxos de aprovação e relatórios de gestão.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1238,37 +1215,37 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div id="fx" class="tab-content hidden">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">🎯 Recrutamento & Seleção (ATS)</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Recrutamento & Seleção (ATS)</h3>
                     <div class="overflow-x-auto">
-                        <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 shadow-2xl border border-blue-100 transform hover:scale-105 transition-all duration-300">
-                            <table class="w-full text-center">
+                        <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-6 shadow-lg border border-blue-100">
+                            <table class="w-full text-left">
                                 <thead>
                                     <tr class="border-b-2 border-blue-200">
-                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg shadow-md">📊 Critério</th>
-                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Processo Manual</th>
-                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Factorial ATS</th>
+                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg">Critério</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg">Processo Manual</th>
+                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg">Factorial ATS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">⚡ Velocidade</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🐌 Demorado, tarefas repetitivas</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🚀 Automação de triagem e comunicação</td>
+                                    <tr class="border-b border-blue-100 hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Velocidade</td>
+                                        <td class="p-6 text-red-700 bg-red-50/80">Demorado, tarefas repetitivas</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">Automação de triagem e comunicação</td>
                                     </tr>
-                                    <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">💰 Custo</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">💸 Alto custo por vaga</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">💎 Redução de tempo-to-hire e retrabalho</td>
+                                    <tr class="border-b border-blue-100 hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Custo</td>
+                                        <td class="p-6 text-red-700 bg-red-50/80">Alto custo por vaga</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">Redução de tempo-to-hire e retrabalho</td>
                                     </tr>
-                                    <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">👁️ Transparência</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 Baixa visibilidade do pipeline</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔍 Pipeline visual, SLAs e relatórios</td>
+                                    <tr class="border-b border-blue-100 hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Transparência</td>
+                                        <td class="p-6 text-red-700 bg-red-50/80">Baixa visibilidade do pipeline</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">Pipeline visual, SLAs e relatórios</td>
                                     </tr>
-                                    <tr class="hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🧩 Complexidade</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🔀 Dispersão de ferramentas</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🎯 Tudo em um único lugar</td>
+                                    <tr class="hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Complexidade</td>
+                                        <td class="p-6 text-red-700 bg-red-50/80">Dispersão de ferramentas</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">Tudo em um único lugar</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1279,32 +1256,35 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div id="onboarding" class="tab-content hidden">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">🚀 Onboarding Padronizado e Escalável</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">Onboarding padronizado e escalável</h3>
                     <div class="overflow-x-auto">
-                        <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 shadow-2xl border border-blue-100 transform hover:scale-105 transition-all duration-300">
-                            <table class="w-full text-center">
+                        <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-6 shadow-lg border border-blue-100">
+                            <table class="w-full text-left">
                                 <thead>
                                     <tr class="border-b-2 border-blue-200">
-                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg shadow-md">🎯 Ação</th>
-                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Convencional</th>
-                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Com Factorial</th>
+                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg">Ação</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg">Convencional</th>
+                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg">Com Factorial</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📋 Documentos e tarefas</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">📧 Planilhas e e-mails dispersos</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">✅ Checklists e assinaturas digitais ilimitadas</td>
+                                    <tr class="border-b border-blue-100 hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Documentos e tarefas</td>
+                                        <td class="p-6 text-red-700 bg-red-50/80">Planilhas e e-mails dispersos</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">Checklists e assinaturas digitais ilimitadas</td>
+                                        </td>
                                     </tr>
-                                    <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🔗 Integrações</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🔄 Dados duplicados</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚡ API 100% aberta e documentada</td>
+                                    <tr class="border-b border-blue-100 hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Integrações</td>
+                                        <td class="p-6 text-red-700 bg-red-50/80">Dados duplicados</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">API 100% aberta e documentadatd>
+                                        </td>
                                     </tr>
-                                    <tr class="hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📊 Métricas</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 Sem visibilidade</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📈 Dashboards de produtividade e tempo</td>
+                                    <tr class="hover:bg-blue-50 transition-colors duration-200">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/60 rounded-l-lg">Métricas</td>
+                                        <td class="p-6 text-red-700 bg-green-50/80">Sem visibilidade</td>
+                                        <td class="p-6 text-green-700 bg-green-50/80 rounded-r-lg">Dashboards de produtividade e tempo</td>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
