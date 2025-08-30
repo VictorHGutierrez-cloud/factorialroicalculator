@@ -160,6 +160,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 53, 94, 0.4);
+            /* Garantir que o botão seja clicável */
+            pointer-events: auto;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
         
         .sidebar-toggle:hover {
@@ -167,135 +173,17 @@
             box-shadow: 0 6px 20px rgba(255, 53, 94, 0.6);
         }
         
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 9998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
+        /* Garantir que o botão sidebar seja sempre clicável */
+        .sidebar-toggle:active {
+            transform: scale(0.95);
         }
         
-        .sidebar-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Menu Lateral de Navegação */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 300px;
-            height: 100vh;
-            background: linear-gradient(135deg, #25253D, #FF355E);
-            z-index: 9999;
-            transition: left 0.3s ease-in-out;
-            overflow-y: auto;
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .sidebar.open {
-            left: 0;
-        }
-        
-        .sidebar-header {
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .sidebar-logo {
-            width: 120px;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-        
-        .sidebar-title {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        
-        .sidebar-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-        }
-        
-        .sidebar-nav {
-            padding: 2rem 0;
-        }
-        
-        .sidebar-nav-item {
-            display: block;
-            padding: 1rem 2rem;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-        
-        .sidebar-nav-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-left-color: #FFB940;
-            transform: translateX(10px);
-        }
-        
-        .sidebar-nav-item.active {
-            background: rgba(255, 255, 255, 0.15);
-            border-left-color: #FFB940;
-        }
-        
-        .sidebar-footer {
-            padding: 2rem;
-            text-align: center;
-            border-top: 2px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .sidebar-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .sidebar-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
-        }
-        
+        /* Forçar visibilidade e interatividade */
         .sidebar-toggle {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 10000;
-            background: #FF355E;
-            border: none;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 53, 94, 0.4);
-        }
-        
-        .sidebar-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(255, 53, 94, 0.6);
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
         }
         
         .sidebar-overlay {
@@ -981,61 +869,6 @@
             <div class="loading-spinner"></div>
             <div class="loading-text">🚀 INICIALIZANDO</div>
             <div class="loading-subtext">Preparando sua calculadora de ROI em RH...</div>
-        </div>
-    </div>
-    
-    <!-- Menu Lateral de Navegação -->
-    <button class="sidebar-toggle" id="sidebarToggle">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </button>
-    
-    <!-- Overlay do Menu -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <button class="sidebar-close" id="sidebarClose">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-        
-        <div class="sidebar-header">
-            <img src="Logo/Color/Factorial_logo_radical.png" alt="Factorial RH" class="sidebar-logo">
-            <div class="sidebar-title">Factorial RH</div>
-            <div class="sidebar-subtitle">Calculadora de ROI</div>
-        </div>
-        
-        <nav class="sidebar-nav">
-            <a href="#sobre" class="sidebar-nav-item" data-section="sobre">
-                🚀 Sobre
-            </a>
-            <a href="#market" class="sidebar-nav-item" data-section="market">
-                📊 Indicadores de RH
-            </a>
-            <a href="#fintech" class="sidebar-nav-item" data-section="fintech">
-                📈 Gráficos de ROI
-            </a>
-            <a href="#solution" class="sidebar-nav-item" data-section="solution">
-                🔧 Recursos da Factorial
-            </a>
-            <a href="#roi" class="sidebar-nav-item" data-section="roi">
-                🧮 Calculadora de ROI
-            </a>
-            <a href="#alliance" class="sidebar-nav-item" data-section="alliance">
-                🌟 Por que Factorial?
-            </a>
-        </nav>
-        
-        <div class="sidebar-footer">
-            <div class="text-white text-sm opacity-80">
-                💡 Use o menu para navegar rapidamente pelas seções
-            </div>
         </div>
     </div>
     
@@ -2158,22 +1991,61 @@ document.addEventListener("DOMContentLoaded", () => {
         const sidebarOverlay = document.getElementById('sidebarOverlay');
         const sidebarClose = document.getElementById('sidebarClose');
         
-        // Abrir menu lateral
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.add('open');
-            sidebarOverlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
+        // Debug: Verificar se os elementos foram encontrados
+        console.log('🔍 Debug Sidebar:', {
+            sidebarToggle: sidebarToggle,
+            sidebar: sidebar,
+            sidebarOverlay: sidebarOverlay,
+            sidebarClose: sidebarClose
         });
+        
+        // Teste adicional: Verificar se o botão está visível e clicável
+        if (sidebarToggle) {
+            console.log('🎯 Botão sidebar encontrado, verificando propriedades...');
+            console.log('📍 Posição:', sidebarToggle.getBoundingClientRect());
+            console.log('🎨 Estilos:', window.getComputedStyle(sidebarToggle));
+            
+            // Adicionar um event listener de teste simples
+            sidebarToggle.addEventListener('mousedown', () => {
+                console.log('🖱️ Mousedown detectado no botão sidebar!');
+            });
+            
+            sidebarToggle.addEventListener('mouseup', () => {
+                console.log('🖱️ Mouseup detectado no botão sidebar!');
+            });
+        }
+        
+        // Abrir menu lateral
+        if (sidebarToggle && sidebar && sidebarOverlay) {
+            sidebarToggle.addEventListener('click', (e) => {
+                console.log('🎯 Botão sidebar clicado!');
+                e.preventDefault();
+                sidebar.classList.add('open');
+                sidebarOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                console.log('✅ Sidebar aberto com sucesso!');
+            });
+        } else {
+            console.error('❌ Elementos do sidebar não encontrados!');
+        }
         
         // Fechar menu lateral
         function closeSidebar() {
-            sidebar.classList.remove('open');
-            sidebarOverlay.classList.remove('open');
-            document.body.style.overflow = '';
+            if (sidebar && sidebarOverlay) {
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+                console.log('✅ Sidebar fechado com sucesso!');
+            }
         }
         
-        sidebarClose.addEventListener('click', closeSidebar);
-        sidebarOverlay.addEventListener('click', closeSidebar);
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', closeSidebar);
+        }
+        
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        }
         
         // Fechar com ESC
         document.addEventListener('keydown', (e) => {
