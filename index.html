@@ -1202,6 +1202,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button class="solution-tab bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-purple-400" data-tab="onboarding">
                     🚀 Onboarding & Integração
                 </button>
+                <button class="solution-tab bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-orange-400" data-tab="time-tracking">
+                    ⏰ Relógio de Ponto
+                </button>
+                <button class="solution-tab bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-pink-400" data-tab="performance">
+                    📊 Avaliação de Desempenho
+                </button>
             </div>
             
             <!-- Tab Contents -->
@@ -1305,6 +1311,90 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📊 Métricas</td>
                                         <td class="p-6 text-red-700 bg-red-50/90">🙈 Sem visibilidade</td>
                                         <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📈 Dashboards de produtividade e tempo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nova Aba: Relógio de Ponto -->
+            <div id="time-tracking" class="tab-content hidden">
+                <div class="gradient-border p-8">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">⏰ Relógio de Ponto Inteligente</h3>
+                    <div class="overflow-x-auto">
+                        <div class="bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 rounded-2xl p-8 shadow-2xl border border-orange-100 transform hover:scale-105 transition-all duration-300">
+                            <table class="w-full text-center">
+                                <thead>
+                                    <tr class="border-b-2 border-orange-200">
+                                        <th class="p-6 font-bold text-lg text-orange-900 bg-gradient-to-r from-orange-100 to-amber-100 rounded-t-lg shadow-md">🎯 Funcionalidade</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Sistema Tradicional</th>
+                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Factorial Time Tracking</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-orange-100 hover:bg-orange-50/50 transition-all duration-300 hover:transform hover:scale-105">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📱 Registro de Ponto</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🏢 Relógios físicos e cartões</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📱 App mobile com geolocalização</td>
+                                    </tr>
+                                    <tr class="border-b border-orange-100 hover:bg-orange-50/50 transition-all duration-300 hover:transform hover:scale-105">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🌍 Trabalho Remoto</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🚫 Sem controle de jornada remota</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🏠 Registro de qualquer lugar com validação</td>
+                                    </tr>
+                                    <tr class="border-b border-orange-100 hover:bg-orange-50/50 transition-all duration-300 hover:transform hover:scale-105">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📊 Relatórios</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">📋 Planilhas manuais e cálculos</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📈 Relatórios automáticos de horas e banco</td>
+                                    </tr>
+                                    <tr class="hover:bg-orange-50/50 transition-all duration-300 hover:transform hover:scale-105">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🔗 Integração</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🔄 Sistemas separados e duplicação</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚡ Integração automática com gestão de pessoas</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nova Aba: Avaliação de Desempenho -->
+            <div id="performance" class="tab-content hidden">
+                <div class="gradient-border p-8">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">📊 Avaliação de Desempenho Estratégica</h3>
+                    <div class="overflow-x-auto">
+                        <div class="bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 rounded-2xl p-8 shadow-2xl border border-pink-100 transform hover:scale-105 transition-all duration-300">
+                            <table class="w-full text-center">
+                                <thead>
+                                    <tr class="border-b-2 border-pink-200">
+                                        <th class="p-6 font-bold text-lg text-pink-900 bg-gradient-to-r from-pink-100 to-rose-100 rounded-t-lg shadow-md">🎯 Processo</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Método Tradicional</th>
+                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Factorial Performance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-pink-100 hover:bg-pink-50/50 transition-all duration-300 hover:transform hover:scale-105">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📅 Ciclos de Avaliação</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">📝 Formulários impressos e manuais</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔄 Ciclos configuráveis e automatizados</td>
+                                    </tr>
+                                    <tr class="border-b border-pink-100 hover:bg-pink-50/50 transition-all duration-300 hover:transform hover:scale-105">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">👥 Feedback 360°</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 Avaliação apenas do gestor direto</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🌟 Feedback completo de pares e subordinados</td>
+                                    </tr>
+                                    <tr class="border-b border-pink-100 hover:bg-pink-50/50 transition-all duration-300 hover:transform hover:scale-105">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🎯 Metas e OKRs</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">📋 Metas não alinhadas com estratégia</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🎯 Metas alinhadas com OKRs da empresa</td>
+                                    </tr>
+                                    <tr class="hover:bg-pink-50/50 transition-all duration-300 hover:transform hover:scale-105">
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📈 Desenvolvimento</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🚫 Sem plano de desenvolvimento</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🚀 Planos de desenvolvimento personalizados</td>
                                     </tr>
                                 </tbody>
                             </table>
