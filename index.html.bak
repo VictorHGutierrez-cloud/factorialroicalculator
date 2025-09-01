@@ -936,28 +936,28 @@
         
         <nav class="sidebar-nav">
             <a href="#sobre" class="sidebar-nav-item" data-section="sobre">
-                🚀 About
+                🚀 Sobre
             </a>
             <a href="#market" class="sidebar-nav-item" data-section="market">
-                📊 RH Indicators
+                📊 Indicadores de RH
             </a>
             <a href="#fintech" class="sidebar-nav-item" data-section="fintech">
-                📈 ROI Charts
+                📈 Gráficos de ROI
             </a>
             <a href="#solution" class="sidebar-nav-item" data-section="solution">
-                🔧 Factorial Resources
+                🔧 Recursos da Factorial
             </a>
             <a href="#roi" class="sidebar-nav-item" data-section="roi">
                 🧮 ROI Calculator
             </a>
             <a href="#alliance" class="sidebar-nav-item" data-section="alliance">
-                🌟 Why Factorial?
+                🌟 Por que Factorial?
             </a>
         </nav>
         
         <div class="sidebar-footer">
             <div class="text-white text-sm opacity-80">
-                💡 Use the menu to quickly navigate sections
+                💡 Use o menu para navegar rapidamente pelas seções
             </div>
         </div>
     </div>
@@ -975,9 +975,9 @@
                     <img src="Logo/Color/Factorial_logo_radical.png" alt="Factorial RH" class="h-8 w-auto hidden sm:block" />
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#sobre" class="nav-link text-white font-medium">About</a>
+                    <a href="#sobre" class="nav-link text-white font-medium">Sobre</a>
                     <a href="#roi" class="nav-link text-white font-medium">ROI Calculator</a>
-                    <a href="#solution" class="nav-link text-white font-medium">Resources</a>
+                    <a href="#solution" class="nav-link text-white font-medium">Recursos</a>
                 </div>
                 <div class="flex items-center space-x-4">
                     <button id="theme-toggle" class="p-2 rounded-lg bg-[#FF355E] hover:bg-[#E62E4D] dark:bg-white/10 dark:hover:bg-white/20 transition-colors border border-[#E62E4D] dark:border-white/20 shadow-lg">
@@ -1005,21 +1005,21 @@
     <div class="text-center text-white z-10 px-6">
         <div class="radical-red-box-title">
             <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                <span class="hero-title-part">Calculate</span>
+                <span class="hero-title-part">Calcule</span>
                 <br>
-                <span class="hero-title-part">the savings from Turnover</span>
+                <span class="hero-title-part">a economia com Turnover</span>
                 <br>
-                <span class="hero-title-part">using Factorial</span>
+                <span class="hero-title-part">usando a Factorial</span>
             </h1>
         </div>
         <div class="radical-red-box-title">
             <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-white leading-relaxed">
-                Optimize recruitment, onboarding and retain talent! Discover the financial impact of reducing turnover and speeding up hires with Factorial HR.
+                Otimize recrutamento, onboarding e retenha talentos! Descubra o impacto financeiro de reduzir turnover e acelerar contratações com a Factorial RH.
             </p>
         </div>
         <div class="mb-8">
             <div class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold text-lg">
-                🚀 Real, measurable results for your HR 🦄
+                🚀 Resultados reais e mensuráveis para o seu RH 🦄
             </div>
         </div>
         <div class="flex flex-col sm:flex-row gap-6 justify-center">
@@ -1027,7 +1027,7 @@
                 <span class="relative z-10">Go to Calculator</span>
             </a>
             <a href="#solution" class="btn-energy cyber-button bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 relative overflow-hidden">
-                <span class="relative z-10">View Resources</span>
+                <span class="relative z-10">Ver Recursos</span>
             </a>
         </div>
     </div>
@@ -1101,17 +1101,17 @@
     <!-- Título -->
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--text-primary);">
-        <span class="cyber-text">Impact on People:</span> 
+        <span class="cyber-text">Impacto em Pessoas:</span> 
         <br>
-        <span class="neon-text">Turnover, Hiring Time and Productivity</span>
+        <span class="neon-text">Turnover, Tempo de Contratação e Produtividade</span>
         <br>
-        <span class="gradient-text">Where Factorial generates ROI</span>
+        <span class="gradient-text">Onde a Factorial gera ROI</span>
       </h2>
       <p class="text-xl max-w-4xl mx-auto leading-relaxed" style="color: var(--text-secondary);">
-        Use data to prioritize actions with the highest financial impact: reduce turnover, speed up hiring and standardize onboarding.
+        Use dados para priorizar ações de maior impacto financeiro: reduza desligamentos, acelere contratações e padronize onboarding.
       </p>
       <div class="mt-6 inline-block bg-gradient-to-r from-[var(--brand-radical)] to-[var(--brand-tangerine)] text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
-        📊 RH Key Indicators
+        📊 Indicadores chaves de RH
       </div>
     </div>
 
@@ -1119,22 +1119,22 @@
     <div class="grid md:grid-cols-3 gap-8">
              <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
          <div class="stat-counter text-6xl font-extrabold mb-4" data-target="25" style="color: var(--text-accent);">0</div>
-         <h3 class="text-2xl font-bold mb-2 neon-text font-fira" style="color: var(--text-primary);"> Actual Turnover (%)</h3>
-         <p class="font-medium font-fira" style="color: var(--text-secondary);">Average estimate for simulation. Adjust the calculator for your reality.</p>
+         <h3 class="text-2xl font-bold mb-2 neon-text font-fira" style="color: var(--text-primary);">Turnover anual (%)</h3>
+         <p class="font-medium font-fira" style="color: var(--text-secondary);">Estimativa média para simulação. Ajuste na calculadora para sua realidade.</p>
          <div class="absolute bottom-0 right-0 text-6xl opacity-20">🔁</div>
        </div>
 
              <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
          <div class="stat-counter text-6xl font-extrabold mb-4" data-target="30" style="color: var(--text-accent);">0</div>
-         <h3 class="text-2xl font-bold mb-2 neon-text font-fira" style="color: var(--text-primary);">Time-to-hire (days)</h3>
-         <p class="font-medium font-fira" style="color: var(--text-secondary);">Average time to fill a position. Reduce with automations and SLAs.</p>
+         <h3 class="text-2xl font-bold mb-2 neon-text font-fira" style="color: var(--text-primary);">Time-to-hire (dias)</h3>
+         <p class="font-medium font-fira" style="color: var(--text-secondary);">Tempo médio de preenchimento por vaga. Reduza com automações e SLAs.</p>
          <div class="absolute bottom-0 right-0 text-6xl opacity-20">⏱️</div>
        </div>
 
        <div class="holographic-card-ultimate card-hover p-8 rounded-2xl text-center relative overflow-hidden">
          <div class="stat-counter text-6xl font-extrabold mb-4" data-target="3" style="color: var(--text-accent);">0</div>
-         <h3 class="text-2xl font-bold mb-2 neon-text font-fira" style="color: var(--text-primary);">Ramp-up (months)</h3>
-         <p class="font-medium font-fira" style="color: var(--text-secondary);">Average time to full productivity. Standardize onboarding to reduce.</p>
+         <h3 class="text-2xl font-bold mb-2 neon-text font-fira" style="color: var(--text-primary);">Ramp-up (meses)</h3>
+         <p class="font-medium font-fira" style="color: var(--text-secondary);">Tempo médio até plena produtividade. Padronize onboarding para diminuir.</p>
          <div class="absolute bottom-0 right-0 text-6xl opacity-20">📈</div>
        </div>
     </div>
@@ -1191,15 +1191,15 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    <span class="cyber-text">FACTORIAL RESOURCES</span> FOR 
+                    <span class="cyber-text">RECURSOS DA FACTORIAL</span> PARA 
                     <br>
-                    <span class="neon-text">HR RESULTS</span>
+                    <span class="neon-text">RESULTADOS EM RH</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Centralize processes, standardize operations and develop your talent. From attraction to departure, everything in one place.
+                    Centralize processos, padronize operações e desenvolva seus talentos. Da atração ao desligamento, tudo em um só lugar.
                 </p>
                 <div class="mt-6 inline-block bg-gradient-to-r from-[var(--brand-radical)] to-[var(--brand-tangerine)] text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl">
-                    📌 High impact use cases
+                    📌 Casos de uso de alto impacto
                 </div>
             </div>
             
@@ -1209,43 +1209,43 @@ document.addEventListener("DOMContentLoaded", () => {
                     🏛️ People & Compliance
                 </button>
                 <button class="solution-tab bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-green-400" data-tab="fx">
-                    🎯 Recruitment 
+                    🎯 Recrutamento & Seleção
                 </button>
                 <button class="solution-tab bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-purple-400" data-tab="onboarding">
-                    🚀 Onboarding & Integration
+                    🚀 Onboarding & Integração
                 </button>
                 <button class="solution-tab bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-orange-400" data-tab="time-tracking">
-                    ⏰ Time Tracking
+                    ⏰ Relógio de Ponto
                 </button>
                 <button class="solution-tab bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-pink-400" data-tab="performance">
-                    📊 Performance Evaluation
+                    📊 Avaliação de Desempenho
                 </button>
             </div>
             
             <!-- Tab Contents -->
             <div id="compliance" class="tab-content">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">People & Compliance: Governance and Compliance</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">People & Compliance: Governança e Conformidade</h3>
                     <div class="overflow-x-auto">
                         <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 shadow-2xl border border-blue-100 transform hover:scale-105 transition-all duration-300">
                             <table class="w-full text-center">
                                 <thead>
                                     <tr class="border-b-2 border-blue-200">
                                         <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg shadow-md">🏛️ Desafio</th>
-                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">⚠️ Operational Pain</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">⚠️ Dor Operacional</th>
                                         <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Como a Factorial ajuda</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📋 Document Management and Compliance (CLT/eSocial)</td>
-                                            <td class="p-6 text-red-700 bg-red-50/90">🚨 Risk of non-compliance, manual controls and rework.</td>
-                                            <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔒 Secure storage, signatures, policies and approval trails centralized.</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📋 Gestão de documentos e compliance (CLT/eSocial)</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🚨 Risco de não conformidade, controles manuais e retrabalho.</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔒 Armazenamento seguro, assinaturas, políticas e trilhas de aprovação centralizadas.</td>
                                     </tr>
                                     <tr class="hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📅 Policies, vacations and absences</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">📉 Decentralized processes and low visibility.</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚙️ Configurable rules, approval flows and management reports.</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📅 Políticas, férias e ausências</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">📉 Processos descentralizados e baixa visibilidade.</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚙️ Regras configuráveis, fluxos de aprovação e relatórios de gestão.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1256,37 +1256,37 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div id="fx" class="tab-content hidden">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">🎯 Recruitment (ATS)</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">🎯 Recrutamento & Seleção (ATS)</h3>
                     <div class="overflow-x-auto">
                         <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 shadow-2xl border border-blue-100 transform hover:scale-105 transition-all duration-300">
                             <table class="w-full text-center">
                                 <thead>
                                     <tr class="border-b-2 border-blue-200">
-                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg shadow-md">📊 Criteria</th>
-                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Manual Process</th>
+                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg shadow-md">📊 Critério</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Processo Manual</th>
                                         <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Factorial ATS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">⚡ Speed</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🐌 Slow, repetitive tasks</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🚀 Automation of triage and communication</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">⚡ Velocidade</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🐌 Demorado, tarefas repetitivas</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🚀 Automação de triagem e comunicação</td>
                                     </tr>
                                     <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">💰 Cost</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">💸 High cost per position</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">💎 Reduction of time-to-hire and rework</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">💰 Custo</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">💸 Alto custo por vaga</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">💎 Redução de tempo-to-hire e retrabalho</td>
                                     </tr>
                                     <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">👁️ Transparency</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 Low visibility of the pipeline</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔍 Full visibility, SLAs and reports</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">👁️ Transparência</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 Baixa visibilidade do pipeline</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔍 Pipeline visual, SLAs e relatórios</td>
                                     </tr>
                                     <tr class="hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🧩 Complexity</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🔀 Excessive tools</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🎯 Everything in one place</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🧩 Complexidade</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🔀 Dispersão de ferramentas</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🎯 Tudo em um único lugar</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1297,32 +1297,32 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div id="onboarding" class="tab-content hidden">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">🚀 Onboarding Standardized and Scalable</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">🚀 Onboarding Padronizado e Escalável</h3>
                     <div class="overflow-x-auto">
                         <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-2xl p-8 shadow-2xl border border-blue-100 transform hover:scale-105 transition-all duration-300">
                             <table class="w-full text-center">
                                 <thead>
                                     <tr class="border-b-2 border-blue-200">
-                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg shadow-md">🎯 Action</th>
-                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Conventional</th>
-                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ With Factorial</th>
+                                        <th class="p-6 font-bold text-lg text-blue-900 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-t-lg shadow-md">🎯 Ação</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Convencional</th>
+                                        <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Com Factorial</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📋 Documents and tasks</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">📧 Spreadsheets and emails scattered</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">✅ Checklists and unlimited digital signatures</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📋 Documentos e tarefas</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">📧 Planilhas e e-mails dispersos</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">✅ Checklists e assinaturas digitais ilimitadas</td>
                                     </tr>
                                     <tr class="border-b border-blue-100 hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🔗 Integrations</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🔄 Duplicated data</td>
-                                            <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚡ 100% open and documented API</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🔗 Integrações</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🔄 Dados duplicados</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚡ API 100% aberta e documentada</td>
                                     </tr>
                                     <tr class="hover:bg-blue-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📊 Metrics</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 No visibility</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📈 Productivity and time dashboards</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📊 Métricas</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 Sem visibilidade</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📈 Dashboards de produtividade e tempo</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1334,37 +1334,37 @@ document.addEventListener("DOMContentLoaded", () => {
             <!-- Nova Aba: Relógio de Ponto -->
             <div id="time-tracking" class="tab-content hidden">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">⏰ Intelligent Time Tracking</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">⏰ Relógio de Ponto Inteligente</h3>
                     <div class="overflow-x-auto">
                         <div class="bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 rounded-2xl p-8 shadow-2xl border border-orange-100 transform hover:scale-105 transition-all duration-300">
                             <table class="w-full text-center">
                                 <thead>
                                     <tr class="border-b-2 border-orange-200">
-                                        <th class="p-6 font-bold text-lg text-orange-900 bg-gradient-to-r from-orange-100 to-amber-100 rounded-t-lg shadow-md">🎯 Functionality</th>
-                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Traditional System</th>
+                                        <th class="p-6 font-bold text-lg text-orange-900 bg-gradient-to-r from-orange-100 to-amber-100 rounded-t-lg shadow-md">🎯 Funcionalidade</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Sistema Tradicional</th>
                                         <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Factorial Time Tracking</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-orange-100 hover:bg-orange-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📱 Time Tracking</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🏢 Physical clocks and cards</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📱 App mobile with geolocation</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📱 Registro de Ponto</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🏢 Relógios físicos e cartões</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📱 App mobile com geolocalização</td>
                                     </tr>
                                     <tr class="border-b border-orange-100 hover:bg-orange-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🌍 Remote Work</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🚫 No remote work control</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🏠 Registration of any place with validation</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🌍 Trabalho Remoto</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🚫 Sem controle de jornada remota</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🏠 Registro de qualquer lugar com validação</td>
                                     </tr>
                                     <tr class="border-b border-orange-100 hover:bg-orange-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📊 Reports</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">📋 Spreadsheets and calculations</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📈 Automatic reports of hours and bank</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📊 Relatórios</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">📋 Planilhas manuais e cálculos</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">📈 Relatórios automáticos de horas e banco</td>
                                     </tr>
                                     <tr class="hover:bg-orange-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🔗 Integration</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🔄 Separated systems and duplication</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚡ Automatic integration with people management</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🔗 Integração</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🔄 Sistemas separados e duplicação</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">⚡ Integração automática com gestão de pessoas</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1376,37 +1376,37 @@ document.addEventListener("DOMContentLoaded", () => {
             <!-- Nova Aba: Avaliação de Desempenho -->
             <div id="performance" class="tab-content hidden">
                 <div class="gradient-border p-8">
-                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">📊 Strategic Performance Evaluation</h3>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">📊 Avaliação de Desempenho Estratégica</h3>
                     <div class="overflow-x-auto">
                         <div class="bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 rounded-2xl p-8 shadow-2xl border border-pink-100 transform hover:scale-105 transition-all duration-300">
                             <table class="w-full text-center">
                                 <thead>
                                     <tr class="border-b-2 border-pink-200">
-                                        <th class="p-6 font-bold text-lg text-pink-900 bg-gradient-to-r from-pink-100 to-rose-100 rounded-t-lg shadow-md">🎯 Process</th>
-                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Traditional Method</th>
+                                        <th class="p-6 font-bold text-lg text-pink-900 bg-gradient-to-r from-pink-100 to-rose-100 rounded-t-lg shadow-md">🎯 Processo</th>
+                                        <th class="p-6 font-bold text-lg text-red-700 bg-gradient-to-r from-red-100 to-pink-100 rounded-t-lg shadow-md">❌ Método Tradicional</th>
                                         <th class="p-6 font-bold text-lg text-green-700 bg-gradient-to-r from-green-100 to-emerald-100 rounded-t-lg shadow-md">✅ Factorial Performance</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="border-b border-pink-100 hover:bg-pink-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📅 Performance Evaluation Cycles</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">📝 Printed forms and manual</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔄 Configurable and automated cycles</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📅 Ciclos de Avaliação</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">📝 Formulários impressos e manuais</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🔄 Ciclos configuráveis e automatizados</td>
                                     </tr>
                                     <tr class="border-b border-pink-100 hover:bg-pink-50/50 transition-all duration-300 hover:transform hover:scale-105">
                                         <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">👥 Feedback 360°</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 Only direct manager evaluation</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🌟 Complete feedback from pairs and subordinates</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🙈 Avaliação apenas do gestor direto</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🌟 Feedback completo de pares e subordinados</td>
                                     </tr>
                                     <tr class="border-b border-pink-100 hover:bg-pink-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🎯 Metas and OKRs</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">📋 Metas not aligned with strategy</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🎯 Metas aligned with OKRs of the company</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">🎯 Metas e OKRs</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">📋 Metas não alinhadas com estratégia</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🎯 Metas alinhadas com OKRs da empresa</td>
                                     </tr>
                                     <tr class="hover:bg-pink-50/50 transition-all duration-300 hover:transform hover:scale-105">
-                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📈 Development</td>
-                                        <td class="p-6 text-red-700 bg-red-50/90">🚫 No development plan</td>
-                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🚀 Custom development plans</td>
+                                        <td class="p-6 font-semibold text-gray-800 bg-white/80 rounded-l-lg">📈 Desenvolvimento</td>
+                                        <td class="p-6 text-red-700 bg-red-50/90">🚫 Sem plano de desenvolvimento</td>
+                                        <td class="p-6 text-green-700 bg-green-50/90 rounded-r-lg">🚀 Planos de desenvolvimento personalizados</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1444,12 +1444,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             <!-- Dados da Empresa -->
                             <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 backdrop-blur-sm border-2 border-blue-200 dark:border-blue-600 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                                 <h3 class="text-xl font-bold mb-4 flex items-center text-blue-800 dark:text-blue-200">
-                                    📊 Your Company Data
+                                    📊 Dados da Sua Empresa
                                 </h3>
                                 <div class="space-y-4">
                                     <div class="bg-white/80 dark:bg-gray-800/80 p-4 rounded-xl border border-blue-100 dark:border-blue-700">
                                         <label class="block text-sm font-medium mb-2 text-blue-700 dark:text-blue-300">
-                                                👥 Total number of employees
+                                            👥 Número total de colaboradores
                                         </label>
                                         <input 
                                             id="roi-employees" 
@@ -1498,7 +1498,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <div class="space-y-4">
                                     <div class="bg-white/80 dark:bg-gray-800/80 p-4 rounded-xl border border-green-100 dark:border-green-700">
                                         <label class="block text-sm font-medium mb-2 text-green-700 dark:text-green-300">
-                                            📉 Expected turnover reduction (%)
+                                            📉 Redução de turnover esperada (%)
                                         </label>
                                         <input 
                                             id="roi-turnover-reduction" 
@@ -1509,11 +1509,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                             class="w-full p-4 rounded-xl border-2 border-green-300 dark:border-green-500 focus:border-green-500 dark:focus:border-green-400 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-800 transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" 
                                             placeholder="Ex: 20"
                                         />
-                                        <p class="text-xs mt-1 text-green-600 dark:text-green-400">Factorial can reduce turnover through better recruitment, onboarding and people management</p>
+                                        <p class="text-xs mt-1 text-green-600 dark:text-green-400">Factorial pode reduzir turnover através de melhor recrutamento, onboarding e gestão de pessoas</p>
                                     </div>
                                     <div class="bg-white/80 dark:bg-gray-800/80 p-4 rounded-xl border border-green-100 dark:border-green-700">
                                         <label class="block text-sm font-medium mb-2 text-green-700 dark:text-green-300">
-                                            💎 Factorial cost per employee/month (R$)
+                                            💎 Custo Factorial por colaborador/mês (R$)
                                         </label>
                                         <input 
                                             id="roi-software-cost" 
@@ -1524,7 +1524,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                             class="w-full p-4 rounded-xl border-2 border-green-300 dark:border-green-500 focus:border-green-500 dark:focus:border-green-400 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-800 transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" 
                                             placeholder="Digite o preço por colaborador"
                                         />
-                                        <p class="text-xs mt-1 text-green-600 dark:text-green-400">Estimated price based on Factorial plans</p>
+                                        <p class="text-xs mt-1 text-green-600 dark:text-green-400">Preço estimado baseado nos planos Factorial</p>
                                     </div>
                                 </div>
                             </div>
@@ -1633,73 +1633,73 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div id="content-detailed" class="tab-content hidden">
                         <div class="grid lg:grid-cols-4 gap-6">
                             <div class="lg:col-span-1 space-y-3">
-                                    <h3 class="text-sm font-bold" style="color: var(--text-primary);">📊 Basic Data</h3>
+                                <h3 class="text-sm font-bold" style="color: var(--text-primary);">📊 Dados Básicos</h3>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Employees</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Colaboradores</label>
                                     <input id="roi-employees-detailed" type="number" min="1" value="100" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Separations/year</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Desligamentos/ano</label>
                                     <input id="roi-separations-detailed" type="number" min="0" value="20" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Average salary (R$)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Salário médio (R$)</label>
                                     <input id="roi-salary-detailed" type="number" min="0" value="5000" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Benefits/Charges (%)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Encargos/Benefícios (%)</label>
                                     <input id="roi-benefits-percent" type="number" min="0" max="200" value="70" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                             </div>
 
                             <div class="lg:col-span-1 space-y-3">
-                                    <h3 class="text-sm font-bold" style="color: var(--text-primary);">💰 Severance Costs</h3>
+                                <h3 class="text-sm font-bold" style="color: var(--text-primary);">💰 Custos Rescisórios</h3>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Average Payout (USD)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">FGTS médio (R$)</label>
                                     <input id="roi-fgts-balance" type="number" min="0" value="15000" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                             </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Penalty (%)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Multa FGTS (%)</label>
                                     <input id="roi-fgts-penalty" type="number" min="0" max="50" value="40" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Notice period (days)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Aviso prévio (dias)</label>
                                     <input id="roi-notice-days" type="number" min="0" value="30" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Other costs (R$)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Outros custos (R$)</label>
                                     <input id="roi-other-severance" type="number" min="0" value="2000" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                         </div>
                     </div>
 
                             <div class="lg:col-span-1 space-y-3">
-                                <h3 class="text-sm font-bold" style="color: var(--text-primary);">🎯 Recruitment</h3>
+                                <h3 class="text-sm font-bold" style="color: var(--text-primary);">🎯 Recrutamento</h3>
                             <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Ads (USD)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Anúncios (R$)</label>
                                     <input id="roi-ads-cost" type="number" min="0" value="800" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                             </div>
                             <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Agency (USD)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Agência (R$)</label>
                                     <input id="roi-agency-cost" type="number" min="0" value="0" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                             </div>
                             <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Referral bonus (USD)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Bônus indicação (R$)</label>
                                     <input id="roi-referral-bonus" type="number" min="0" value="500" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Tests/Background (USD)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Testes/Background (R$)</label>
                                     <input id="roi-background-cost" type="number" min="0" value="200" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Days vacancy open</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Dias vaga aberta</label>
                                     <input id="roi-time-to-fill-detailed" type="number" min="1" value="45" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Daily value post (USD)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Valor diário posto (R$)</label>
                                     <input id="roi-daily-value-detailed" type="number" min="0" value="400" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Team coverage (%)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Cobertura equipe (%)</label>
                                     <input id="roi-coverage-percent" type="number" min="0" max="100" value="30" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                             </div>
                         </div>
@@ -1707,31 +1707,31 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div class="lg:col-span-1 space-y-3">
                                 <h3 class="text-sm font-bold" style="color: var(--text-primary);">🚀 Onboarding</h3>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">HR hours</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Horas RH</label>
                                     <input id="roi-hr-hours" type="number" min="0" value="16" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">USD/h HR</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">R$/h RH</label>
                                     <input id="roi-hr-hour-cost" type="number" min="0" value="80" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Manager hours</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Horas gestor</label>
                                     <input id="roi-manager-hours" type="number" min="0" value="12" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">USD/h manager</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">R$/h gestor</label>
                                     <input id="roi-manager-hour-cost" type="number" min="0" value="120" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                             </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Training hours</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Horas treinamento</label>
                                     <input id="roi-training-hours" type="number" min="0" value="24" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">USD
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">R$/h treinamento</label>
                                     <input id="roi-training-hour-cost" type="number" min="0" value="60" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Materials/equip (USD)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Materiais/equip (R$)</label>
                                     <input id="roi-materials-cost" type="number" min="0" value="1500" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
@@ -1739,11 +1739,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <input id="roi-ramp-months" type="number" min="1" value="3" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Productivity deficit (%)</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Déficit produtividade (%)</label>
                                     <input id="roi-ramp-deficit" type="number" min="0" max="100" value="40" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                                 <div>
-                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Extra coverage (USD</label>
+                                    <label class="block text-xs mb-1" style="color: var(--text-secondary);">Extra cobertura (R$)</label>
                                     <input id="roi-coverage-cost" type="number" min="0" value="2000" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                 </div>
                         </div>
@@ -1752,59 +1752,57 @@ document.addEventListener("DOMContentLoaded", () => {
                         <!-- Melhorias e Resultados  s -->
                         <div class="grid lg:grid-cols-2 gap-8 mt-8">
                             <div class="space-y-4">
-                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">🚀 Improvements with Factorial</h3>
+                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">🚀 Melhorias com Factorial</h3>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Turnover reduction (%)</label>
+                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Redução turnover (%)</label>
                                         <input id="roi-turnover-reduction-detailed" type="number" min="0" max="100" value="20" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                     </div>
                                     <div>
-                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Time-to-hire reduction (%)</label>
+                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Redução time-to-hire (%)</label>
                                         <input id="roi-time-reduction-detailed" type="number" min="0" max="100" value="25" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                     </div>
                                     <div>
-                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Productivity gain (%)</label>
+                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Ganho produtividade (%)</label>
                                         <input id="roi-productivity-gain-detailed" type="number" min="0" max="100" value="15" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                     </div>
                                     <div>
-                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Factorial (USD/month/person)</label>
+                                        <label class="block text-xs mb-1" style="color: var(--text-secondary);">Factorial (R$/mês/pessoa)</label>
                                         <input id="roi-software-cost-detailed" type="number" min="0" value="25" class="w-full p-2 text-sm rounded-lg border bg-white/10 calculator-input" />
                                     </div>
                                 </div>
                     </div>
 
                             <div class="space-y-3">
-                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">📊 Detailed Breakdown</h3>
+                                <h3 class="text-lg font-bold" style="color: var(--text-primary);">📊 Breakdown Detalhado</h3>
                                 <div class="grid grid-cols-2 gap-2 text-sm">
                                     <div class="holographic-card p-2 rounded">
-                                        <div class="text-xs opacity-70">Severance Costs</div>
+                                        <div class="text-xs opacity-70">Custos Rescisórios</div>
                                         <div id="roi-severance-costs" class="font-bold">--</div>
                         </div>
                                     <div class="holographic-card p-2 rounded">
-                                        <div class="text-xs opacity-70">Recruitment</div>
+                                        <div class="text-xs opacity-70">Recrutamento</div>
                                         <div id="roi-recruitment-costs" class="font-bold">--</div>
                                     </div>
                                     <div class="holographic-card p-2 rounded">
-                                        <div class="text-xs opacity-70">Vacancy Open</div>
+                                        <div class="text-xs opacity-70">Vaga Aberta</div>
                                         <div id="roi-vacancy-costs" class="font-bold">--</div>
                                     </div>
                                     <div class="holographic-card p-2 rounded">
                                         <div class="text-xs opacity-70">Onboarding</div>
                                         <div id="roi-onboarding-costs" class="font-bold">--</div>
-                                        <div id="roi-onboarding-costs" class="font-bold">--</div>
                                     </div>
                                     <div class="holographic-card p-2 rounded">
                                         <div class="text-xs opacity-70">Ramp-up</div>
                                         <div id="roi-rampup-costs" class="font-bold">--</div>
-                                        <div id="roi-rampup-costs" class="font-bold">--</div>
                                     </div>
                                     <div class="holographic-card p-2 rounded">
-                                        <div class="text-xs opacity-70">Extra Coverage</div>
+                                        <div class="text-xs opacity-70">Cobertura Extra</div>
                                         <div id="roi-coverage-costs-result" class="font-bold">--</div>
                                     </div>
                                 </div>
                                 <div class="holographic-card p-3 rounded-xl mt-4" style="background: linear-gradient(135deg, var(--brand-sunbeam), var(--brand-tangerine));">
-                                    <div class="text-sm text-white">Total Cost per Separation</div>
+                                    <div class="text-sm text-white">Custo Total por Desligamento</div>
                                     <div id="roi-cost-per-case" class="text-xl font-extrabold text-white">--</div>
                                 </div>
                             </div>
@@ -1817,36 +1815,36 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                         <div class="grid md:grid-cols-2 gap-8">
                             <div>
-                                <h4 class="text-lg font-semibold text-gray-700 mb-4">📊 Turnover Costs (By Replacement)</h4>
+                                <h4 class="text-lg font-semibold text-gray-700 mb-4">📊 Custos de Turnover (Por Reposição)</h4>
                                 <div class="space-y-3 text-sm text-gray-600">
                                     <div class="flex justify-between">
-                                        <span>• HR hours (8h28min × USD24/h):</span>
+                                        <span>• Horas de RH (8h28min × R$24/h):</span>
                                         <span class="font-medium">R$ 203</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span>• Manager interviews (4h × USD47/h):</span>
+                                        <span>• Entrevistas gestores (4h × R$47/h):</span>
                                         <span class="font-medium">R$ 188</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span>• 3 months salary (your input):</span>
+                                        <span>• Salários 3 meses (seu input):</span>
                                         <span class="font-medium">Variável</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span>• Training (30h×USD30 + others):</span>
+                                        <span>• Treinamento (30h×R$30 + outros):</span>
                                         <span class="font-medium">R$ 1.636</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span>• Separations (simplified average):</span>
+                                        <span>• Rescisões (média simplificada):</span>
                                         <span class="font-medium">R$ 2.798</span>
                                     </div>
                                 </div>
                             </div>
                             
                             <div>
-                                <h4 class="text-lg font-semibold text-gray-700 mb-4">🚀 Benefits of Factorial</h4>
+                                <h4 class="text-lg font-semibold text-gray-700 mb-4">🚀 Benefícios da Factorial</h4>
                                 <div class="space-y-3 text-sm text-gray-600">
                                     <div class="bg-green-50 p-3 rounded-lg">
-                                        <strong class="text-green-800">Turnover Reduction:</strong>
+                                        <strong class="text-green-800">Redução de Turnover:</strong>
                                         <p class="mt-1">ATS automatizado, onboarding padronizado e melhor gestão de pessoas reduzem saídas.</p>
                                     </div>
                                     <div class="bg-blue-50 p-3 rounded-lg">
@@ -1863,8 +1861,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                         <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
                             <p class="text-sm text-yellow-800">
-                                <strong>💡 Note:</strong> Calculations based on Brazilian market data and HR studies. 
-                                Values may vary according to sector and company size. Use as an initial estimate.
+                                <strong>💡 Nota:</strong> Cálculos baseados em dados de mercado brasileiro e estudos de RH. 
+                                Valores podem variar conforme setor e porte da empresa. Use como estimativa inicial.
                             </p>
                         </div>
                     </div>
@@ -1875,10 +1873,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white p-6 rounded-t-3xl">
                                 <div class="flex items-center justify-center space-x-3">
                                     <div class="text-2xl">📈</div>
-                                    <h3 class="text-xl font-bold text-center">Monthly benefit evolution (12 months)</h3>
+                                    <h3 class="text-xl font-bold text-center">Evolução mensal do benefício (12 meses)</h3>
                                     <div class="text-2xl">🚀</div>
                                 </div>
-                                <p class="text-center text-blue-100 text-sm mt-2">Visualize the growth of ROI over time</p>
+                                <p class="text-center text-blue-100 text-sm mt-2">Visualize o crescimento do ROI ao longo do tempo</p>
                             </div>
                             
                             <!-- Container do gráfico com melhor espaçamento -->
@@ -1889,9 +1887,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             <!-- Footer informativo -->
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-b-3xl border-t border-blue-200">
                                 <div class="flex justify-between items-center text-sm text-gray-600">
-                                    <span>💡 Data based on your calculator</span>
-                                    <span>🔄 Update in real time</span>
-                                    <span>📊 Monthly accumulated ROI</span>
+                                    <span>💡 Dados baseados na sua calculadora</span>
+                                    <span>🔄 Atualiza em tempo real</span>
+                                    <span>📊 ROI acumulado mensal</span>
                                 </div>
                             </div>
                         </div>
@@ -1909,14 +1907,14 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Heading -->
         <div class="text-center mb-12">
             <h2 class="text-4xl md:text-5xl font-bold text-[var(--brand-midnight)] mb-6">
-                <span class="cyber-text">WHY FACTORIAL?</span>
+                <span class="cyber-text">POR QUE FACTORIAL?</span>
                 <br>
-                <span class="neon-text">EFFICIENCY, DATA, ROI</span>
+                <span class="neon-text">EFICIÊNCIA, DADOS, ROI</span>
                 <br>
-                <span class="gradient-text">IN ONE PLACE</span>
+                <span class="gradient-text">EM UM ÚNICO LUGAR</span>
             </h2>
             <p class="mt-4 text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                Centralize recruitment, onboarding, time, vacations, payroll and much more. Automate processes and measure results with strategic reports.
+                Centralize recrutamento, onboarding, ponto, férias, folha e muito mais. Automatize processos e mensure resultados com relatórios estratégicos.
             </p>
             <div class="mt-6 inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl">
                 🌟 Simples. Completo. Factorial.
@@ -1927,18 +1925,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="grid md:grid-cols-3 gap-8">
             <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
                 <div class="text-4xl text-[var(--brand-sunbeam)] mb-4">🤝</div>
-                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Employee experience</h3>
-                <p class="text-gray-600">Standardized onboarding and offboarding, task trails and digital documents.</p>
+                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Experiência do colaborador</h3>
+                <p class="text-gray-600">Onboarding e offboarding padronizados, trilhas de tarefas e documentos digitais.</p>
             </div>
             <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
                 <div class="text-4xl text-[var(--brand-sunbeam)] mb-4">🚀</div>
-                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Recruitment & selection</h3>
-                <p class="text-gray-600">Jobs, pipeline, automations, evaluations and time tracking reports.</p>
+                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Recrutamento & seleção</h3>
+                <p class="text-gray-600">Vagas, pipeline, automações, avaliações e relatórios de tempo de contratação.</p>
             </div>
             <div class="solution-card relative bg-[#F0F4F8] p-8 rounded-xl text-center opacity-0">
                 <div class="text-4xl text-[var(--brand-sunbeam)] mb-4">📈</div>
-                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Strategic reports</h3>
-                <p class="text-gray-600">KPIs of turnover, absences, headcount and ROI in one panel.</p>
+                <h3 class="text-xl font-bold text-[var(--brand-midnight)] mb-2">Relatórios estratégicos</h3>
+                <p class="text-gray-600">KPIs de turnover, ausências, headcount e ROI em um único painel.</p>
             </div>
         </div>
 
@@ -1988,7 +1986,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h3 class="text-4xl font-bold mb-6">
                     <span class="cyber-text">Factorial HR</span>
                 </h3>
-                <p class="text-xl opacity-90 mb-6">HR technology to simplify processes and maximize results.</p>
+                <p class="text-xl opacity-90 mb-6">Tecnologia de RH para simplificar processos e potencializar resultados.</p>
                 <div class="inline-block bg-gradient-to-r from-[var(--brand-radical)] to-[var(--brand-tangerine)] text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl">
                     🚀 Ready to calculate your ROI?
                 </div>
@@ -2010,7 +2008,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             <div class="border-t border-gray-700 pt-8">
                 <p class="text-lg">&copy; 2025 Factorial HR. All rights reserved.</p>
-                <p class="text-sm mt-2 opacity-75">ROI in HR in a simple, visual and measurable way.</p>
+                <p class="text-sm mt-2 opacity-75">ROI em RH de forma simples, visual e mensurável.</p>
                 <div class="mt-4 flex justify-center space-x-4">
                     <span class="text-yellow-400">⚡</span>
                     <span class="text-blue-400">🚀</span>
