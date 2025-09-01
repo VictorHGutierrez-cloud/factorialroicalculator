@@ -1870,3 +1870,55 @@ window.addEventListener('load', () => {
         console.log('✅ Calculadora ROI já inicializada:', window.FactorialROICalculator);
     }
 });
+
+// Theme & UX controls: smooth transitions, high-contrast, reduced motion, persistence
+UltimateWebsiteFeatures.prototype.initThemeControls = function() {
+    const setTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.classList.add('theme-transition');
+        // animate accent-color using CSS var animation if gsap available
+        try {
+            if (typeof gsap !== 'undefined') {
+                gsap.to(document.documentElement, { duration: 0.45, onStart: () => {}, onComplete: () => {} });
+            }
+        } catch (e) { console.warn('GSAP not available for theme animation'); }
+        localStorage.setItem('theme', theme);
+    };
+
+    const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(saved);
+
+    // Wire existing toggle if present
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const next = current === 'light' ? 'dark' : 'light';
+            setTheme(next);
+        });
+    }
+
+    // High-contrast quick toggle
+    const applyHighContrast = (on) => {
+        document.body.classList.toggle('high-contrast-mode', on);
+        localStorage.setItem('highContrast', on ? '1' : '0');
+    };
+
+    // Reduced motion toggle
+    const applyReducedMotion = (on) => {
+        document.body.classList.toggle('reduced-motion', on);
+        if (on) document.documentElement.style.setProperty('--theme-transition', '0s'); else document.documentElement.style.removeProperty('--theme-transition');
+        localStorage.setItem('reducedMotion', on ? '1' : '0');
+    };
+
+    // Restore persisted flags
+    applyHighContrast(localStorage.getItem('highContrast') === '1');
+    applyReducedMotion(localStorage.getItem('reducedMotion') === '1');
+};
+
+// Ensure theme controls initialize even if script executed after main init
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.UltimateFeatures && typeof window.UltimateFeatures.initThemeControls === 'function') {
+        try { window.UltimateFeatures.initThemeControls(); } catch (e) { console.warn('Failed to init theme controls', e); }
+    }
+});

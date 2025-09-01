@@ -1732,3 +1732,65 @@
         animation: none;
     }
 }
+
+/* THEMES & UX ENHANCEMENTS - Smooth theme transitions, section variations, accents, high-contrast, reduced motion */
+:root {
+    --theme-transition: 0.45s;
+    --accent-color: var(--brand-viridian);
+}
+
+/* Apply transition to core properties */
+.theme-transition * {
+    transition: background-color var(--theme-transition) ease, color var(--theme-transition) ease, border-color var(--theme-transition) ease, box-shadow var(--theme-transition) ease;
+}
+
+/* Theme tokens (light/dark) */
+[data-theme="dark"] {
+    --bg: var(--brand-midnight);
+    --text: var(--brand-sunbeam);
+}
+[data-theme="light"] {
+    --bg: #ffffff;
+    --text: var(--brand-midnight);
+}
+
+body {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+}
+
+/* Section-adaptive variations */
+section[data-section-theme="deep"] {
+    background: linear-gradient(135deg, rgba(37,37,61,1), rgba(37,37,61,0.95));
+}
+section[data-section-theme="soft"] {
+    background: linear-gradient(135deg, rgba(37,37,61,0.85), rgba(255,145,83,0.04));
+}
+
+/* Accent dynamics */
+.accent { color: var(--accent-color) !important; }
+.accent-dynamic:hover { --accent-color: var(--brand-sunbeam); filter: brightness(1.02); }
+
+/* Glass/neumorphism tuned to palette */
+.glass-effect, .glass-card, .holographic-card-ultimate {
+    background: rgba(37,37,61,0.08) !important;
+    border: 1px solid rgba(255,185,64,0.06) !important;
+    box-shadow: 0 8px 30px rgba(37,37,61,0.35) !important;
+}
+
+/* High contrast mode */
+.high-contrast-mode {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+/* Reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+    :root { --theme-transition: 0s; }
+    .theme-transition * { transition: none !important; animation: none !important; }
+}
+
+/* Utility small UI for toggles (kept lightweight) */
+.ui-settings .cyber-button { padding: 8px 10px; font-size: 0.9rem; }
+
+/* End THEMES & UX ENHANCEMENTS */
