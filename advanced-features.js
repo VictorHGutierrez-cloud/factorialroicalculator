@@ -27,26 +27,7 @@ class UltimateWebsiteFeatures {
         this.setupImmersiveAudioVisuals();
         this.initializePerformanceMonitoring();
     }
-
-    // Inject forced palette CSS at runtime to override any dynamic styles
-    injectPaletteOverrides() {
-        const css = `
-            :root {
-                --brand-radical: #FF355E;
-                --brand-viridian: #07A2AD;
-                --brand-sunbeam: #FFB940;
-                --brand-tangerine: #FF9153;
-                --brand-midnight: #25253D;
-            }
-            body { background: var(--brand-midnight) !important; color: var(--brand-sunbeam) !important; }
-            .quantum-morphing-shapes, .quantum-shape { filter: hue-rotate(0deg) !important; background: conic-gradient(from 0deg, var(--brand-radical), var(--brand-viridian), var(--brand-sunbeam)) !important; }
-        `;
-
-        const style = document.createElement('style');
-        style.id = 'palette-overrides-runtime';
-        style.appendChild(document.createTextNode(css));
-        document.head.appendChild(style);
-    }
+    
 
     // 🌌 Quantum Particle System with Neural Networks
     setupQuantumParticleSystem() {
