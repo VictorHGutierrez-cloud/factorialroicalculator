@@ -867,6 +867,16 @@
             white-space: nowrap;
             animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
         }
+
+        /* Respect user reduced motion preference and provide a global override */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
         
         @keyframes typing {
             from { width: 0; }
@@ -2605,7 +2615,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <div id="ui-settings" class="ui-settings theme-transition" style="position:fixed;left:1rem;bottom:1rem;z-index:10001;background:var(--brand-midnight);color:var(--brand-sunbeam);padding:12px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.4);">
         <div style="display:flex;flex-direction:column;gap:8px;">
             <button id="toggle-theme" class="cyber-button">Alternar Tema</button>
-            <button id="toggle-contrast" class="cyber-button">Alto Contraste</button>
             <button id="toggle-reduced-motion" class="cyber-button">Reduzir Animações</button>
         </div>
     </div>
@@ -2614,7 +2623,7 @@ document.addEventListener("DOMContentLoaded", () => {
     (function(){
         // Wire UI settings to persisted preferences
         const tBtn = document.getElementById('toggle-theme');
-        const cBtn = document.getElementById('toggle-contrast');
+        // contrast control removed
         const rBtn = document.getElementById('toggle-reduced-motion');
 
         if (tBtn) {
@@ -2626,11 +2635,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        if (cBtn) {
-            cBtn.addEventListener('click', () => {
-                const on = document.body.classList.toggle('high-contrast-mode');
-                localStorage.setItem('highContrast', on ? '1' : '0');
-            });
+        // High contrast toggle removed (button deleted). Clean up: ensure no high-contrast class remains.
+        if (document.body.classList.contains('high-contrast-mode')) {
+            document.body.classList.remove('high-contrast-mode');
+            try { localStorage.removeItem('highContrast'); } catch(e) { /* ignore */ }
         }
 
         if (rBtn) {
