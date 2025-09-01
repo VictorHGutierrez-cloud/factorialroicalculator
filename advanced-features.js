@@ -1294,7 +1294,7 @@ class CurrencyCalculator {
         const locales = {
             USD: 'en-US',
             EUR: 'de-DE',
-            BRL: 'pt-BR'
+            BRL: 'pt-BR' // Keep BRL locale for formatting Brazilian Real
         };
 
         try {
@@ -1366,14 +1366,14 @@ class CurrencyCalculator {
 
         let timeText;
         if (diffMins === 0) {
-            timeText = 'Agora mesmo';
+            timeText = 'Just now';
         } else if (diffMins === 1) {
-            timeText = 'Há 1 minuto';
+            timeText = '1 minute ago';
         } else if (diffMins < 60) {
-            timeText = `Há ${diffMins} minutos`;
+            timeText = `${diffMins} minutes ago`;
         } else {
             const diffHours = Math.floor(diffMins / 60);
-            timeText = diffHours === 1 ? 'Há 1 hora' : `Há ${diffHours} horas`;
+            timeText = diffHours === 1 ? '1 hour ago' : `${diffHours} hours ago`;
         }
 
         element.textContent = timeText;
@@ -1505,7 +1505,7 @@ class ROICalculator {
         // Show loading state
         const calculateBtn = document.getElementById('calculate-roi-btn');
         if (calculateBtn) {
-            calculateBtn.innerHTML = '⏳ Calculando...';
+            calculateBtn.innerHTML = '⏳ Calculating...';
             calculateBtn.disabled = true;
         }
 
@@ -1517,7 +1517,7 @@ class ROICalculator {
 
             // Reset button
             if (calculateBtn) {
-                calculateBtn.innerHTML = '🧮 Recalcular ROI';
+                calculateBtn.innerHTML = '🧮 Recalculate ROI';
                 calculateBtn.disabled = false;
             }
         }, 1000);
@@ -1665,12 +1665,12 @@ class ROICalculator {
         
         if (!result) {
             // Handle invalid inputs
-            this.setText('roi-turnover-rate', 'Erro');
-            this.setText('roi-cost-per-hire', 'Erro');
-            this.setText('roi-turnover-cost', 'Erro');
-            this.setText('roi-total-savings', 'Erro');
-            this.setText('roi-total-investment', 'Erro');
-            this.setText('roi-percent', 'Erro');
+            this.setText('roi-turnover-rate', 'Error');
+            this.setText('roi-cost-per-hire', 'Error');
+            this.setText('roi-turnover-cost', 'Error');
+            this.setText('roi-total-savings', 'Error');
+            this.setText('roi-total-investment', 'Error');
+            this.setText('roi-percent', 'Error');
             return;
         }
 
@@ -1747,21 +1747,21 @@ class ROICalculator {
         const ctx = document.getElementById('roiChart');
         if (!ctx || typeof Chart === 'undefined') return;
 
-        const labels = Array.from({length: 12}, (_, i) => `Mês ${i+1}`);
+        const labels = Array.from({length: 12}, (_, i) => `Month ${i+1}`);
         this.roiChart = new Chart(ctx.getContext('2d'), {
             type: 'bar',
             data: {
                 labels,
                 datasets: [
                     {
-                        label: 'Economia Mensal',
+                        label: 'Monthly Savings',
                         data: new Array(12).fill(0),
                         backgroundColor: 'rgba(7, 162, 173, 0.7)', // var(--brand-viridian)
                         borderColor: 'rgba(7, 162, 173, 1)',
                         borderWidth: 1
                     },
                     {
-                        label: 'Investimento Mensal',
+                        label: 'Monthly Investment',
                         data: new Array(12).fill(0),
                         backgroundColor: 'rgba(255, 53, 94, 0.5)', // var(--brand-radical)
                         borderColor: 'rgba(255, 53, 94, 1)',
@@ -1833,41 +1833,41 @@ class ROICalculator {
 
 // Initialize ROI Calculator when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🔍 DOMContentLoaded: Verificando se a calculadora ROI pode ser inicializada...');
+    console.log('🔍 DOMContentLoaded: Checking if ROI calculator can be initialized...');
     
     // Verificar se o elemento existe
     const roiEmployeesElement = document.getElementById('roi-employees');
     if (roiEmployeesElement) {
-        console.log('✅ Elemento roi-employees encontrado, inicializando calculadora...');
+        console.log('✅ roi-employees element found, initializing calculator...');
         try {
             window.FactorialROICalculator = new ROICalculator();
-            console.log('✅ Calculadora ROI inicializada com sucesso:', window.FactorialROICalculator);
+            console.log('✅ ROI Calculator initialized successfully:', window.FactorialROICalculator);
         } catch (error) {
-            console.error('❌ Erro ao inicializar calculadora ROI:', error);
+            console.error('❌ Error initializing ROI Calculator:', error);
         }
     } else {
-        console.log('❌ Elemento roi-employees não encontrado. Calculadora não será inicializada.');
+        console.log('❌ roi-employees element not found. Calculator will not be initialized.');
     }
 });
 
 // Fallback: Tentar inicializar quando a janela carregar completamente
 window.addEventListener('load', () => {
-    console.log('🚀 Window load: Verificando se a calculadora ROI foi inicializada...');
+    console.log('🚀 Window load: Checking if ROI calculator was initialized...');
     
     if (!window.FactorialROICalculator) {
-        console.log('🔄 Calculadora não inicializada, tentando novamente...');
+        console.log('🔄 Calculator not initialized, attempting again...');
         
         const roiEmployeesElement = document.getElementById('roi-employees');
         if (roiEmployeesElement) {
             try {
                 window.FactorialROICalculator = new ROICalculator();
-                console.log('✅ Calculadora ROI inicializada no fallback:', window.FactorialROICalculator);
+                console.log('✅ ROI Calculator initialized in fallback:', window.FactorialROICalculator);
             } catch (error) {
-                console.error('❌ Erro no fallback da calculadora ROI:', error);
+                console.error('❌ Error in ROI Calculator fallback:', error);
             }
         }
     } else {
-        console.log('✅ Calculadora ROI já inicializada:', window.FactorialROICalculator);
+        console.log('✅ ROI Calculator already initialized:', window.FactorialROICalculator);
     }
 });
 

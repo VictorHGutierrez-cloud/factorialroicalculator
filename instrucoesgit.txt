@@ -1,13 +1,13 @@
-# 1. Adicionar as mudanças à staging area
+# 1. Add changes to the staging area
 git add -A
 
-# 2. Verificar o que foi preparado
+# 2. Check what is staged
 git status
 
-# 3. Fazer o commit
-git commit -m "teste: adicionando arquivo de exemplo"
+# 3. Make the commit
+git commit -m "test: adding example file"
 
-# 4. Enviar para GitHub (opcional)
+# 4. Push to GitHub (optional)
 git push origin master
 
 
@@ -19,117 +19,116 @@ git push origin master
 
 
 
-Ótima pergunta! Vou explicar o fluxo completo do Git de forma clara e didática, como você pediu. 
+Great question! I'll explain the full Git workflow clearly and simply, as you asked.
 
-## **🔧 Git: Como Funciona o Sistema de Controle de Versão**
+## **🔧 Git: How the Version Control System Works**
 
-### **1. 📦 `git add` - Preparando Arquivos (Staging Area)**
+### **1. 📦 `git add` - Preparing Files (Staging Area)**
 
 ```bash
 git add -A
 ```
 
-**O que faz:**
-- Pega seus arquivos modificados e os coloca numa "área de preparação" (staging area)
-- É como colocar documentos numa pasta "pronto para arquivar"
-- **NÃO salva ainda** - apenas prepara para salvar
+**What it does:**
+- Takes your modified files and places them in the "staging area"
+- It's like putting documents in a folder labeled "ready to save"
+- **Does not save yet** - it only prepares changes for commit
 
-**Por que existe:**
-- Você pode escolher **quais arquivos** quer incluir no commit
-- Pode revisar as mudanças antes de "oficializar"
-- Permite commits mais organizados (ex: só mudanças relacionadas)
+**Why it exists:**
+- You can choose **which files** to include in the commit
+- You can review changes before making them final
+- Enables organized commits (e.g., only CSS changes)
 
-**Analogia:** É como selecionar quais fotos você quer colocar num álbum antes de colar definitivamente.
+**Analogy:** It's like selecting photos to put into an album before gluing them in.
 
-### **2. 💾 `git commit -m` - Salvando Oficialmente (Local)**
+### **2. 💾 `git commit -m` - Saving Locally**
 
 ```bash
-git commit -m "Mensagem explicando o que mudou"
+git commit -m "A message explaining what changed"
 ```
 
-**O que faz:**
-- Pega tudo da staging area e cria um "ponto na história" do projeto
-- Salva **no seu computador local** com uma descrição
-- Cada commit tem um ID único (hash) como `f1a2940`
+**What it does:**
+- Takes everything in the staging area and creates a snapshot of the project
+- Saves it on your local machine with a description
+- Each commit has a unique ID (hash) like `f1a2940`
 
-**Por que a mensagem (`-m`):**
-- Documenta **o que** e **por que** você mudou
-- Ajuda você e outros a entender o histórico
-- Facilita encontrar mudanças específicas depois
+**Why the message (`-m`):**
+- Documents **what** and **why** you changed something
+- Helps you and others understand the history later
+- Makes it easier to find specific changes
 
-**Analogia:** É como tirar uma foto e escrever no verso "Viagem para praia - 2024".
+**Analogy:** It's like taking a photo and writing "Beach trip - 2024" on the back.
 
-### **3. 🌐 `git remote` - Configurando Destino (Onde Enviar)**
+### **3. 🌐 `git remote` - Setting Destination (Where to push)**
 
 ```bash
 git remote -v
 ```
 
-**O que mostra:**
+**What it shows:**
 ```
 origin  https://github.com/VictorHGutierrez-cloud/site-factorial.git (fetch)
 origin  https://github.com/VictorHGutierrez-cloud/site-factorial.git (push)
 ```
 
-**Explicação:**
-- **`origin`** = apelido para o repositório online (GitHub)
-- **`remote`** = repositório que está em outro lugar (não seu PC)
-- É como ter um "endereço favorito" salvo no seu GPS
+**Explanation:**
+- **`origin`** is the nickname for the online repository (GitHub)
+- **`remote`** is a repository stored somewhere else (not on your PC)
+- It's like having a saved address in your GPS
 
-**Por que existe:**
-- Seu projeto pode ter várias "origens" (GitHub, GitLab, etc.)
-- `origin` é o nome padrão para o repositório principal
-- Facilita comandos: em vez de digitar a URL completa, usa `origin`
+**Why it exists:**
+- Your project can have multiple "origins" (GitHub, GitLab, etc.)
+- `origin` is the default name for the main remote
+- Makes commands easier: you don't type the full URL each time
 
-### **4. 🚀 `git push origin master` - Enviando para Internet**
+### **4. 🚀 `git push origin master` - Send to the Internet**
 
 ```bash
 git push origin master
 ```
 
-**Quebrando em partes:**
-- **`push`** = empurrar/enviar
-- **`origin`** = para o repositório remoto (GitHub)
-- **`master`** = branch (ramo/versão) específico
+**Breaking it down:**
+- **`push`** = send
+- **`origin`** = the remote repo (GitHub)
+- **`master`** = the branch you're sending
 
-**O que acontece:**
-1. Pega todos os commits locais que o GitHub não tem
-2. Envia via internet para `https://github.com/VictorHGutierrez-cloud/site-factorial.git`
-3. Atualiza o repositório online
+**What happens:**
+1. Sends local commits the remote doesn't have
+2. Updates the online repository at `https://github.com/VictorHGutierrez-cloud/site-factorial.git`
+3. Makes your changes visible to others
 
-## **📊 Fluxo Visual Completo:**
+## **📊 Visual Flow:**
 
 ```
-Seus Arquivos → Staging Area → Repositório Local → Repositório GitHub
+Your Files → Staging Area → Local Repository → GitHub Repository
      ↓              ↓                ↓                    ↓
-  [modificado]   [git add]      [git commit]        [git push]
+  [modified]   [git add]      [git commit]        [git push]
      📝            📋             💾                  🌐
 ```
 
-## **🤔 Por que esse Processo em Etapas?**
+## **🤔 Why the multi-step process?**
 
-### **Flexibilidade:**
-- Pode preparar vários arquivos (`git add`)
-- Revisar antes de confirmar
-- Fazer commits temáticos (só CSS, só JavaScript, etc.)
+### **Flexibility:**
+- Prepare specific files (`git add`)
+- Review before committing
+- Make focused commits (only CSS, only JS)
 
-### **Segurança:**
-- Commit local = backup imediato
-- Se internet cair, suas mudanças estão salvas
-- Pode trabalhar offline
+### **Safety:**
+- Local commit = immediate backup
+- You can work offline if the internet is down
 
-### **Colaboração:**
-- Outras pessoas podem ver seu histórico organizado
-- Mensagens claras facilitam trabalho em equipe
-- Controle fino sobre o que compartilhar
+### **Collaboration:**
+- Others can see a clean, organized history
+- Clear messages help team workflow
+- Precise control over what you share
 
-## **🎯 Resumo Prático:**
+## **🎯 Quick summary:**
 
-1. **`git add`** = "Seleciono estas mudanças para salvar"
-2. **`git commit`** = "Salvo localmente com descrição"
-3. **`git remote`** = "Verifico onde vou enviar"
-4. **`git push`** = "Envio para o mundo/equipe"
+1. **`git add`** = "I select these changes to save"
+2. **`git commit`** = "I save locally with a message"
+3. **`git remote`** = "I check where to send"
+4. **`git push`** = "I send changes to the remote"
 
-**É como escrever uma carta:** rascunho → revisão → envelope → correios → destinatário! 📮
+**It's like writing a letter:** draft → review → envelope → post → recipient! 📮
 
-Faz sentido agora? Quer que eu explique alguma parte específica mais detalhadamente?
+Does that make sense? Would you like me to explain any part in more detail?

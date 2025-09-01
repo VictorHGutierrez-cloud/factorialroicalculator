@@ -1,72 +1,72 @@
 
-🔍 INSTRUÇÕES PARA TESTAR A CALCULADORA ROI - PASSO A PASSO 🔍
+🔍 INSTRUCTIONS TO TEST THE ROI CALCULATOR - STEP BY STEP 🔍
 
-📋 PROBLEMA IDENTIFICADO:
-O botão "Calcular ROI" não está funcionando na página principal.
+📋 IDENTIFIED ISSUE:
+The "Calculate ROI" button is not working on the main page.
 
-🔧 SOLUÇÕES IMPLEMENTADAS:
-1. ✅ Adicionei logs de debug para identificar problemas
-2. ✅ Criei um arquivo de teste simples (teste-calculadora.html)
-3. ✅ Melhorei a inicialização da calculadora no JavaScript
-4. ✅ Adicionei fallbacks para garantir que funcione
+🔧 SOLUTIONS IMPLEMENTED:
+1. ✅ Added debug logs to identify issues
+2. ✅ Created a simple test file (teste-calculadora.html)
+3. ✅ Improved the calculator initialization in JavaScript
+4. ✅ Added fallbacks to ensure it runs
 
-📱 COMO TESTAR:
+📱 HOW TO TEST:
 
-PASSO 1: Abrir a página principal
-- Abra o arquivo index.html no seu navegador
-- Pressione F12 para abrir as ferramentas de desenvolvedor
-- Vá para a aba "Console"
+STEP 1: Open the main page
+- Open the file index.html in your browser
+- Press F12 to open developer tools
+- Go to the "Console" tab
 
-PASSO 2: Verificar mensagens de debug
-- No console, você deve ver mensagens como:
-  🔍 DOMContentLoaded: Verificando se a calculadora ROI pode ser inicializada...
-  ✅ Elemento roi-employees encontrado, inicializando calculadora...
-  ✅ Calculadora ROI inicializada com sucesso
+STEP 2: Check debug messages
+- In the console you should see messages like:
+  🔍 DOMContentLoaded: Checking if ROI calculator can be initialized...
+  ✅ roi-employees element found, initializing calculator...
+  ✅ ROI Calculator initialized successfully
 
-PASSO 3: Testar o botão
-- Role a página até a seção "CALCULADORA DE ROI EM RH"
-- Preencha os campos com números (ex: 1000, 51, 5010, 20, 25)
-- Clique no botão "🧮 Calcular Meu ROI"
-- Verifique se aparece "⏳ Calculando..." e depois os resultados
+STEP 3: Test the button
+- Scroll to the section "ROI CALCULATOR"
+- Fill the fields with numbers (e.g.: 1000, 51, 5010, 20, 25)
+- Click the "🧮 Calculate My ROI" button
+- Confirm you see "⏳ Calculating..." and then the results
 
-PASSO 4: Se não funcionar, usar arquivo de teste
-- Abra o arquivo teste-calculadora.html no navegador
-- Este arquivo é mais simples e ajuda a identificar problemas
-- Clique em "🔍 Testar Classe ROICalculator"
+STEP 4: If it doesn't work, use the test file
+- Open teste-calculadora.html in the browser
+- This file is simpler and helps identify issues
+- Click "🔍 Test ROICalculator Class"
 
-🚨 POSSÍVEIS PROBLEMAS E SOLUÇÕES:
+🚨 POSSIBLE ISSUES & SOLUTIONS:
 
-PROBLEMA 1: "Calculadora não foi inicializada"
-SOLUÇÃO: Verificar se o arquivo advanced-features.js está sendo carregado
+ISSUE 1: "Calculator was not initialized"
+SOLUTION: Check if advanced-features.js is being loaded
 
-PROBLEMA 2: "Elemento roi-employees não encontrado"
-SOLUÇÃO: Verificar se o HTML está correto e se os IDs estão certos
+ISSUE 2: "roi-employees element not found"
+SOLUTION: Verify the HTML and element IDs are correct
 
-PROBLEMA 3: "Erro JavaScript no console"
-SOLUÇÃO: Copiar e colar o erro para análise
+ISSUE 3: "JavaScript error in the console"
+SOLUTION: Copy and paste the error for analysis
 
-PROBLEMA 4: Botão clica mas não faz nada
-SOLUÇÃO: Verificar se o event listener foi adicionado corretamente
+ISSUE 4: Button clicks but nothing happens
+SOLUTION: Check if the event listener was added correctly
 
-🔍 VERIFICAÇÕES TÉCNICAS:
+🔍 TECHNICAL CHECKS:
 
-1. ✅ HTML: Botão com ID "calculate-roi-btn" existe
-2. ✅ JavaScript: Classe ROICalculator está implementada
-3. ✅ Event Listeners: São adicionados automaticamente
-4. ✅ Inicialização: Múltiplos fallbacks implementados
+1. ✅ HTML: Button with ID "calculate-roi-btn" exists
+2. ✅ JavaScript: ROICalculator class is implemented
+3. ✅ Event Listeners: Are added automatically
+4. ✅ Initialization: Multiple fallbacks implemented
 
-📞 SE AINDA NÃO FUNCIONAR:
+📞 IF STILL NOT WORKING:
 
-1. Abra o console do navegador (F12)
-2. Copie TODAS as mensagens de erro
-3. Me envie as mensagens para análise
-4. Teste o arquivo teste-calculadora.html separadamente
+1. Open the browser console (F12)
+2. Copy ALL error messages
+3. Send the messages to me for analysis
+4. Test the teste-calculadora.html file separately
 
-🎯 RESULTADO ESPERADO:
-- Botão deve mostrar "⏳ Calculando..." por 1 segundo
-- Depois deve mostrar os resultados calculados
-- Deve aparecer economia anual, investimento e ROI
-- Gráfico deve ser atualizado com os dados
+🎯 EXPECTED RESULT:
+- Button should show "⏳ Calculating..." for 1 second
+- Then it should display the calculated results
+- Annual savings, investment and ROI should appear
+- Chart should be updated with the data
 
-💡 DICA IMPORTANTE:
-Sempre verifique o console do navegador (F12) para ver mensagens de erro ou debug que ajudam a identificar problemas!
+💡 IMPORTANT TIP:
+Always check the browser console (F12) for debug or error messages that help identify issues!

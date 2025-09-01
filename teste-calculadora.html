@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Calculadora ROI</title>
+    <title>ROI Calculator Test</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,42 +64,42 @@
     </style>
 </head>
 <body>
-    <h1>🧮 Teste da Calculadora ROI</h1>
+    <h1>🧮 ROI Calculator Test</h1>
     
     <div class="test-container">
-        <h2>Teste Simples da Calculadora</h2>
+        <h2>Simple Calculator Test</h2>
         
         <div class="input-group">
-            <label for="employees">Número de colaboradores:</label>
+            <label for="employees">Number of employees:</label>
             <input type="number" id="employees" value="1000" min="1">
         </div>
         
         <div class="input-group">
-            <label for="separations">Desligamentos no ano:</label>
+            <label for="separations">Separations per year:</label>
             <input type="number" id="separations" value="51" min="0">
         </div>
         
         <div class="input-group">
-            <label for="salary">Salário médio mensal (R$):</label>
+            <label for="salary">Average monthly salary (R$):</label>
             <input type="number" id="salary" value="5010" min="0" step="10">
         </div>
         
         <div class="input-group">
-            <label for="turnover-reduction">Redução de turnover esperada (%):</label>
+            <label for="turnover-reduction">Expected turnover reduction (%):</label>
             <input type="number" id="turnover-reduction" value="20" min="0" max="100">
         </div>
         
         <div class="input-group">
-            <label for="software-cost">Custo Factorial por colaborador/mês (R$):</label>
+            <label for="software-cost">Factorial cost per employee/month (R$):</label>
             <input type="number" id="software-cost" value="25" min="0" step="1">
         </div>
         
-        <button onclick="testCalculation()">🧮 Testar Cálculo</button>
-        <button onclick="testROICalculator()">🔍 Testar Classe ROICalculator</button>
-        <button onclick="clearResults()">🗑️ Limpar Resultados</button>
+        <button onclick="testCalculation()">🧮 Test Calculation</button>
+        <button onclick="testROICalculator()">🔍 Test ROICalculator Class</button>
+        <button onclick="clearResults()">🗑️ Clear Results</button>
         
         <div id="results" class="results">
-            <h3>📊 Resultados do Teste:</h3>
+            <h3>📊 Test Results:</h3>
             <div id="results-content"></div>
         </div>
     </div>
@@ -154,9 +154,9 @@
                 
                 const results = `
                     <p><strong>Taxa de Turnover:</strong> ${turnoverRate.toFixed(1)}%</p>
-                    <p><strong>Custo Anual de Salários:</strong> R$ ${annualSalaryCost.toLocaleString('pt-BR')}</p>
-                    <p><strong>Investimento Anual Factorial:</strong> R$ ${annualSoftwareCost.toLocaleString('pt-BR')}</p>
-                    <p><strong>Economia Esperada:</strong> R$ ${savings.toLocaleString('pt-BR')}</p>
+                    <p><strong>Annual Salary Cost:</strong> R$ ${annualSalaryCost.toLocaleString('pt-BR')}</p>
+                    <p><strong>Annual Factorial Investment:</strong> R$ ${annualSoftwareCost.toLocaleString('pt-BR')}</p>
+                    <p><strong>Expected Savings:</strong> R$ ${savings.toLocaleString('pt-BR')}</p>
                     <p><strong>ROI Estimado:</strong> ${roi.toFixed(0)}%</p>
                 `;
                 
