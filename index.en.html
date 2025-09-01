@@ -877,6 +877,14 @@
                 scroll-behavior: auto !important;
             }
         }
+
+        /* Support toggle via class for in-page reduced motion control */
+        .reduced-motion * {
+            animation-duration: 0.001ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.001ms !important;
+            scroll-behavior: auto !important;
+        }
         
         @keyframes typing {
             from { width: 0; }
@@ -2309,6 +2317,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('[data-target]').forEach(el => {
             observer.observe(el);
         });
+
+        // Respect persisted reducedMotion preference on load
+        (function applyPersistedReducedMotion() {
+            try {
+                const pref = localStorage.getItem('reducedMotion');
+                if (pref === '1') {
+                    document.body.classList.add('reduced-motion');
+                    document.documentElement.style.setProperty('--theme-transition','0s');
+                    // Pause GSAP timeline if available
+                    if (window.gsap && gsap.globalTimeline) gsap.globalTimeline.pause();
+                }
+            } catch(e) { /* ignore */ }
+        })();
         
         // ROI overview chart (monthly)
         const ctx = document.getElementById('pixChart').getContext('2d');
@@ -2387,13 +2408,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         
         // Subtle floating animation
-        gsap.to('.floating-3d', {
-            y: -10,
-            duration: 4,
-            ease: 'power1.inOut',
-            repeat: -1,
-            yoyo: true,
-            stagger: 0.5
+        function startFloatingAnimations() {
+            gsap.to('.floating-3d', {
+                y: -10,
+                duration: 4,
+                ease: 'power1.inOut',
+                repeat: -1,
+                yoyo: true,
+                stagger: 0.5
+            });
+        }
+
+        // Start by default
+        startFloatingAnimations();
+
+        // Pause/resume floating animations when reduced motion toggled
+        document.addEventListener('reducedMotionToggled', (e) => {
+            if (e.detail.reduced) {
+                gsap.globalTimeline.pause();
+            } else {
+                gsap.globalTimeline.resume();
+            }
         });
         
         // Enhanced Scroll-triggered animations
@@ -2645,9 +2680,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (rBtn) {
             rBtn.addEventListener('click', () => {
+                // Toggle class for CSS reduced-motion
                 const on = document.body.classList.toggle('reduced-motion');
-                if (on) document.documentElement.style.setProperty('--theme-transition','0s'); else document.documentElement.style.removeProperty('--theme-transition');
+
+                // Also persist preference
                 localStorage.setItem('reducedMotion', on ? '1' : '0');
+
+                // Apply a CSS variable to instantly disable transitions where used
+                if (on) {
+                    document.documentElement.style.setProperty('--theme-transition','0s');
+                } else {
+                    document.documentElement.style.removeProperty('--theme-transition');
+                }
+
+                // For animations driven by JS, dispatch an event so scripts can react
+                const evt = new CustomEvent('reducedMotionToggled', { detail: { reduced: on } });
+                document.dispatchEvent(evt);
             });
         }
     })();
