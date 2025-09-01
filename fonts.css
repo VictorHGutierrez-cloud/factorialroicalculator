@@ -46,3 +46,13 @@ button, input, select, textarea, h1, h2, h3, h4, h5, h6,
     font-family: 'Fira Sans', sans-serif !important;
 }
 
+/* Palette enforcement for typographic elements */
+h1, h2, h3, h4, h5, h6, p, span, a {
+    color: var(--brand-sunbeam) !important;
+}
+
+/* Ensure links use viridian */
+a {
+    color: var(--brand-viridian) !important;
+}
+
