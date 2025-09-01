@@ -1294,7 +1294,7 @@ class CurrencyCalculator {
         const locales = {
             USD: 'en-US',
             EUR: 'de-DE',
-            BRL: 'pt-BR' // Keep BRL locale for formatting Brazilian Real
+            BRL: 'pt-BR'
         };
 
         try {
@@ -1307,7 +1307,7 @@ class CurrencyCalculator {
         } catch (error) {
             // Fallback formatting
             const symbol = currencySymbols[currency] || currency;
-            return `${symbol} ${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            return `${symbol} ${Number(amount).toLocaleString(locales[currency] || 'en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         }
     }
 
@@ -1568,16 +1568,27 @@ class ROICalculator {
         return isFinite(v) ? v : fallback;
     }
 
-    formatCurrency(amount) {
+    formatCurrency(amount, currency) {
+        // Determine currency: explicit param overrides page lang
+        const defaultCurrency = currency || (document.documentElement.lang === 'en' ? 'USD' : 'BRL');
+
+        const locales = {
+            USD: 'en-US',
+            EUR: 'de-DE',
+            BRL: 'pt-BR'
+        };
+
         try {
-            return new Intl.NumberFormat('pt-BR', {
+            return new Intl.NumberFormat(locales[defaultCurrency] || 'en-US', {
                 style: 'currency',
-                currency: 'BRL',
+                currency: defaultCurrency,
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 0
             }).format(amount);
-        } catch {
-            return `R$ ${amount.toLocaleString('pt-BR', { minimumFractionDigits: 0 })}`;
+        } catch (e) {
+            const symbol = defaultCurrency === 'BRL' ? 'R$' : (defaultCurrency === 'USD' ? '$' : defaultCurrency);
+            const locale = locales[defaultCurrency] || 'en-US';
+            return `${symbol} ${Number(amount).toLocaleString(locale, { minimumFractionDigits: 0 })}`;
         }
     }
 
@@ -1687,10 +1698,11 @@ class ROICalculator {
 
         // Update UI
         this.setText('roi-turnover-rate', `${result.turnoverPct.toFixed(1)}%`);
-        this.setText('roi-cost-per-hire', this.formatCurrency(result.totalPerHire));
-        this.setText('roi-turnover-cost', this.formatCurrency(currentAnnualCost));
-        this.setText('roi-total-savings', this.formatCurrency(savingsFromTurnoverReduction));
-        this.setText('roi-total-investment', this.formatCurrency(annualInvestment));
+        const pageCurrency = document.documentElement.lang === 'en' ? 'USD' : 'BRL';
+        this.setText('roi-cost-per-hire', this.formatCurrency(result.totalPerHire, pageCurrency));
+        this.setText('roi-turnover-cost', this.formatCurrency(currentAnnualCost, pageCurrency));
+        this.setText('roi-total-savings', this.formatCurrency(savingsFromTurnoverReduction, pageCurrency));
+        this.setText('roi-total-investment', this.formatCurrency(annualInvestment, pageCurrency));
         this.setText('roi-percent', `${roiPercent.toFixed(0)}%`);
 
         // Update cost breakdown
@@ -1784,10 +1796,13 @@ class ROICalculator {
                         bodyFont: { family: 'Fira Sans' },
                         callbacks: {
                             label: function(context) {
-                                return context.dataset.label + ': ' + 
-                                       new Intl.NumberFormat('pt-BR', {
+                                // Use page language to choose currency display
+                                const pageLang = document.documentElement.lang || 'en';
+                                const currency = pageLang === 'en' ? 'USD' : 'BRL';
+                                return context.dataset.label + ': ' +
+                                       new Intl.NumberFormat(pageLang === 'en' ? 'en-US' : 'pt-BR', {
                                            style: 'currency',
-                                           currency: 'BRL',
+                                           currency: currency,
                                            minimumFractionDigits: 0
                                        }).format(context.raw);
                             }
