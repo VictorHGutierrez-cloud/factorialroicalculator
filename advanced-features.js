@@ -1710,11 +1710,25 @@ class ROICalculator {
 
         // Update chart
         this.updateChart(savingsFromTurnoverReduction, annualInvestment);
+        // Ensure any static metric labels are formatted to current currency
+        this.formatDynamicCurrencyElements();
     }
 
     setText(id, text) {
         const el = document.getElementById(id);
         if (el) el.textContent = text;
+    }
+
+    // Format any elements with class `dynamic-currency` using page currency
+    formatDynamicCurrencyElements() {
+        try {
+            const pageCurrency = document.documentElement.lang === 'en' ? 'USD' : 'BRL';
+            const locale = pageCurrency === 'USD' ? 'en-US' : 'pt-BR';
+            document.querySelectorAll('.dynamic-currency').forEach(el => {
+                const v = parseFloat(el.getAttribute('data-value')) || 0;
+                el.textContent = new Intl.NumberFormat(locale, { style: 'currency', currency: pageCurrency, minimumFractionDigits: 0 }).format(v);
+            });
+        } catch (e) { /* ignore */ }
     }
 
     updateCostBreakdown(result, separations) {
