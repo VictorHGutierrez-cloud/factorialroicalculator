@@ -1570,7 +1570,8 @@ class ROICalculator {
 
     formatCurrency(amount, currency) {
         // Determine currency: explicit param overrides page lang
-        const defaultCurrency = currency || (document.documentElement.lang === 'en' ? 'USD' : 'BRL');
+        // Force EUR globally (per user request)
+        const defaultCurrency = currency || 'EUR';
 
         const locales = {
             USD: 'en-US',
@@ -1698,7 +1699,8 @@ class ROICalculator {
 
         // Update UI
         this.setText('roi-turnover-rate', `${result.turnoverPct.toFixed(1)}%`);
-        const pageCurrency = document.documentElement.lang === 'en' ? 'USD' : 'BRL';
+        // Force EUR globally
+        const pageCurrency = 'EUR';
         this.setText('roi-cost-per-hire', this.formatCurrency(result.totalPerHire, pageCurrency));
         this.setText('roi-turnover-cost', this.formatCurrency(currentAnnualCost, pageCurrency));
         this.setText('roi-total-savings', this.formatCurrency(savingsFromTurnoverReduction, pageCurrency));
@@ -1722,8 +1724,9 @@ class ROICalculator {
     // Format any elements with class `dynamic-currency` using page currency
     formatDynamicCurrencyElements() {
         try {
-            const pageCurrency = document.documentElement.lang === 'en' ? 'USD' : 'BRL';
-            const locale = pageCurrency === 'USD' ? 'en-US' : 'pt-BR';
+            // Force EUR globally
+            const pageCurrency = 'EUR';
+            const locale = 'de-DE';
             document.querySelectorAll('.dynamic-currency').forEach(el => {
                 const v = parseFloat(el.getAttribute('data-value')) || 0;
                 el.textContent = new Intl.NumberFormat(locale, { style: 'currency', currency: pageCurrency, minimumFractionDigits: 0 }).format(v);

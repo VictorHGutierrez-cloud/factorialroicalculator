@@ -80,7 +80,7 @@
         </div>
         
         <div class="input-group">
-            <label for="salary">Average monthly salary (R$):</label>
+            <label for="salary">Average monthly salary (EUR):</label>
             <input type="number" id="salary" value="5010" min="0" step="10">
         </div>
         
@@ -90,7 +90,7 @@
         </div>
         
         <div class="input-group">
-            <label for="software-cost">Factorial cost per employee/month (R$):</label>
+            <label for="software-cost">Factorial cost per employee/month (EUR):</label>
             <input type="number" id="software-cost" value="25" min="0" step="1">
         </div>
         
@@ -143,7 +143,7 @@
                 const turnoverReduction = parseFloat(document.getElementById('turnover-reduction').value) / 100;
                 const softwareCost = parseFloat(document.getElementById('software-cost').value);
                 
-                addDebug(`📊 Dados: ${employees} empregados, ${separations} desligamentos, R$ ${salary} salário`);
+                addDebug(`📊 Dados: ${employees} empregados, ${separations} desligamentos, € ${salary} salário`);
                 
                 // Cálculo simples de turnover
                 const turnoverRate = (separations / employees) * 100;
@@ -154,9 +154,9 @@
                 
                 const results = `
                     <p><strong>Taxa de Turnover:</strong> ${turnoverRate.toFixed(1)}%</p>
-                    <p><strong>Annual Salary Cost:</strong> R$ ${annualSalaryCost.toLocaleString('pt-BR')}</p>
-                    <p><strong>Annual Factorial Investment:</strong> R$ ${annualSoftwareCost.toLocaleString('pt-BR')}</p>
-                    <p><strong>Expected Savings:</strong> R$ ${savings.toLocaleString('pt-BR')}</p>
+                    <p><strong>Annual Salary Cost:</strong> € ${annualSalaryCost.toLocaleString('de-DE')}</p>
+                    <p><strong>Annual Factorial Investment:</strong> € ${annualSoftwareCost.toLocaleString('de-DE')}</p>
+                    <p><strong>Expected Savings:</strong> € ${savings.toLocaleString('de-DE')}</p>
                     <p><strong>ROI Estimado:</strong> ${roi.toFixed(0)}%</p>
                 `;
                 
