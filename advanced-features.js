@@ -1005,8 +1005,8 @@ class CurrencyCalculator {
         this.apiKey = 'demo'; // Using demo mode for free tier
         this.apiUrl = 'https://api.exchangerate-api.com/v4/latest/';
         this.fallbackRates = {
-            USD: { BRL: 5.25, EUR: 0.85, USD: 1.0 },
             EUR: { BRL: 6.18, USD: 1.18, EUR: 1.0 },
+            USD: { BRL: 5.25, EUR: 0.85, USD: 1.0 },
             BRL: { USD: 0.19, EUR: 0.16, BRL: 1.0 }
         };
         this.currentRates = this.fallbackRates;
@@ -1068,9 +1068,9 @@ class CurrencyCalculator {
         try {
             // Try multiple API endpoints for better reliability
             const apis = [
-                'https://api.exchangerate-api.com/v4/latest/USD',
-                'https://api.fixer.io/latest?base=USD', // Backup API
-                'https://api.exchangeratesapi.io/v1/latest?access_key=demo&base=USD' // Another backup
+                'https://api.exchangerate-api.com/v4/latest/EUR',
+                'https://api.fixer.io/latest?base=EUR', // Backup API
+                'https://api.exchangeratesapi.io/v1/latest?access_key=demo&base=EUR' // Another backup
             ];
 
             let ratesData = null;
